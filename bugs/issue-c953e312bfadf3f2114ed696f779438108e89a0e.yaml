@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: android tutorial
+desc: follow the stupid notepad tutorial
+type: :task
+component: upfuckr
+release: learn
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 00:57:33.670072 Z
+references: []
+
+id: c953e312bfadf3f2114ed696f779438108e89a0e
+log_events: 
+- - 2010-06-09 00:57:36.482010 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

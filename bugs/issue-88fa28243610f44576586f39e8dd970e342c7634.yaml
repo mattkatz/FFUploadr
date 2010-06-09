@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: setup android tools
+desc: Make sure the environment is running
+type: :task
+component: upfuckr
+release: learn
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 00:56:42.537069 Z
+references: []
+
+id: 88fa28243610f44576586f39e8dd970e342c7634
+log_events: 
+- - 2010-06-09 00:56:49.313855 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

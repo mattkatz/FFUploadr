@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: eliminate eclipse
+desc: I can't possible need all that editor.
+type: :task
+component: upfuckr
+release: learn
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 00:58:28.829106 Z
+references: []
+
+id: 6ac2b73f617c27e3f14fa23aedc8902cd3142489
+log_events: 
+- - 2010-06-09 00:58:30.848965 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
