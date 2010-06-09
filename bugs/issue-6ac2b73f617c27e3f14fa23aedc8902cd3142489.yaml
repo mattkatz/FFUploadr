@@ -5,7 +5,7 @@ type: :task
 component: upfuckr
 release: learn
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-06-09 00:58:28.829106 Z
 references: []
@@ -16,3 +16,9 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-06-09 03:34:14.618039 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - |-
+    so far have something to create project, build and install project
+    and something to start emulator
