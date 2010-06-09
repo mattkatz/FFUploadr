@@ -1,6 +1,6 @@
 # Use wildcards as well
 *~
 *.swp
-./gen/*
-./bin
-./bin/*
+/gen/*
+/bin
+/bin/*
