@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Emulator install script
+desc: Something to build the file and pop it over to the emulator
+type: :task
+component: upfuckr
+release: learn
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 03:08:23.497017 Z
+references: []
+
+id: 2a59fbfe352ba778f404c59427bfd88d463aebe5
+log_events: 
+- - 2010-06-09 03:08:25.685289 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

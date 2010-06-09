@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Emulator Start Script
+desc: who can remember all this bs like emulator -avd testr & ?
+type: :task
+component: upfuckr
+release: learn
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 03:06:59.089457 Z
+references: []
+
+id: c0dd0b484e3e3213dee2e7b10154d77e1ecf1534
+log_events: 
+- - 2010-06-09 03:07:18.900860 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
