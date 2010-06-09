@@ -5,8 +5,8 @@ type: :task
 component: tools
 release: learn
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-09 03:08:23.497017 Z
 references: []
 
@@ -19,4 +19,8 @@ log_events:
 - - 2010-06-09 03:11:52.998123 Z
   - Matt Katz <mattkatz@ubuntu>
   - assigned to component tools from upfuckr
+  - ""
+- - 2010-06-09 03:20:48.854003 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
   - ""
