@@ -2,7 +2,7 @@
 title: Emulator install script
 desc: Something to build the file and pop it over to the emulator
 type: :task
-component: upfuckr
+component: tools
 release: learn
 reporter: Matt Katz <mattkatz@ubuntu>
 status: :unstarted
@@ -15,4 +15,8 @@ log_events:
 - - 2010-06-09 03:08:25.685289 Z
   - Matt Katz <mattkatz@ubuntu>
   - created
+  - ""
+- - 2010-06-09 03:11:52.998123 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - assigned to component tools from upfuckr
   - ""

@@ -2,7 +2,7 @@
 title: Emulator Start Script
 desc: who can remember all this bs like emulator -avd testr & ?
 type: :task
-component: upfuckr
+component: tools
 release: learn
 reporter: Matt Katz <mattkatz@ubuntu>
 status: :unstarted
@@ -15,4 +15,8 @@ log_events:
 - - 2010-06-09 03:07:18.900860 Z
   - Matt Katz <mattkatz@ubuntu>
   - created
+  - ""
+- - 2010-06-09 03:11:23.752884 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - assigned to component tools from upfuckr
   - ""
