@@ -1,0 +1,16 @@
+--- !ditz.rubyforge.org,2008-03-06/project 
+name: upfuckr
+version: "0.5"
+components: 
+- !ditz.rubyforge.org,2008-03-06/component 
+  name: upfuckr
+releases: 
+- !ditz.rubyforge.org,2008-03-06/release 
+  name: learn
+  status: :unreleased
+  release_time: 
+  log_events: 
+  - - 2010-06-09 00:55:31.057991 Z
+    - Matt Katz <mattkatz@ubuntu>
+    - created
+    - I don't know what the hell I am doing
