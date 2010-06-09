@@ -5,8 +5,8 @@ type: :task
 component: upfuckr
 release: learn
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-09 00:58:28.829106 Z
 references: []
 
@@ -22,3 +22,9 @@ log_events:
   - |-
     so far have something to create project, build and install project
     and something to start emulator
+- - 2010-06-09 03:35:18.057864 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - |-
+    come to think of it, I don't need eclipse at all anymore.
+    that wasn't so hard

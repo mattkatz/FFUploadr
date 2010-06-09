@@ -5,7 +5,7 @@ type: :task
 component: upfuckr
 release: learn
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-06-09 00:57:33.670072 Z
 references: []
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-06-09 03:36:02.441004 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - beginning the tutorial
