@@ -1,0 +1,20 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Add an intent to the gallery
+desc: |-
+  apparently this is something you have to do in manifest xml for the send function
+  maybe.
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 01:41:30.754109 Z
+references: []
+
+id: 7e9c2073bd3dc67949183465512fa20dc305e91a
+log_events: 
+- - 2010-06-09 01:41:33.925984 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

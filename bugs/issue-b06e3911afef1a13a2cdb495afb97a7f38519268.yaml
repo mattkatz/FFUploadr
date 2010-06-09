@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: input credentials and location
+desc: ""
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 01:46:17.685916 Z
+references: []
+
+id: b06e3911afef1a13a2cdb495afb97a7f38519268
+log_events: 
+- - 2010-06-09 01:46:20.500827 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

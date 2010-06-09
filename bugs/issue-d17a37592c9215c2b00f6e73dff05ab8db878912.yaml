@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Store credentials and location
+desc: ""
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 01:45:46.184986 Z
+references: []
+
+id: d17a37592c9215c2b00f6e73dff05ab8db878912
+log_events: 
+- - 2010-06-09 01:45:48.037844 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

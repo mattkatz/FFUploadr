@@ -14,3 +14,21 @@ releases:
     - Matt Katz <mattkatz@ubuntu>
     - created
     - I don't know what the hell I am doing
+- !ditz.rubyforge.org,2008-03-06/release 
+  name: "0.1"
+  status: :unreleased
+  release_time: 
+  log_events: 
+  - - 2010-06-09 01:39:41.908849 Z
+    - Matt Katz <mattkatz@ubuntu>
+    - created
+    - basic elements
+- !ditz.rubyforge.org,2008-03-06/release 
+  name: "0.2"
+  status: :unreleased
+  release_time: 
+  log_events: 
+  - - 2010-06-09 01:48:22.264947 Z
+    - Matt Katz <mattkatz@ubuntu>
+    - created
+    - usability improvements.

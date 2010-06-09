@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Upload a picture with info
+desc: need to append to yaml.info on the server side.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 01:49:34.830041 Z
+references: []
+
+id: 90946ab55d13a39e89a896716b8701171b5af7d7
+log_events: 
+- - 2010-06-09 01:49:42.209989 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - /sto

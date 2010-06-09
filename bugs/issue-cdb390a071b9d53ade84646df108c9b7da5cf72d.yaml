@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: upload a picture
+desc: just the very bare minimum
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-09 01:47:15.442046 Z
+references: []
+
+id: cdb390a071b9d53ade84646df108c9b7da5cf72d
+log_events: 
+- - 2010-06-09 01:47:16.917919 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
