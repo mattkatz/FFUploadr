@@ -1,0 +1,4 @@
+# Use wildcards as well
+*~
+*.swp
+./gen/*
