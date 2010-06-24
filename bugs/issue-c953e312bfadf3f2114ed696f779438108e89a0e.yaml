@@ -5,8 +5,8 @@ type: :task
 component: upfuckr
 release: learn
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-09 00:57:33.670072 Z
 references: []
 
@@ -20,3 +20,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - beginning the tutorial
+- - 2010-06-24 22:25:34.617827 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - finished the android tutorials
