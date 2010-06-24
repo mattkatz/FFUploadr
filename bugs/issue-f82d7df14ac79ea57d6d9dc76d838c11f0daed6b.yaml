@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Show the credential enter screen when no credentials exist
+desc: ""
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-24 22:42:08.338855 Z
+references: []
+
+id: f82d7df14ac79ea57d6d9dc76d838c11f0daed6b
+log_events: 
+- - 2010-06-24 22:42:11.462565 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

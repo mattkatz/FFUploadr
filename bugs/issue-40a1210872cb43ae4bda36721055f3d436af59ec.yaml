@@ -1,0 +1,22 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Layout for entering credentials
+desc: how should someone put in their fuckflickr location?
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :in_progress
+disposition: 
+creation_time: 2010-06-24 22:41:09.382717 Z
+references: []
+
+id: 40a1210872cb43ae4bda36721055f3d436af59ec
+log_events: 
+- - 2010-06-24 22:41:13.273518 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - /top
+- - 2010-06-24 23:06:31.505625 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - adding a layout

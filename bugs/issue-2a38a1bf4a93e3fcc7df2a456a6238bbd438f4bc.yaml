@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Show site picker list when you use send intent
+desc: sending from the gallery etc. to upfuckr should send you to a screen where you pick from your sites or just begin uploading if you only have one site
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-24 22:47:10.014019 Z
+references: []
+
+id: 2a38a1bf4a93e3fcc7df2a456a6238bbd438f4bc
+log_events: 
+- - 2010-06-24 22:47:16.449564 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
