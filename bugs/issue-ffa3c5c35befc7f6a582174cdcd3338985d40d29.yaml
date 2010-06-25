@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: detect if AndFTP is installed
+desc: check to see if AndFTP is installed, let user know if it isn't. Maybe prompt them to install it.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-25 12:11:07.709919 Z
+references: []
+
+id: ffa3c5c35befc7f6a582174cdcd3338985d40d29
+log_events: 
+- - 2010-06-25 12:11:26.477581 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
