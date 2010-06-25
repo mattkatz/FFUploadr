@@ -11,13 +11,19 @@ components:
 releases: 
 - !ditz.rubyforge.org,2008-03-06/release 
   name: learn
-  status: :unreleased
-  release_time: 
+  status: :released
+  release_time: 2010-06-25 12:03:43.695135 Z
   log_events: 
   - - 2010-06-09 00:55:31.057991 Z
     - Matt Katz <mattkatz@ubuntu>
     - created
     - I dont know what the hell I am doing
+  - - 2010-06-25 12:03:43.695168 Z
+    - Matt Katz <mattkatz@ubuntu>
+    - released
+    - |-
+      done with the tutorials.
+      learned to go on vim
 - !ditz.rubyforge.org,2008-03-06/release 
   name: "0.1"
   status: :unreleased
