@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UpFuckr</string>
+    <string name="host">Host:</string>
+    <string name="path">Path:</string>
+    <string name="user">User:</string>
+    <string name="pass">Pass:</string>
+    <string name="confirm">OK</string>
+    <string name="add_site">Add a new site</string>
 </resources>
