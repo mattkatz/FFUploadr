@@ -7,4 +7,5 @@
     <string name="pass">Pass:</string>
     <string name="confirm">OK</string>
     <string name="add_site">Add a new site</string>
+    <string name="hostpref">host</string>
 </resources>

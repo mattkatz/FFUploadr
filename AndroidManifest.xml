@@ -17,5 +17,9 @@
             </intent-filter> 
         </activity>
         <activity android:name=".Credentials" />
+        <activity android:name=".Prefs"
+                    android:label="@string/app_name">
+                  </activity>
+    
     </application>
 </manifest> 

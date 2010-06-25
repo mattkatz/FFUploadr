@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.1"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :paused
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-24 22:41:09.382717 Z
 references: []
 
@@ -24,3 +24,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from in_progress to paused
   - ""
+- - 2010-06-25 10:57:35.775794 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - android preference window for the win

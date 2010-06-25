@@ -39,8 +39,10 @@ public class upfuckr extends Activity
   }
 
   private void add_site(){
-    Intent i = new Intent(this, Credentials.class);
-    startActivityForResult(i,ACTIVITY_CREATE);
+    //Intent i = new Intent(this, Credentials.class);
+    //startActivityForResult(i,ACTIVITY_CREATE);
+    startActivity(new Intent(this,Prefs.class));
+    
   }
   
 }
