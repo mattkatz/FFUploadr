@@ -10,8 +10,8 @@
       android:text="Hello World, upfuckr"
       />
     
-	<Button android:id="@+id/add_site" 
-	  android:text="@string/add_site"
+	<Button android:id="@+id/upload" 
+	  android:text="@string/upload"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" />
 </LinearLayout>

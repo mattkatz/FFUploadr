@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: let user specify nonstandard ftp port
+desc: currently hardcoded to 21
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-25 17:11:41.831772 Z
+references: []
+
+id: 439e12181be3f8d781b67823ca2b7aca947f3252
+log_events: 
+- - 2010-06-25 17:11:43.571600 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
