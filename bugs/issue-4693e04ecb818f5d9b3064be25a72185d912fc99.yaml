@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Polish up the strings
+desc: ""
+type: :task
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-25 12:14:22.149626 Z
+references: []
+
+id: 4693e04ecb818f5d9b3064be25a72185d912fc99
+log_events: 
+- - 2010-06-25 12:14:24.630501 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

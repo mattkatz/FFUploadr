@@ -1,0 +1,20 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Put in YAML parsing and editing
+desc: |-
+  We'll need this to handle the info.yml files
+  looking at snakeyaml
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-25 12:13:17.401590 Z
+references: []
+
+id: 63fd780ba17ba168cfda4b4736e9f343fc05d867
+log_events: 
+- - 2010-06-25 12:13:19.813521 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
