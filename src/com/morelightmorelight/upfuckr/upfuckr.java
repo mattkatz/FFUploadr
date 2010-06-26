@@ -10,11 +10,17 @@ import android.net.Uri;
 import android.widget.Button;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.database.Cursor;
+import android.provider.MediaStore;
+
+import android.util.Log;
 
 public class upfuckr extends Activity
 {
   private static final int ADD_ID = Menu.FIRST;
   private static final int ACTIVITY_CREATE = 0;
+  private static final String TAG = "UpFuckr: ";
+
 
   /** Called when the activity is first created. */
   @Override
@@ -26,10 +32,39 @@ public class upfuckr extends Activity
       uploadPic.setOnClickListener(new View.OnClickListener(){
         public void onClick(View view){
           setResult(RESULT_OK);
+          //get a file to upload, then upload
+
           //I dunno, upload?
-          upload();
+
+          upload(null);
         }
       });
+      Intent i = getIntent();
+      String action = i.getAction();
+      if(null != action){
+        Log.i(TAG,action);
+      }
+      else{
+        Log.i(TAG,"no action?!");
+      }
+
+      if(Intent.ACTION_SEND.equals(action))
+      {
+        String type = i.getType();
+        Log.i(TAG, "we have action send!");
+        //Bundle extras = getIntent().getExtras();
+        Uri stream = (Uri) i.getParcelableExtra(Intent.EXTRA_STREAM);
+        if ( stream != null && type != null )
+        {
+          Log.i(TAG,stream.toString());
+          upload( getRealPathFromURI( stream));
+
+
+        }
+        else { Log.i(TAG,"null URI");}
+      }
+      
+
 
 
   }
@@ -60,8 +95,12 @@ public class upfuckr extends Activity
     
   }
 
-  private void upload()
+  private void upload(String contentPath)
   {
+    if(null == contentPath){
+      return;
+    }
+    Log.i(TAG, contentPath);
     //get our shared preferences
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String host = prefs.getString("host","");
@@ -80,18 +119,37 @@ public class upfuckr extends Activity
     //intent.putExtra("ftp_keyfile", "/sdcard/dsakey.txt");
     //intent.putExtra("ftp_keypass", "optionalkeypassword");
     // FTP settings (optional)
-    intent.putExtra("ftp_pasv", "true");
+    //intent.putExtra("ftp_pasv", "true");
     //intent.putExtra("ftp_resume", "true");
     //intent.putExtra("ftp_encoding", "UTF8");
     // Upload
     intent.putExtra("command_type", "upload");
     // Activity title
     intent.putExtra("progress_title", "Uploading files ...");
-    intent.putExtra("local_file1", "/sdcard/subfolder1/file1.zip");
-    intent.putExtra("local_file2", "/sdcard/subfolder2/file2.zip");
+    //intent.putExtra("local_file1", "/sdcard/subfolder1/file1.zip");
+    //intent.putExtra("local_file2", "/sdcard/subfolder2/file2.zip");
+    //intent.putExtra("local_file1", contentPath);
+    intent.putExtra("local_file1", "/sdcard/DCIM/Camera/2010-06-09 03.28.22.jpg");
     // Optional initial remote folder (it must exist before upload)
-    intent.putExtra("remote_folder", path);
+    Log.i(TAG,path);
+    //intent.putExtra("remote_folder", path);
     startActivityForResult(intent, 1);
+  }
+
+  // And to convert the image URI to the direct file system path of the image file
+  public String getRealPathFromURI(Uri contentUri) {
+
+    // can post image
+    String [] proj={MediaStore.Images.Media.DATA};
+    Cursor cursor = managedQuery( contentUri,
+        proj, // Which columns to return
+        null,       // WHERE clause; which rows to return (all rows)
+        null,       // WHERE clause selection arguments (none)
+        null); // Order-by clause (ascending by name)
+    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    cursor.moveToFirst();
+
+    return cursor.getString(column_index);
   }
   
 }
