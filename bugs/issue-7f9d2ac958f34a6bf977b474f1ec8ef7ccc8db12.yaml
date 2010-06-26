@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: change add site to site credentials
+desc: ""
+type: :bugfix
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-26 16:47:50.056175 Z
+references: []
+
+id: 7f9d2ac958f34a6bf977b474f1ec8ef7ccc8db12
+log_events: 
+- - 2010-06-26 16:47:52.434986 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

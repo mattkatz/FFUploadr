@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: add a bit fat done button.
+desc: ""
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-26 16:47:05.703080 Z
+references: []
+
+id: ad884026dcdc2b33051cc33b756ccd3ed17e5d4f
+log_events: 
+- - 2010-06-26 16:47:08.572072 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

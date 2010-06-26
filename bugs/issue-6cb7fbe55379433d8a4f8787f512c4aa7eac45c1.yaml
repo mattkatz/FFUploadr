@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: create new remote fuckflickr folders
+desc: gallery picking should include option for a new gallery...
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-26 16:50:36.551232 Z
+references: []
+
+id: 6cb7fbe55379433d8a4f8787f512c4aa7eac45c1
+log_events: 
+- - 2010-06-26 16:50:38.507964 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: make upload button launch a gallery picker
+desc: ""
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-06-26 16:46:16.519341 Z
+references: []
+
+id: 0b7b7147cb524a68b806afd41f953f2a80031ffb
+log_events: 
+- - 2010-06-26 16:46:20.480058 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
