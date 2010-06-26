@@ -9,4 +9,6 @@
     <string name="add_site">Add a new site</string>
     <string name="hostpref">host</string>
     <string name="upload">Upload!</string>
+    <string name="pasv">PASV:</string>
+    <string name="pasvSummary">Use Passive Mode in uploading</string>
 </resources>

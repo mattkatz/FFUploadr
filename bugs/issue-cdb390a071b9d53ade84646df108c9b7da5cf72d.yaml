@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.1"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-09 01:47:15.442046 Z
 references: []
 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-06-26 14:45:11.238487 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - and it works!  NOW TO POLISH!

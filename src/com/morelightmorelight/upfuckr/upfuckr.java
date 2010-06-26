@@ -107,6 +107,7 @@ public class upfuckr extends Activity
     String path = prefs.getString("path","");
     String user = prefs.getString("user","");
     String pass = prefs.getString("pass","");
+    boolean pasv = prefs.getBoolean("pasv",false);
 
     Intent intent = new Intent();
     intent.setAction(Intent.ACTION_PICK);
@@ -119,7 +120,7 @@ public class upfuckr extends Activity
     //intent.putExtra("ftp_keyfile", "/sdcard/dsakey.txt");
     //intent.putExtra("ftp_keypass", "optionalkeypassword");
     // FTP settings (optional)
-    //intent.putExtra("ftp_pasv", "true");
+    intent.putExtra("ftp_pasv", "true");
     //intent.putExtra("ftp_resume", "true");
     //intent.putExtra("ftp_encoding", "UTF8");
     // Upload
@@ -128,11 +129,11 @@ public class upfuckr extends Activity
     intent.putExtra("progress_title", "Uploading files ...");
     //intent.putExtra("local_file1", "/sdcard/subfolder1/file1.zip");
     //intent.putExtra("local_file2", "/sdcard/subfolder2/file2.zip");
-    //intent.putExtra("local_file1", contentPath);
-    intent.putExtra("local_file1", "/sdcard/DCIM/Camera/2010-06-09 03.28.22.jpg");
+    intent.putExtra("local_file1", contentPath);
+    //intent.putExtra("local_file1", "/sdcard/DCIM/Camera/2010-06-09 03.28.22.jpg");
     // Optional initial remote folder (it must exist before upload)
     Log.i(TAG,path);
-    //intent.putExtra("remote_folder", path);
+    intent.putExtra("remote_folder", path);
     startActivityForResult(intent, 1);
   }
 
