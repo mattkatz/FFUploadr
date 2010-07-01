@@ -47,6 +47,10 @@ public class upfuckr extends Activity
       else{
         Log.i(TAG,"no action?!");
       }
+      // if we don't have any preferences, let's get them configured
+      if(! isConfigured()){
+        add_site();
+      }
 
       if(Intent.ACTION_SEND.equals(action))
       {
@@ -63,6 +67,8 @@ public class upfuckr extends Activity
         }
         else { Log.i(TAG,"null URI");}
       }
+
+      
       
 
 
@@ -94,6 +100,21 @@ public class upfuckr extends Activity
     startActivity(new Intent(this,Prefs.class));
     
   }
+
+  private boolean isConfigured()
+  {
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    String [] prefNames = {"host","path","user", "pass"};
+    
+    for(int i = 0; i < 4; i++)
+    {
+      if( prefs.getString( prefNames[i],"").equals("")){
+        return false;
+      }
+    }
+    return true;
+  }
+    
 
   private void upload(String contentPath)
   {
