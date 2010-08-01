@@ -11,4 +11,5 @@
     <string name="upload">Upload!</string>
     <string name="pasv">PASV:</string>
     <string name="pasvSummary">Use Passive Mode in uploading</string>
+    <string name="notConfigured">Looks like you haven\'t configured a site to upload your photos to yet. Hit OK and we\'ll set one up.</string>
 </resources>

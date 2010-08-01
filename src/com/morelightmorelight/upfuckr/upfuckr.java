@@ -13,6 +13,10 @@ import android.preference.PreferenceManager;
 import android.database.Cursor;
 import android.provider.MediaStore;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+
 import android.util.Log;
 
 public class upfuckr extends Activity
@@ -49,7 +53,15 @@ public class upfuckr extends Activity
       }
       // if we don't have any preferences, let's get them configured
       if(! isConfigured()){
-        add_site();
+        new AlertDialog.Builder(this)
+          .setMessage(R.string.notConfigured)
+          .setPositiveButton("OK", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which){
+              add_site();
+            }
+          })
+          .show();
+        //add_site();
       }
 
       if(Intent.ACTION_SEND.equals(action))
@@ -67,11 +79,6 @@ public class upfuckr extends Activity
         }
         else { Log.i(TAG,"null URI");}
       }
-
-      
-      
-
-
 
   }
 

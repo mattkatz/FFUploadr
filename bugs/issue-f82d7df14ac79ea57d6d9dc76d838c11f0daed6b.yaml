@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.1"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-24 22:42:08.338855 Z
 references: []
 
@@ -20,3 +20,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - going to have an isConfigured, maybe use a dialog to say whoops this isn't configured yet, then take user to config screen
+- - 2010-08-01 20:55:02.354474 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - ""
