@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.1"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-02 09:54:57.111193 Z
 references: []
 
@@ -20,3 +20,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - ""
+- - 2010-08-02 10:41:39.551156 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - slightly refactored so upload just takes a list

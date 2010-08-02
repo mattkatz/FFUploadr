@@ -19,6 +19,9 @@ import android.content.DialogInterface;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class upfuckr extends Activity
 {
   private static final int ADD_ID = Menu.FIRST;
@@ -72,13 +75,24 @@ public class upfuckr extends Activity
         Uri stream = (Uri) i.getParcelableExtra(Intent.EXTRA_STREAM);
         if ( stream != null && type != null )
         {
-          Log.i(TAG,stream.toString());
-          upload( getRealPathFromURI( stream));
-
-
+          ArrayList l = new ArrayList();
+          l.add(stream);
+          upload( l);
         }
         else { Log.i(TAG,"null URI");}
       }
+      else if (Intent.ACTION_SEND_MULTIPLE.equals(action))
+      {
+        String type = i.getType();
+        Log.i(TAG, "we have action send!");
+        //Bundle extras = getIntent().getExtras();
+        ArrayList l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+        upload(l);
+        
+      }
+
+        
+      
 
   }
 
@@ -123,12 +137,11 @@ public class upfuckr extends Activity
   }
     
 
-  private void upload(String contentPath)
+  private void upload(ArrayList contentUris)
   {
-    if(null == contentPath){
+    if(null == contentUris){
       return;
     }
-    Log.i(TAG, contentPath);
     //get our shared preferences
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String host = prefs.getString("host","");
@@ -157,8 +170,10 @@ public class upfuckr extends Activity
     intent.putExtra("progress_title", "Uploading files ...");
     //intent.putExtra("local_file1", "/sdcard/subfolder1/file1.zip");
     //intent.putExtra("local_file2", "/sdcard/subfolder2/file2.zip");
-    intent.putExtra("local_file1", contentPath);
-    //intent.putExtra("local_file1", "/sdcard/DCIM/Camera/2010-06-09 03.28.22.jpg");
+    for(int i = 0; i < contentUris.size(); i++){
+      Uri stream = (Uri) contentUris.get(i);
+      intent.putExtra("local_file"+(i+1), getRealPathFromURI(stream));
+    }
     // Optional initial remote folder (it must exist before upload)
     Log.i(TAG,path);
     intent.putExtra("remote_folder", path);
@@ -167,7 +182,7 @@ public class upfuckr extends Activity
 
   // And to convert the image URI to the direct file system path of the image file
   public String getRealPathFromURI(Uri contentUri) {
-
+    Log.i(TAG, "uri: " + contentUri);
     // can post image
     String [] proj={MediaStore.Images.Media.DATA};
     Cursor cursor = managedQuery( contentUri,
@@ -177,8 +192,9 @@ public class upfuckr extends Activity
         null); // Order-by clause (ascending by name)
     int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
     cursor.moveToFirst();
-
-    return cursor.getString(column_index);
+    String path = cursor.getString(column_index); 
+    Log.i(TAG,"path: " + path);
+    return path;
   }
   
 }
