@@ -71,7 +71,6 @@ public class upfuckr extends Activity
       {
         String type = i.getType();
         Log.i(TAG, "we have action send!");
-        //Bundle extras = getIntent().getExtras();
         Uri stream = (Uri) i.getParcelableExtra(Intent.EXTRA_STREAM);
         if ( stream != null && type != null )
         {
@@ -88,12 +87,7 @@ public class upfuckr extends Activity
         //Bundle extras = getIntent().getExtras();
         ArrayList l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
         upload(l);
-        
       }
-
-        
-      
-
   }
 
   @Override
@@ -116,10 +110,7 @@ public class upfuckr extends Activity
   }
 
   private void add_site(){
-    //Intent i = new Intent(this, Credentials.class);
-    //startActivityForResult(i,ACTIVITY_CREATE);
     startActivity(new Intent(this,Prefs.class));
-    
   }
 
   private boolean isConfigured()
@@ -168,8 +159,6 @@ public class upfuckr extends Activity
     intent.putExtra("command_type", "upload");
     // Activity title
     intent.putExtra("progress_title", "Uploading files ...");
-    //intent.putExtra("local_file1", "/sdcard/subfolder1/file1.zip");
-    //intent.putExtra("local_file2", "/sdcard/subfolder2/file2.zip");
     for(int i = 0; i < contentUris.size(); i++){
       Uri stream = (Uri) contentUris.get(i);
       intent.putExtra("local_file"+(i+1), getRealPathFromURI(stream));
