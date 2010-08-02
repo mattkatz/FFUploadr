@@ -3,7 +3,7 @@ title: Show site picker list when you use send intent
 desc: sending from the gallery etc. to upfuckr should send you to a screen where you pick from your sites or just begin uploading if you only have one site
 type: :feature
 component: upfuckr
-release: "0.1"
+release: 
 reporter: Matt Katz <mattkatz@ubuntu>
 status: :unstarted
 disposition: 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-08-01 20:57:57.505399 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - unassigned from release 0.1
+  - remove multi site from 0.1

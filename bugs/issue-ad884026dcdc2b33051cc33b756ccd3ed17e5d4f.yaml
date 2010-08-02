@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.1"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :wontfix
 creation_time: 2010-06-26 16:47:05.703080 Z
 references: []
 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-08-02 09:48:50.111133 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition wontfix
+  - the back button is the done button.  perhaps we should just exit if the application has been started just from a share...
