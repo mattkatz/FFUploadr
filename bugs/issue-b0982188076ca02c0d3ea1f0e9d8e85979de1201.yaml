@@ -1,0 +1,22 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Should handle multiple image upload
+desc: ""
+type: :feature
+component: upfuckr
+release: "0.1"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :in_progress
+disposition: 
+creation_time: 2010-08-02 09:54:57.111193 Z
+references: []
+
+id: b0982188076ca02c0d3ea1f0e9d8e85979de1201
+log_events: 
+- - 2010-08-02 09:55:00.703660 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2010-08-02 10:03:15.759243 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - ""
