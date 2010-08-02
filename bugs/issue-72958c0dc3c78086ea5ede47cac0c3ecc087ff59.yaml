@@ -10,7 +10,7 @@ type: :task
 component: tools
 release: 
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-08-02 09:53:07.207203 Z
 references: []
@@ -21,3 +21,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-08-02 11:16:32.295461 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - first stab
