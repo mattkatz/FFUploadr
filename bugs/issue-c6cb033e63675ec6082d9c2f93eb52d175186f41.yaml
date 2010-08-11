@@ -7,7 +7,7 @@ type: :task
 component: tools
 release: 
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :paused
 disposition: 
 creation_time: 2010-06-26 17:00:56.031084 Z
 references: []
@@ -17,4 +17,28 @@ log_events:
 - - 2010-06-26 17:00:57.902977 Z
   - Matt Katz <mattkatz@ubuntu>
   - created
+  - ""
+- - 2010-08-11 03:01:39.020100 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - ""
+- - 2010-08-11 03:02:17.066355 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from in_progress to paused
+  - ""
+- - 2010-08-11 03:02:47.401089 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from paused to in_progress
+  - ""
+- - 2010-08-11 03:02:54.824277 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from in_progress to paused
+  - ""
+- - 2010-08-11 03:05:48.379077 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from paused to in_progress
+  - testing ditz
+- - 2010-08-11 03:05:58.528367 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from in_progress to paused
   - ""
