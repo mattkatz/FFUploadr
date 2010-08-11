@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Make upload button able to launch gallery for multiple image picking
+desc: looks like gallery launch only lets you pick 1 image. need some way to trigger multiple select mode
+type: :feature
+component: upfuckr
+release: 
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-11 02:26:29.940000 Z
+references: []
+
+id: def3a95ef21b9265f48a7ca7f2b28da908ee88a3
+log_events: 
+- - 2010-08-11 02:26:31.939923 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
