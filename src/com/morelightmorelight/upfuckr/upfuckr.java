@@ -26,6 +26,7 @@ public class upfuckr extends Activity
 {
   private static final int ADD_ID = Menu.FIRST;
   private static final int ACTIVITY_CREATE = 0;
+  private static final int IMAGE_PICK = 1;
   private static final String TAG = "UpFuckr: ";
 
 
@@ -126,11 +127,38 @@ public class upfuckr extends Activity
     }
     return true;
   }
+  protected void onActivityResult(int requestCode, int resultCode, Intent i){
+    Log.i(TAG,"Request Code: " + requestCode);
+    Log.i(TAG,"Result Code: " + resultCode);
+
+    switch(requestCode){
+      case IMAGE_PICK:
+        //if (resultCode == RESULT_OK){
+          //ArrayList l = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+        Uri stream = (Uri) i.getData();
+        if ( stream != null )
+        {
+          ArrayList l = new ArrayList();
+          l.add(stream);
+          upload( l);
+        }
+        else { Log.i(TAG,"null URI");}
+        //  upload(l);
+        //}
+    }
+  }
+
+  private void getImages(){
+    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+    intent.setType("image/*");
+    startActivityForResult(intent, IMAGE_PICK);
+  }
     
 
   private void upload(ArrayList contentUris)
   {
     if(null == contentUris){
+      getImages();
       return;
     }
     //get our shared preferences
