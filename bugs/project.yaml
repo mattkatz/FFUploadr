@@ -26,13 +26,17 @@ releases:
       learned to go on vim
 - !ditz.rubyforge.org,2008-03-06/release 
   name: "0.1"
-  status: :unreleased
-  release_time: 
+  status: :released
+  release_time: 2010-08-18 01:01:25.282298 Z
   log_events: 
   - - 2010-06-09 01:39:41.908849 Z
     - Matt Katz <mattkatz@ubuntu>
     - created
     - basic elements
+  - - 2010-08-18 01:01:25.282332 Z
+    - Matt Katz <mattkatz@ubuntu>
+    - released
+    - It installs! It Uploads! Huzzah! <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=http://github.com/downloads/mattkatz/UpFuckr/upfuckr-0.1.apk" />
 - !ditz.rubyforge.org,2008-03-06/release 
   name: "0.2"
   status: :unreleased
