@@ -1,0 +1,20 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Screenshots for release 0.1
+desc: |-
+  well this certainly should have been part of 0.1 
+  and it isn't like there are too many screens
+type: :task
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-18 14:42:27.673715 Z
+references: []
+
+id: a75cd6deb1ceb12163756b3b4746acba802be9f9
+log_events: 
+- - 2010-08-18 14:42:29.840810 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

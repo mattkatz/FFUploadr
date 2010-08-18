@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: screenshots for release 0.2
+desc: yes let's do this before we do a release rather than after.
+type: :task
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-18 14:43:15.933572 Z
+references: []
+
+id: a8f91cbfec02486edd57843013572c322e89ed0f
+log_events: 
+- - 2010-08-18 14:43:19.685530 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
