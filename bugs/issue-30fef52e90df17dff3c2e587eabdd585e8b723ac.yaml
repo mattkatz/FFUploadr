@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: a quick readme
+desc: uploading pictures, how does it work?
+type: :task
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-18 14:45:20.364946 Z
+references: []
+
+id: 30fef52e90df17dff3c2e587eabdd585e8b723ac
+log_events: 
+- - 2010-08-18 14:45:23.233776 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
