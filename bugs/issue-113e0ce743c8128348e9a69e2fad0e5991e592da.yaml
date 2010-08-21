@@ -1,0 +1,22 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: make a edit-share details view for an image
+desc: |-
+  title prepopulated from file title. X to clear.
+  description blank or prepopulated with location data or exif info.
+  tags blank or prepopulated with location info or exif info
+  image, gallery spinner and a ok/cancel
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-21 19:20:25.308670 Z
+references: []
+
+id: 113e0ce743c8128348e9a69e2fad0e5991e592da
+log_events: 
+- - 2010-08-21 19:20:30.948495 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
