@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: get list of galleries
+desc: ftp to the site, get a list of each directory, recurse down and build a tree of them.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-21 19:10:54.052629 Z
+references: []
+
+id: a1ab2d19671679a59d13412403ef4bd9b065db6a
+log_events: 
+- - 2010-08-21 19:10:56.021494 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
