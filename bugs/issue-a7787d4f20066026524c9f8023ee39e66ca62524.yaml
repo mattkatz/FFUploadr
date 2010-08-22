@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: test connection from preferences
+desc: The user shouldn't have to attempt to upload before finding out their credentials are bad... we should let them know early.
+type: :feature
+component: upfuckr
+release: 
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-22 03:59:01.308634 Z
+references: []
+
+id: a7787d4f20066026524c9f8023ee39e66ca62524
+log_events: 
+- - 2010-08-22 03:59:03.064818 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

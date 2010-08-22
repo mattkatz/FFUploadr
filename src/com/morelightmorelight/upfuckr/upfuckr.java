@@ -22,6 +22,11 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//let's try imporing a liberry
+//import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.*;
+import java.net.InetAddress;
+
 public class upfuckr extends Activity
 {
   private static final int ADD_ID = Menu.FIRST;
@@ -157,6 +162,7 @@ public class upfuckr extends Activity
 
   private void upload(ArrayList contentUris)
   {
+
     if(null == contentUris){
       getImages();
       return;
@@ -168,33 +174,65 @@ public class upfuckr extends Activity
     String user = prefs.getString("user","");
     String pass = prefs.getString("pass","");
     boolean pasv = prefs.getBoolean("pasv",false);
+    Log.i(TAG,"about to ftp to " + host);
 
-    Intent intent = new Intent();
-    intent.setAction(Intent.ACTION_PICK);
+    FTPClient ftp = new FTPClient();
+    try{
+      ftp.connect(host);
+    }
+    catch(java.net.SocketException ex){
+      //TODO: properly handle exception
+      Log.i(TAG,ex.toString());
+      //TODO:Alert the user this failed
+
+    }
+    catch(java.io.IOException ex){
+
+    }
+    Log.i(TAG,"we connected");
+    try{
+      ftp.login(user,pass);
+      String reply = ftp.getStatus();
+      Log.i(TAG,reply);
+      ftp.changeWorkingDirectory(path);
+      ftp.setFileType(FTP.BINARY_FILE_TYPE);
+      ftp.disconnect();
+    }
+    catch(java.io.IOException ex){
+      //TODO: properly handle exception
+      //Log.i(TAG,ex);
+      //TODO:Alert the user this failed
+    }
+
+    
+
+
+    //Intent intent = new Intent();
+    //intent.setAction(Intent.ACTION_PICK);
     // FTP URL (Starts with ftp://, sftp:// or ftps:// followed by hostname and port).
-    Uri ftpUri = Uri.parse("ftp://"+host+":21");
-    intent.setDataAndType(ftpUri, "vnd.android.cursor.dir/lysesoft.andftp.uri");
+    //Uri ftpUri = Uri.parse("ftp://"+host+":21");
+    //intent.setDataAndType(ftpUri, "vnd.android.cursor.dir/lysesoft.andftp.uri");
     // // FTP credentials (optional)
-    intent.putExtra("ftp_username", user);
-    intent.putExtra("ftp_password", pass);
+    //intent.putExtra("ftp_username", user);
+    //intent.putExtra("ftp_password", pass);
     //intent.putExtra("ftp_keyfile", "/sdcard/dsakey.txt");
     //intent.putExtra("ftp_keypass", "optionalkeypassword");
     // FTP settings (optional)
-    intent.putExtra("ftp_pasv", "true");
+    //intent.putExtra("ftp_pasv", "true");
     //intent.putExtra("ftp_resume", "true");
     //intent.putExtra("ftp_encoding", "UTF8");
     // Upload
-    intent.putExtra("command_type", "upload");
+    //intent.putExtra("command_type", "upload");
     // Activity title
-    intent.putExtra("progress_title", "Uploading files ...");
-    for(int i = 0; i < contentUris.size(); i++){
-      Uri stream = (Uri) contentUris.get(i);
-      intent.putExtra("local_file"+(i+1), getRealPathFromURI(stream));
-    }
+    //intent.putExtra("progress_title", "Uploading files ...");
+    //for(int i = 0; i < contentUris.size(); i++){
+      //Uri stream = (Uri) contentUris.get(i);
+      //intent.putExtra("local_file"+(i+1), getRealPathFromURI(stream));
+    //}
     // Optional initial remote folder (it must exist before upload)
-    Log.i(TAG,path);
-    intent.putExtra("remote_folder", path);
-    startActivityForResult(intent, 1);
+    //Log.i(TAG,path);
+    //intent.putExtra("remote_folder", path);
+    //startActivityForResult(intent, 1);
   }
 
   // And to convert the image URI to the direct file system path of the image file

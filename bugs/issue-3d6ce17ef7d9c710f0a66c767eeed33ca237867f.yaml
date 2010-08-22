@@ -1,0 +1,22 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: remove andftp dependancy
+desc: it would be better to just be able to use ftp to get info about directories etc.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :in_progress
+disposition: 
+creation_time: 2010-08-21 19:29:05.561660 Z
+references: []
+
+id: 3d6ce17ef7d9c710f0a66c767eeed33ca237867f
+log_events: 
+- - 2010-08-21 19:29:08.165534 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2010-08-21 20:07:02.256794 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - looks like we can just use the apache commons net ftp client
