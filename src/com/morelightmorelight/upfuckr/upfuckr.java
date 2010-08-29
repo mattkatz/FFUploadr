@@ -179,6 +179,7 @@ public class upfuckr extends Activity
     FTPClient ftp = new FTPClient();
     try{
       ftp.connect(host);
+      ftp.enterLocalPassiveMode();
       Log.i(TAG,"we connected");
       if(!ftp.login(user,pass)){
         ftp.logout();
@@ -194,20 +195,25 @@ public class upfuckr extends Activity
         //TODO: alert user it didn't happen
         return;
       }
+
       Log.i(TAG,"we logged in");
       ftp.changeWorkingDirectory(path);
       ftp.setFileType(ftp.BINARY_FILE_TYPE);
       for(int i = 0; i < contentUris.size(); i++){
         Log.i(TAG,"uploading new file");
         Uri stream = (Uri) contentUris.get(i);
+        String filePath = getRealPathFromURI(stream);
+        InputStream in = new FileInputStream(filePath);
+
         //InputStream in = openFileInput(getRealPathFromURI(stream));
-        InputStream in =this.getContentResolver().openInputStream(stream);
-        BufferedInputStream buffIn=null;
-        buffIn=new BufferedInputStream(in);
+        //InputStream in =this.getContentResolver().openInputStream(stream);
+        //BufferedInputStream buffIn=null;
+        //buffIn=new BufferedInputStream(in);
         
         ftp.setFileType(ftp.BINARY_FILE_TYPE);
-        boolean Store = ftp.storeFile("test.jpg", buffIn);
-        buffIn.close();
+        
+        boolean Store = ftp.storeFile("test.jpg", in);
+        //buffIn.close();
         Log.i(TAG, "uploaded test");
       }
       
