@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :wontfix
 creation_time: 2010-06-25 12:11:07.709919 Z
 references: []
 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-08-29 19:53:54.761026 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition wontfix
+  - not needed since we removed dependency on andftp
