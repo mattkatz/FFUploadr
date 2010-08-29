@@ -3,7 +3,7 @@ title: Show image being uploaded during upload
 desc: I like the zune or windows mobile 7 style.  Make the image big background
 type: :feature
 component: upfuckr
-release: 
+release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
 status: :unstarted
 disposition: 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-08-29 20:25:31.081998 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - assigned to release 0.2 from unassigned
+  - oh looks like fun, let's try it
