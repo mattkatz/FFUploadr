@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-21 19:29:05.561660 Z
 references: []
 
@@ -20,3 +20,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - looks like we can just use the apache commons net ftp client
+- - 2010-08-29 19:51:26.137951 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - can't believe I didn't try passive mode before
