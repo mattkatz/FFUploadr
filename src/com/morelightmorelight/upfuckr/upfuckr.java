@@ -25,7 +25,7 @@ import java.util.Iterator;
 //let's try imporing a liberry
 //import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.*;
-import java.net.InetAddress;
+import java.io.*;
 
 public class upfuckr extends Activity
 {
@@ -179,26 +179,42 @@ public class upfuckr extends Activity
     FTPClient ftp = new FTPClient();
     try{
       ftp.connect(host);
-    }
-    catch(java.net.SocketException ex){
-      //TODO: properly handle exception
-      Log.i(TAG,ex.toString());
-      //TODO:Alert the user this failed
-
-    }
-    catch(java.io.IOException ex){
-
-    }
-    Log.i(TAG,"we connected");
-    try{
-      ftp.login(user,pass);
-      String reply = ftp.getStatus();
-      Log.i(TAG,reply);
+      Log.i(TAG,"we connected");
+      if(!ftp.login(user,pass)){
+        ftp.logout();
+        //TODO: alert user it didn't happen
+        return;
+      }
+      String replyStatus = ftp.getStatus();
+      Log.i(TAG,replyStatus);
+      int replyCode = ftp.getReplyCode();
+      if (!FTPReply.isPositiveCompletion(replyCode))
+      {
+        ftp.disconnect();
+        //TODO: alert user it didn't happen
+        return;
+      }
+      Log.i(TAG,"we logged in");
       ftp.changeWorkingDirectory(path);
-      ftp.setFileType(FTP.BINARY_FILE_TYPE);
+      ftp.setFileType(ftp.BINARY_FILE_TYPE);
+      for(int i = 0; i < contentUris.size(); i++){
+        Log.i(TAG,"uploading new file");
+        Uri stream = (Uri) contentUris.get(i);
+        //InputStream in = openFileInput(getRealPathFromURI(stream));
+        InputStream in =this.getContentResolver().openInputStream(stream);
+        BufferedInputStream buffIn=null;
+        buffIn=new BufferedInputStream(in);
+        
+        ftp.setFileType(ftp.BINARY_FILE_TYPE);
+        boolean Store = ftp.storeFile("test.jpg", buffIn);
+        buffIn.close();
+        Log.i(TAG, "uploaded test");
+      }
+      
+      
       ftp.disconnect();
     }
-    catch(java.io.IOException ex){
+    catch(Exception ex){
       //TODO: properly handle exception
       //Log.i(TAG,ex);
       //TODO:Alert the user this failed
@@ -225,10 +241,6 @@ public class upfuckr extends Activity
     //intent.putExtra("command_type", "upload");
     // Activity title
     //intent.putExtra("progress_title", "Uploading files ...");
-    //for(int i = 0; i < contentUris.size(); i++){
-      //Uri stream = (Uri) contentUris.get(i);
-      //intent.putExtra("local_file"+(i+1), getRealPathFromURI(stream));
-    //}
     // Optional initial remote folder (it must exist before upload)
     //Log.i(TAG,path);
     //intent.putExtra("remote_folder", path);
