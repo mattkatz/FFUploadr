@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Show image being uploaded during upload
+desc: I like the zune or windows mobile 7 style.  Make the image big background
+type: :feature
+component: upfuckr
+release: 
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-29 17:34:56.873068 Z
+references: []
+
+id: 4ff99d17dcbbb3dadd9a3c5fee0ffaa0da357442
+log_events: 
+- - 2010-08-29 17:34:58.857388 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
