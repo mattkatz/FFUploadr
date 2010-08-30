@@ -65,7 +65,7 @@ public class uploadr extends Activity
       checkAndUpload();
   }
 
-  private class UploadTask extends AsyncTask<ArrayList, File, String>{
+  private class UploadTask extends AsyncTask<ArrayList, String, String>{
 
     @Override
     protected String doInBackground(ArrayList... uris){
@@ -80,9 +80,11 @@ public class uploadr extends Activity
 
       FTPClient ftp = new FTPClient();
       try{
+        publishProgress("Connecting:\n" + host);
         ftp.connect(host);
         ftp.enterLocalPassiveMode();
         Log.i(TAG,"we connected");
+        publishProgress("Connected:\n" + host);
         if(!ftp.login(user,pass)){
           ftp.logout();
           //TODO: alert user it didn't happen
@@ -106,13 +108,14 @@ public class uploadr extends Activity
           Uri uri = (Uri) contentUris.get(i);
           String filePath = getRealPathFromURI(uri);
           File file = new File(filePath);
-          publishProgress(file);
-          //InputStream in = new FileInputStream(filePath);
           String fileName = file.getName();
+          publishProgress(fileName,filePath);
+          //InputStream in = new FileInputStream(filePath);
           InputStream in = new FileInputStream(file);
           ftp.setFileType(ftp.BINARY_FILE_TYPE);
-          Thread.sleep(1000);
-          //boolean Store = ftp.storeFile(fileName, in);
+          //why? because otherwise you don't see progress and you freak out
+          Thread.sleep(200);
+          boolean Store = ftp.storeFile(fileName, in);
           in.close();
           Log.i(TAG, "uploaded "+ fileName);
         }
@@ -129,12 +132,13 @@ public class uploadr extends Activity
       return "Done!";
 
     }
-    protected void onProgressUpdate(File... files){
-      File file = files[0];
+    protected void onProgressUpdate(String... messages){
       //change the status 
-        status( file.getName());
-      //change the background image
-        setBackground(file.getAbsolutePath());
+      status( messages[0]);
+      if(messages.length > 1){
+        //change the background image
+        setBackground(messages[1]);
+      }
     }
 
     protected void onPostExecute(String message){
