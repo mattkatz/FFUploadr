@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: handle uploading inside AsyncTask
+desc: it is a perfect little handler task.  We will use the progress into to tell the gui thread which photo is being uploaded.
+type: :bugfix
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-30 06:50:18.202064 Z
+references: []
+
+id: 69606696858cf17725ee42dae8f3bf3e94a89f54
+log_events: 
+- - 2010-08-30 06:50:20.365930 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
