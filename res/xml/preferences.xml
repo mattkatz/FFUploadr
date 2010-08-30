@@ -21,10 +21,4 @@
     android:title="@string/pass"
     android:password="true"
     />
-  <CheckBoxPreference
-    android:key="pasv"
-    android:dialogTitle="@string/pasv"
-    android:title="@string/pasv"
-    android:summary="@string/pasvSummary"
-    />
 </PreferenceScreen>

@@ -35,6 +35,7 @@ public class uploadr extends Activity
   private static final int UPLOAD_IMAGE = 2;
   private static final String TAG = "UpLoadr: ";
   private static final int FINISH_PAUSE = 6000;
+  private SharedPreferences prefs;
 
 
   /** Called when the activity is first created. */
@@ -51,6 +52,7 @@ public class uploadr extends Activity
           finish();
         }
       });
+      prefs = PreferenceManager.getDefaultSharedPreferences(this);
   }
   public void onStart(){
       super.onStart();
@@ -63,22 +65,74 @@ public class uploadr extends Activity
       checkAndUpload();
   }
 
-  private class UploadTask extends AsyncTask<ArrayList, String, String>{
+  private class UploadTask extends AsyncTask<ArrayList, File, String>{
 
     @Override
     protected String doInBackground(ArrayList... uris){
       //Don't understand how to just send my arraylist or array into this params style method...  There has to be a simpler more elegant way than this.
+      ArrayList contentUris = uris[0];
+      //get our shared preferences
+      String host = prefs.getString("host","");
+      String path = prefs.getString("path","");
+      String user = prefs.getString("user","");
+      String pass = prefs.getString("pass","");
+      Log.i(TAG,"about to ftp to " + host);
+
+      FTPClient ftp = new FTPClient();
+      try{
+        ftp.connect(host);
+        ftp.enterLocalPassiveMode();
+        Log.i(TAG,"we connected");
+        if(!ftp.login(user,pass)){
+          ftp.logout();
+          //TODO: alert user it didn't happen
+          return "Didn't Work!\nWe Couldn't log in";
+        }
+        String replyStatus = ftp.getStatus();
+        Log.i(TAG,replyStatus);
+        int replyCode = ftp.getReplyCode();
+        if (!FTPReply.isPositiveCompletion(replyCode))
+        {
+          ftp.disconnect();
+          //TODO: alert user it didn't happen
+          return "Didn't Work!\nWe Couldn't log in";
+        }
+
+        Log.i(TAG,"we logged in");
+        ftp.changeWorkingDirectory(path);
+        ftp.setFileType(ftp.BINARY_FILE_TYPE);
+        for(int i = 0; i < contentUris.size(); i++){
+          Log.i(TAG,"uploading new file");
+          Uri uri = (Uri) contentUris.get(i);
+          String filePath = getRealPathFromURI(uri);
+          File file = new File(filePath);
+          publishProgress(file);
+          //InputStream in = new FileInputStream(filePath);
+          String fileName = file.getName();
+          InputStream in = new FileInputStream(file);
+          ftp.setFileType(ftp.BINARY_FILE_TYPE);
+          boolean Store = ftp.storeFile(fileName, in);
+          in.close();
+          Log.i(TAG, "uploaded "+ fileName);
+        }
+        //TODO: probably move this to a finally block
+        ftp.disconnect();
+      }
+      catch(Exception ex){
+        //TODO: properly handle exception
+        //Log.i(TAG,ex);
+        //TODO:Alert the user this failed
+      }
 
       //the main work
       return "Done!";
 
     }
-    protected void onProgressUpdate(String filePath){
+    protected void onProgressUpdate(File file){
       //change the status 
-        status(new File(filePath).getName());
+        status( file.getName());
       //change the background image
-        setBackground(filePath);
-
+        setBackground(file.getAbsolutePath());
     }
 
     protected void onPostExecute(String message){
@@ -145,65 +199,6 @@ public class uploadr extends Activity
     t.setText("Uploading \n" + message);
   }
 
-  private void upload(ArrayList contentUris)
-  {
-
-    //get our shared preferences
-    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String host = prefs.getString("host","");
-    String path = prefs.getString("path","");
-    String user = prefs.getString("user","");
-    String pass = prefs.getString("pass","");
-    boolean pasv = prefs.getBoolean("pasv",false);
-    Log.i(TAG,"about to ftp to " + host);
-
-    FTPClient ftp = new FTPClient();
-    try{
-      ftp.connect(host);
-      ftp.enterLocalPassiveMode();
-      Log.i(TAG,"we connected");
-      if(!ftp.login(user,pass)){
-        ftp.logout();
-        //TODO: alert user it didn't happen
-        return;
-      }
-      String replyStatus = ftp.getStatus();
-      Log.i(TAG,replyStatus);
-      int replyCode = ftp.getReplyCode();
-      if (!FTPReply.isPositiveCompletion(replyCode))
-      {
-        ftp.disconnect();
-        //TODO: alert user it didn't happen
-        return;
-      }
-
-      Log.i(TAG,"we logged in");
-      ftp.changeWorkingDirectory(path);
-      ftp.setFileType(ftp.BINARY_FILE_TYPE);
-      for(int i = 0; i < contentUris.size(); i++){
-        Log.i(TAG,"uploading new file");
-        Uri uri = (Uri) contentUris.get(i);
-        String filePath = getRealPathFromURI(uri);
-        File file = new File(filePath);
-        setBackground(filePath);
-        String fileName = file.getName();
-        status(fileName);
-        //InputStream in = new FileInputStream(filePath);
-        InputStream in = new FileInputStream(file);
-        ftp.setFileType(ftp.BINARY_FILE_TYPE);
-        boolean Store = ftp.storeFile(fileName, in);
-        in.close();
-        Log.i(TAG, "uploaded "+ fileName);
-      }
-      //TODO: probably move this to a finally block
-      ftp.disconnect();
-    }
-    catch(Exception ex){
-      //TODO: properly handle exception
-      //Log.i(TAG,ex);
-      //TODO:Alert the user this failed
-    }
-  }
   public void setBackground(String filePath){
     //ImageView img = (ImageView) findViewById(R.id.img);
     //img.setImageURI(uri);
