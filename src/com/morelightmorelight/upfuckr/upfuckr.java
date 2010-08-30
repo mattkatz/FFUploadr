@@ -13,7 +13,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.database.Cursor;
 import android.provider.MediaStore;
-import android.graphics.drawable.Drawable;
+
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -21,17 +21,13 @@ import android.content.DialogInterface;
 
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.apache.commons.net.ftp.*;
-import java.io.*;
 
 public class upfuckr extends Activity
 {
   private static final int ADD_ID = Menu.FIRST;
   private static final int ACTIVITY_CREATE = 0;
   private static final int IMAGE_PICK = 1;
+  private static final int UPLOAD_IMAGE = 2;
   private static final String TAG = "UpFuckr: ";
 
 
@@ -48,8 +44,8 @@ public class upfuckr extends Activity
           //get a file to upload, then upload
 
           //I dunno, upload?
+          getImages();
 
-          upload(null);
         }
       });
       Intent i = getIntent();
@@ -73,27 +69,27 @@ public class upfuckr extends Activity
         //add_site();
       }
 
-      if(Intent.ACTION_SEND.equals(action))
-      {
-        String type = i.getType();
-        Log.i(TAG, "we have action send!");
-        Uri stream = (Uri) i.getParcelableExtra(Intent.EXTRA_STREAM);
-        if ( stream != null && type != null )
-        {
-          ArrayList l = new ArrayList();
-          l.add(stream);
-          upload( l);
-        }
-        else { Log.i(TAG,"null URI");}
-      }
-      else if (Intent.ACTION_SEND_MULTIPLE.equals(action))
-      {
-        String type = i.getType();
-        Log.i(TAG, "we have action send!");
-        //Bundle extras = getIntent().getExtras();
-        ArrayList l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-        upload(l);
-      }
+//      if(Intent.ACTION_SEND.equals(action))
+//      {
+//        String type = i.getType();
+//        Log.i(TAG, "we have action send!");
+//        Uri stream = (Uri) i.getParcelableExtra(Intent.EXTRA_STREAM);
+//        if ( stream != null && type != null )
+//        {
+//          ArrayList l = new ArrayList();
+//          l.add(stream);
+//          upload( l);
+//        }
+//        else { Log.i(TAG,"null URI");}
+//      }
+//      else if (Intent.ACTION_SEND_MULTIPLE.equals(action))
+//      {
+//        String type = i.getType();
+//        Log.i(TAG, "we have action send!");
+//        //Bundle extras = getIntent().getExtras();
+//        ArrayList l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+//        upload(l);
+//      }
   }
 
   @Override
@@ -143,9 +139,13 @@ public class upfuckr extends Activity
         Uri stream = (Uri) i.getData();
         if ( stream != null )
         {
-          ArrayList l = new ArrayList();
-          l.add(stream);
-          upload( l);
+          //ArrayList l = new ArrayList();
+          //l.add(stream);
+          Intent intent = new Intent(this, uploadr.class);
+          //intent.putExtras(i);
+          intent.setData(i.getData());
+          startActivityForResult(intent, UPLOAD_IMAGE);
+          //upload( l);
         }
         else { Log.i(TAG,"null URI");}
         //  upload(l);
@@ -160,93 +160,5 @@ public class upfuckr extends Activity
   }
     
 
-  private void upload(ArrayList contentUris)
-  {
-
-    if(null == contentUris){
-      getImages();
-      return;
-    }
-    //get our shared preferences
-    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String host = prefs.getString("host","");
-    String path = prefs.getString("path","");
-    String user = prefs.getString("user","");
-    String pass = prefs.getString("pass","");
-    boolean pasv = prefs.getBoolean("pasv",false);
-    Log.i(TAG,"about to ftp to " + host);
-
-    FTPClient ftp = new FTPClient();
-    try{
-      ftp.connect(host);
-      ftp.enterLocalPassiveMode();
-      Log.i(TAG,"we connected");
-      if(!ftp.login(user,pass)){
-        ftp.logout();
-        //TODO: alert user it didn't happen
-        return;
-      }
-      String replyStatus = ftp.getStatus();
-      Log.i(TAG,replyStatus);
-      int replyCode = ftp.getReplyCode();
-      if (!FTPReply.isPositiveCompletion(replyCode))
-      {
-        ftp.disconnect();
-        //TODO: alert user it didn't happen
-        return;
-      }
-
-      Log.i(TAG,"we logged in");
-      ftp.changeWorkingDirectory(path);
-      ftp.setFileType(ftp.BINARY_FILE_TYPE);
-      for(int i = 0; i < contentUris.size(); i++){
-        Log.i(TAG,"uploading new file");
-        Uri uri = (Uri) contentUris.get(i);
-        setBackground(uri);
-        String filePath = getRealPathFromURI(uri);
-        
-        InputStream in = new FileInputStream(filePath);
-
-        
-        ftp.setFileType(ftp.BINARY_FILE_TYPE);
-        
-        boolean Store = ftp.storeFile("test.jpg", in);
-        Log.i(TAG, "uploaded test");
-      }
-      
-      
-      ftp.disconnect();
-    }
-    catch(Exception ex){
-      //TODO: properly handle exception
-      //Log.i(TAG,ex);
-      //TODO:Alert the user this failed
-    }
-  }
-  public void setBackground(Uri uri){
-    ImageView img = (ImageView) findViewById(R.id.img);
-    img.setImageURI(uri);
-    //Drawable d = Drawable.createFromPath(filePath);
-    //findViewById(R.id.img).setBackgroundDrawable(d);
-  }
-
-
-
-  // And to convert the image URI to the direct file system path of the image file
-  public String getRealPathFromURI(Uri contentUri) {
-    Log.i(TAG, "uri: " + contentUri);
-    // can post image
-    String [] proj={MediaStore.Images.Media.DATA};
-    Cursor cursor = managedQuery( contentUri,
-        proj, // Which columns to return
-        null,       // WHERE clause; which rows to return (all rows)
-        null,       // WHERE clause selection arguments (none)
-        null); // Order-by clause (ascending by name)
-    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-    cursor.moveToFirst();
-    String path = cursor.getString(column_index); 
-    Log.i(TAG,"path: " + path);
-    return path;
-  }
   
 }
