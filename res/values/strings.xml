@@ -16,4 +16,6 @@
       Hit the upload button to send a picture to your fuckflickr installation.  If you want to change galleries, you can do that by pulling up the configurations screen and changing the path.
       There isn\'t any way to edit the info on photos yet, but that should come soon.
     </string>
+    <string name="uploading">Currently uploading</string>
+    <string name="cancel">Cancel</string>
 </resources>

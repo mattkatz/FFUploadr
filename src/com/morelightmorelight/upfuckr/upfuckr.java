@@ -8,10 +8,12 @@ import android.view.View;
 import android.content.Intent;
 import android.net.Uri;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.database.Cursor;
 import android.provider.MediaStore;
+import android.graphics.drawable.Drawable;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -22,8 +24,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-//let's try imporing a liberry
-//import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.*;
 import java.io.*;
 
@@ -201,19 +201,16 @@ public class upfuckr extends Activity
       ftp.setFileType(ftp.BINARY_FILE_TYPE);
       for(int i = 0; i < contentUris.size(); i++){
         Log.i(TAG,"uploading new file");
-        Uri stream = (Uri) contentUris.get(i);
-        String filePath = getRealPathFromURI(stream);
+        Uri uri = (Uri) contentUris.get(i);
+        setBackground(uri);
+        String filePath = getRealPathFromURI(uri);
+        
         InputStream in = new FileInputStream(filePath);
 
-        //InputStream in = openFileInput(getRealPathFromURI(stream));
-        //InputStream in =this.getContentResolver().openInputStream(stream);
-        //BufferedInputStream buffIn=null;
-        //buffIn=new BufferedInputStream(in);
         
         ftp.setFileType(ftp.BINARY_FILE_TYPE);
         
         boolean Store = ftp.storeFile("test.jpg", in);
-        //buffIn.close();
         Log.i(TAG, "uploaded test");
       }
       
@@ -225,33 +222,15 @@ public class upfuckr extends Activity
       //Log.i(TAG,ex);
       //TODO:Alert the user this failed
     }
-
-    
-
-
-    //Intent intent = new Intent();
-    //intent.setAction(Intent.ACTION_PICK);
-    // FTP URL (Starts with ftp://, sftp:// or ftps:// followed by hostname and port).
-    //Uri ftpUri = Uri.parse("ftp://"+host+":21");
-    //intent.setDataAndType(ftpUri, "vnd.android.cursor.dir/lysesoft.andftp.uri");
-    // // FTP credentials (optional)
-    //intent.putExtra("ftp_username", user);
-    //intent.putExtra("ftp_password", pass);
-    //intent.putExtra("ftp_keyfile", "/sdcard/dsakey.txt");
-    //intent.putExtra("ftp_keypass", "optionalkeypassword");
-    // FTP settings (optional)
-    //intent.putExtra("ftp_pasv", "true");
-    //intent.putExtra("ftp_resume", "true");
-    //intent.putExtra("ftp_encoding", "UTF8");
-    // Upload
-    //intent.putExtra("command_type", "upload");
-    // Activity title
-    //intent.putExtra("progress_title", "Uploading files ...");
-    // Optional initial remote folder (it must exist before upload)
-    //Log.i(TAG,path);
-    //intent.putExtra("remote_folder", path);
-    //startActivityForResult(intent, 1);
   }
+  public void setBackground(Uri uri){
+    ImageView img = (ImageView) findViewById(R.id.img);
+    img.setImageURI(uri);
+    //Drawable d = Drawable.createFromPath(filePath);
+    //findViewById(R.id.img).setBackgroundDrawable(d);
+  }
+
+
 
   // And to convert the image URI to the direct file system path of the image file
   public String getRealPathFromURI(Uri contentUri) {
