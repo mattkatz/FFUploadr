@@ -5,8 +5,8 @@ type: :bugfix
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-30 06:50:18.202064 Z
 references: []
 
@@ -15,4 +15,8 @@ log_events:
 - - 2010-08-30 06:50:20.365930 Z
   - Matt Katz <mattkatz@ubuntu>
   - created
+  - ""
+- - 2010-08-30 18:40:19.694677 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
   - ""
