@@ -7,6 +7,7 @@ import android.view.View;
 import android.content.Intent;
 import android.net.Uri;
 import android.widget.Button;
+import android.widget.TextView;
 import android.graphics.drawable.Drawable;
 
 import android.content.SharedPreferences;
@@ -20,6 +21,9 @@ import java.util.Iterator;
 import org.apache.commons.net.ftp.*;
 import java.io.*;
 
+import android.os.Handler;
+
+
 import android.util.Log;
 
 public class uploadr extends Activity
@@ -29,6 +33,7 @@ public class uploadr extends Activity
   private static final int IMAGE_PICK = 1;
   private static final int UPLOAD_IMAGE = 2;
   private static final String TAG = "UpLoadr: ";
+  private static final int FINISH_PAUSE = 6000;
 
 
   /** Called when the activity is first created. */
@@ -42,6 +47,7 @@ public class uploadr extends Activity
         public void onClick(View view){
           setResult(RESULT_OK);
           //TODO:cancel the upload
+          finish();
         }
       });
       Intent i = getIntent();
@@ -76,8 +82,22 @@ public class uploadr extends Activity
         else { Log.i(TAG,"null URI or type");}
       }
       upload( l);
-      finish();
+      status("All done!");
+      waitALilBit();
 
+  }
+  private Runnable getOut = new Runnable(){
+    public void run(){
+      finish();
+    }
+  };
+  private void waitALilBit(){
+    Handler h = new Handler();
+    h.postDelayed(getOut, FINISH_PAUSE);
+  }
+  private void status(String message){
+    TextView t = (TextView) findViewById(R.id.uploading);
+    t.setText("Uploading \n" + message);
   }
 
   private void upload(ArrayList contentUris)
@@ -119,10 +139,14 @@ public class uploadr extends Activity
         Log.i(TAG,"uploading new file");
         Uri uri = (Uri) contentUris.get(i);
         String filePath = getRealPathFromURI(uri);
+        File file = new File(filePath);
         setBackground(filePath);
-        InputStream in = new FileInputStream(filePath);
+        String fileName = file.getName();
+        status(fileName);
+        //InputStream in = new FileInputStream(filePath);
+        InputStream in = new FileInputStream(file);
         ftp.setFileType(ftp.BINARY_FILE_TYPE);
-        boolean Store = ftp.storeFile("test.jpg", in);
+        boolean Store = ftp.storeFile(fileName, in);
         in.close();
         Log.i(TAG, "uploaded test");
       }
