@@ -111,7 +111,8 @@ public class uploadr extends Activity
           String fileName = file.getName();
           InputStream in = new FileInputStream(file);
           ftp.setFileType(ftp.BINARY_FILE_TYPE);
-          boolean Store = ftp.storeFile(fileName, in);
+          Thread.sleep(1000);
+          //boolean Store = ftp.storeFile(fileName, in);
           in.close();
           Log.i(TAG, "uploaded "+ fileName);
         }
@@ -128,7 +129,8 @@ public class uploadr extends Activity
       return "Done!";
 
     }
-    protected void onProgressUpdate(File file){
+    protected void onProgressUpdate(File... files){
+      File file = files[0];
       //change the status 
         status( file.getName());
       //change the background image
@@ -202,6 +204,7 @@ public class uploadr extends Activity
   public void setBackground(String filePath){
     //ImageView img = (ImageView) findViewById(R.id.img);
     //img.setImageURI(uri);
+    Log.i(TAG, filePath);
     Drawable d = Drawable.createFromPath(filePath);
     findViewById(R.id.uploading).setBackgroundDrawable(d);
   }
