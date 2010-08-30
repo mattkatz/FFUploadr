@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-29 17:34:56.873068 Z
 references: []
 
@@ -20,3 +20,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - assigned to release 0.2 from unassigned
   - oh looks like fun, let's try it
+- - 2010-08-30 05:39:56.270093 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - and somewhat stylishly done
