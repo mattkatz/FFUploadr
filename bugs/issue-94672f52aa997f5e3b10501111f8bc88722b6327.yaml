@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Make the uploads cancelable
+desc: currently there is no cancel button showing and no cancel logic
+type: :bugfix
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-30 19:35:02.798841 Z
+references: []
+
+id: 94672f52aa997f5e3b10501111f8bc88722b6327
+log_events: 
+- - 2010-08-30 19:35:05.250923 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

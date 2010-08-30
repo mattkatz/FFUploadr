@@ -5,7 +5,7 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-08-21 19:10:54.052629 Z
 references: []
@@ -16,3 +16,11 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-08-30 19:29:04.355020 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - |-
+    let's recurse the directories of the install
+    generate a group of objects to represent
+    bind to a listview or a spinner
+    we should also store the results so that it's cached

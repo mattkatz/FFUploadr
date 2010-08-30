@@ -1,0 +1,20 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Make the gallery load async
+desc: |-
+  we should see them populate
+  when the user chooses one in the middle of it all, gracefully cancel out and quit.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-08-30 19:34:08.547528 Z
+references: []
+
+id: f2e4104ecaa58c2e06ff4c0276992e7086d730b1
+log_events: 
+- - 2010-08-30 19:34:10.030549 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
