@@ -22,6 +22,7 @@ import org.apache.commons.net.ftp.*;
 import java.io.*;
 
 import android.os.Handler;
+import android.os.AsyncTask;
 
 
 import android.util.Log;
@@ -61,6 +62,37 @@ public class uploadr extends Activity
       Log.i(TAG, "onResume");
       checkAndUpload();
   }
+
+  private class UploadTask extends AsyncTask<ArrayList, String, String>{
+
+    @Override
+    protected String doInBackground(ArrayList... uris){
+      //Don't understand how to just send my arraylist or array into this params style method...  There has to be a simpler more elegant way than this.
+
+      //the main work
+      return "Done!";
+
+    }
+    protected void onProgressUpdate(String filePath){
+      //change the status 
+        status(new File(filePath).getName());
+      //change the background image
+        setBackground(filePath);
+
+    }
+
+    protected void onPostExecute(String message){
+      //change the status to done
+      status(message);
+      //wait and finish
+      waitALilBit();
+    }
+    protected void onPreExecute(){
+      //do we even need this?
+
+    }
+
+  }
   private void checkAndUpload(){
       Intent i = getIntent();
       String action = i.getAction();
@@ -88,14 +120,15 @@ public class uploadr extends Activity
         Log.i(TAG, "stream: " + stream);
         if ( stream != null /*&& type != null*/ )
         {
-          l = new ArrayList();
+          l = new ArrayList<Uri>();
           l.add(stream);
         }
         else { Log.i(TAG,"null URI or type");}
       }
-      upload( l);
-      status("All done!");
-      waitALilBit();
+      new UploadTask().execute(l);
+      //upload( l);
+      //status("All done!");
+      //waitALilBit();
 
   }
   private Runnable getOut = new Runnable(){
