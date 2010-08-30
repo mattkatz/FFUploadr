@@ -50,6 +50,18 @@ public class uploadr extends Activity
           finish();
         }
       });
+  }
+  public void onStart(){
+      super.onStart();
+      Log.i(TAG, "onStart");
+      checkAndUpload();
+  }
+  public void onResume(){
+      super.onResume();
+      Log.i(TAG, "onResume");
+      checkAndUpload();
+  }
+  private void checkAndUpload(){
       Intent i = getIntent();
       String action = i.getAction();
       if(null != action){
@@ -148,7 +160,7 @@ public class uploadr extends Activity
         ftp.setFileType(ftp.BINARY_FILE_TYPE);
         boolean Store = ftp.storeFile(fileName, in);
         in.close();
-        Log.i(TAG, "uploaded test");
+        Log.i(TAG, "uploaded "+ fileName);
       }
       //TODO: probably move this to a finally block
       ftp.disconnect();
