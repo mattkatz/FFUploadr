@@ -25,6 +25,7 @@ import android.util.Log;
 public class upfuckr extends Activity
 {
   private static final int ADD_ID = Menu.FIRST;
+  private static final int GALLERIES = ADD_ID +1;
   private static final int ACTIVITY_CREATE = 0;
   private static final int IMAGE_PICK = 1;
   private static final int UPLOAD_IMAGE = 2;
@@ -97,6 +98,7 @@ public class upfuckr extends Activity
   {
     super.onCreateOptionsMenu(menu);
     menu.add(0,ADD_ID,0,R.string.add_site);
+    menu.add(0,GALLERIES,0,"Galleries");
     return true;
   }
 
@@ -107,8 +109,16 @@ public class upfuckr extends Activity
       case ADD_ID:
         add_site();
         return true;
+      case GALLERIES:
+        show_galleries();
+        return true;
     }
     return super.onMenuItemSelected(featureId,item);
+  }
+
+  private void show_galleries(){
+    startActivity(new Intent(this, galleries.class));
+
   }
 
   private void add_site(){

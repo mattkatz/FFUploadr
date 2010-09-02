@@ -35,6 +35,15 @@ public class galleries extends Activity{
   private class GalleryFile extends File{
     public GalleryFile(String path){
       super(path);
+    }
+
+    public String toString(){
+      String sep = "|";
+      String path = getPath();
+      int depth = path.split(File.pathSeparator).length;
+      return new String(new char[depth]).replace("\0", sep);
+
+      
 
     }
 
