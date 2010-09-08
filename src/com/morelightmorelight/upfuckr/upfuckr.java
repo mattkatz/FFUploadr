@@ -170,8 +170,6 @@ public class upfuckr extends Activity
   }
     
 
-<<<<<<< Updated upstream
-=======
   private void upload(ArrayList contentUris)
   {
 
@@ -235,30 +233,6 @@ public class upfuckr extends Activity
     
 
 
-    //Intent intent = new Intent();
-    //intent.setAction(Intent.ACTION_PICK);
-    // FTP URL (Starts with ftp://, sftp:// or ftps:// followed by hostname and port).
-    //Uri ftpUri = Uri.parse("ftp://"+host+":21");
-    //intent.setDataAndType(ftpUri, "vnd.android.cursor.dir/lysesoft.andftp.uri");
-    // // FTP credentials (optional)
-    //intent.putExtra("ftp_username", user);
-    //intent.putExtra("ftp_password", pass);
-    //intent.putExtra("ftp_keyfile", "/sdcard/dsakey.txt");
-    //intent.putExtra("ftp_keypass", "optionalkeypassword");
-    // FTP settings (optional)
-    //intent.putExtra("ftp_pasv", "true");
-    //intent.putExtra("ftp_resume", "true");
-    //intent.putExtra("ftp_encoding", "UTF8");
-    // Upload
-    //intent.putExtra("command_type", "upload");
-    // Activity title
-    //intent.putExtra("progress_title", "Uploading files ...");
-    // Optional initial remote folder (it must exist before upload)
-    //Log.i(TAG,path);
-    //intent.putExtra("remote_folder", path);
-    //startActivityForResult(intent, 1);
-  }
-
   // And to convert the image URI to the direct file system path of the image file
   public String getRealPathFromURI(Uri contentUri) {
     Log.i(TAG, "uri: " + contentUri);
@@ -275,6 +249,5 @@ public class upfuckr extends Activity
     Log.i(TAG,"path: " + path);
     return path;
   }
->>>>>>> Stashed changes
   
 }
