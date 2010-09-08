@@ -65,7 +65,7 @@ public class uploadr extends Activity
       checkAndUpload();
   }
 
-  private class UploadTask extends AsyncTask<ArrayList, String, String>{
+  public class UploadTask extends AsyncTask<ArrayList, String, String>{
 
     @Override
     protected String doInBackground(ArrayList... uris){
