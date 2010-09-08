@@ -21,6 +21,16 @@ import android.content.DialogInterface;
 
 import android.util.Log;
 
+<<<<<<< Updated upstream
+=======
+import java.util.ArrayList;
+import java.util.Iterator;
+
+//let's try imporing a liberry
+//import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.*;
+import java.io.*;
+>>>>>>> Stashed changes
 
 public class upfuckr extends Activity
 {
@@ -160,5 +170,111 @@ public class upfuckr extends Activity
   }
     
 
+<<<<<<< Updated upstream
+=======
+  private void upload(ArrayList contentUris)
+  {
+
+    if(null == contentUris){
+      getImages();
+      return;
+    }
+    //get our shared preferences
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    String host = prefs.getString("host","");
+    String path = prefs.getString("path","");
+    String user = prefs.getString("user","");
+    String pass = prefs.getString("pass","");
+    boolean pasv = prefs.getBoolean("pasv",false);
+    Log.i(TAG,"about to ftp to " + host);
+
+    FTPClient ftp = new FTPClient();
+    try{
+      ftp.connect(host);
+      Log.i(TAG,"we connected");
+      if(!ftp.login(user,pass)){
+        ftp.logout();
+        //TODO: alert user it didn't happen
+        return;
+      }
+      String replyStatus = ftp.getStatus();
+      Log.i(TAG,replyStatus);
+      int replyCode = ftp.getReplyCode();
+      if (!FTPReply.isPositiveCompletion(replyCode))
+      {
+        ftp.disconnect();
+        //TODO: alert user it didn't happen
+        return;
+      }
+      Log.i(TAG,"we logged in");
+      ftp.changeWorkingDirectory(path);
+      ftp.setFileType(ftp.BINARY_FILE_TYPE);
+      for(int i = 0; i < contentUris.size(); i++){
+        Log.i(TAG,"uploading new file");
+        Uri stream = (Uri) contentUris.get(i);
+        //InputStream in = openFileInput(getRealPathFromURI(stream));
+        InputStream in =this.getContentResolver().openInputStream(stream);
+        BufferedInputStream buffIn=null;
+        buffIn=new BufferedInputStream(in);
+        
+        ftp.setFileType(ftp.BINARY_FILE_TYPE);
+        boolean Store = ftp.storeFile("test.jpg", buffIn);
+        buffIn.close();
+        Log.i(TAG, "uploaded test");
+      }
+      
+      
+      ftp.disconnect();
+    }
+    catch(Exception ex){
+      //TODO: properly handle exception
+      //Log.i(TAG,ex);
+      //TODO:Alert the user this failed
+    }
+
+    
+
+
+    //Intent intent = new Intent();
+    //intent.setAction(Intent.ACTION_PICK);
+    // FTP URL (Starts with ftp://, sftp:// or ftps:// followed by hostname and port).
+    //Uri ftpUri = Uri.parse("ftp://"+host+":21");
+    //intent.setDataAndType(ftpUri, "vnd.android.cursor.dir/lysesoft.andftp.uri");
+    // // FTP credentials (optional)
+    //intent.putExtra("ftp_username", user);
+    //intent.putExtra("ftp_password", pass);
+    //intent.putExtra("ftp_keyfile", "/sdcard/dsakey.txt");
+    //intent.putExtra("ftp_keypass", "optionalkeypassword");
+    // FTP settings (optional)
+    //intent.putExtra("ftp_pasv", "true");
+    //intent.putExtra("ftp_resume", "true");
+    //intent.putExtra("ftp_encoding", "UTF8");
+    // Upload
+    //intent.putExtra("command_type", "upload");
+    // Activity title
+    //intent.putExtra("progress_title", "Uploading files ...");
+    // Optional initial remote folder (it must exist before upload)
+    //Log.i(TAG,path);
+    //intent.putExtra("remote_folder", path);
+    //startActivityForResult(intent, 1);
+  }
+
+  // And to convert the image URI to the direct file system path of the image file
+  public String getRealPathFromURI(Uri contentUri) {
+    Log.i(TAG, "uri: " + contentUri);
+    // can post image
+    String [] proj={MediaStore.Images.Media.DATA};
+    Cursor cursor = managedQuery( contentUri,
+        proj, // Which columns to return
+        null,       // WHERE clause; which rows to return (all rows)
+        null,       // WHERE clause selection arguments (none)
+        null); // Order-by clause (ascending by name)
+    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    cursor.moveToFirst();
+    String path = cursor.getString(column_index); 
+    Log.i(TAG,"path: " + path);
+    return path;
+  }
+>>>>>>> Stashed changes
   
 }
