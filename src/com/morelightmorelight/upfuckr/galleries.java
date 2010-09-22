@@ -18,11 +18,13 @@ import java.io.*;
 
 import android.widget.ListView;
 import android.widget.Adapter;
+import com.morelightmorelight.upfuckr.util.ObjectSerializer;
 
 public class galleries extends Activity{
 
   private SharedPreferences prefs;
   private final String TAG = "galleries";
+  private ArrayList<GalleryFile> gl = null;
 
   /** Called when the activity is first created. */
   @Override
@@ -31,6 +33,16 @@ public class galleries extends Activity{
       super.onCreate(savedInstanceState);
       setContentView(R.layout.galleries);
       prefs = PreferenceManager.getDefaultSharedPreferences(this);
+      //do we have a cached list of galleries?
+      if(null == gl){
+        gl = new ArrayList<GalleryFile>();
+      }
+      try {
+        gl = (ArrayList<GalleryFile>) ObjectSerializer.deserialize(prefs.getString("galleries", ObjectSerializer.serialize(new ArrayList<GalleryFile>())));
+      } catch (IOException e) {
+        e.printStackTrace();
+      } 
+      
 
       //get our shared preferences
       String host = prefs.getString("host","");
@@ -61,11 +73,6 @@ public class galleries extends Activity{
 
         
         ftp.changeWorkingDirectory(path);
-//        FTPFile[] files = ftp.listFiles();
-//        for(int i = 0; i < files.length; i++ ){
-//          FTPFile file = files[i];
-//          Log.i(TAG, file.getName());
-//        }
         ArrayList<GalleryFile> accumulator = new ArrayList<GalleryFile>();
         GalleryLister gl = new GalleryLister(ftp, accumulator);
         FTPFile root = new FTPFile();
