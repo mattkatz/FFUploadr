@@ -75,9 +75,10 @@ public class galleries extends Activity{
         gl.traverse(root);
         Log.i(TAG, "Traversed!");
         for(int i = 0; i< accumulator.size(); i++){
-          FTPFile file = accumulator.get(i);
-          Log.i(TAG, file.getName());
+          GalleryFile file = accumulator.get(i);
+          Log.i(TAG, file.toString());
         }
+
 
         
         ftp.disconnect();
@@ -85,27 +86,19 @@ public class galleries extends Activity{
       catch(Exception ex){
 
       }
-
-      
-
   }
   
   private class GalleryFile extends File{
     public GalleryFile(String path){
       super(path);
     }
-
     public String toString(){
+      //return getPath();
       String sep = "|";
       String path = getPath();
-      int depth = path.split(File.pathSeparator).length;
-      return new String(new char[depth]).replace("\0", sep);
-
-      
-
+      int depth = path.split("/").length;
+      return new String(new char[depth]).replace("\0", sep)+getName();
     }
-
-
   }
 
   private class GalleryData extends ArrayList <GalleryFile> {
@@ -132,14 +125,20 @@ public class GalleryLister{
     
   }
   public final void traverse(FTPFile f) {
+    //we don't need thumb or web directories
+    String name = f.getName();
+    if (name.equals("thumb") || name.equals("web")){
+      return;
+    }
     if(f.isDirectory()){
       prefix = prefix.concat(sep);
+      curPath = curPath + name + pathSep;
 
       onDirectory(f);
       //change to the directory
       try{
-        Log.i(TAG, "Changing wd to " + f.getName());
-        mFtp.changeWorkingDirectory(f.getName());
+        Log.i(TAG, "Changing wd to " + name);
+        mFtp.changeWorkingDirectory(name);
         final FTPFile[] children = mFtp.listFiles();
 //        for(int i = 0; i< children.length; i++){
 //
@@ -162,6 +161,7 @@ public class GalleryLister{
         Log.i(TAG, "Changing up one level");
         mFtp.changeToParentDirectory();
         prefix = prefix.substring(1);
+        curPath = curPath.replace(name+pathSep,"");
       }
       catch(Exception ex){
         //TODO handle the exceptions properly
@@ -170,8 +170,9 @@ public class GalleryLister{
     onFile(f);
   }
   public void onDirectory(final FTPFile d){
+    String name = d.getName();
 
-    mAccumulator.add(new GalleryFile(d));
+    mAccumulator.add(new GalleryFile(curPath));
     Log.i(TAG, prefix+d.getName());
   }
   public void onFile(final FTPFile f){
