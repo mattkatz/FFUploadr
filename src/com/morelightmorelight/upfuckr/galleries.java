@@ -85,13 +85,10 @@ public class galleries extends Activity{
           GalleryFile file = accumulator.get(i);
           Log.i(TAG, file.toString());
         }
-
-
-        
         ftp.disconnect();
       }
       catch(Exception ex){
-
+        //TODO: handle handle handle
       }
   }
   
