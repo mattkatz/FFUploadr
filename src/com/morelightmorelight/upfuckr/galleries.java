@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -18,13 +19,18 @@ import java.io.*;
 
 import android.widget.ListView;
 import android.widget.Adapter;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import com.morelightmorelight.upfuckr.util.ObjectSerializer;
 
 public class galleries extends Activity{
 
   private SharedPreferences prefs;
   private final String TAG = "galleries";
-  private ArrayList<GalleryFile> gl = null;
+  private final String GALLERIES = "galleries_json";
+  private ArrayList<GalleryFile> ga = null;
 
   /** Called when the activity is first created. */
   @Override
@@ -34,15 +40,33 @@ public class galleries extends Activity{
       setContentView(R.layout.galleries);
       prefs = PreferenceManager.getDefaultSharedPreferences(this);
       //do we have a cached list of galleries?
-      if(null == gl){
-        gl = new ArrayList<GalleryFile>();
+      if(null == ga){
+        ga = new ArrayList<GalleryFile>();
+        Gson gson = new Gson();
+        try{
+          ga = gson.fromJson(prefs.getString(GALLERIES, gson.toJson(ga)), new TypeToken<ArrayList<GalleryFile>>(){}.getType());
+        }
+        catch(Exception e){
+          e.printStackTrace();
+        }
       }
-      try {
-        gl = (ArrayList<GalleryFile>) ObjectSerializer.deserialize(prefs.getString("galleries", ObjectSerializer.serialize(new ArrayList<GalleryFile>())));
-      } catch (IOException e) {
-        e.printStackTrace();
-      } 
+      //try {
+        //ga = (ArrayList<GalleryFile>) ObjectSerializer.deserialize(prefs.getString(GALLERIES, ObjectSerializer.serialize(new ArrayList<GalleryFile>())));
+      //} catch (IOException e) {
+        //e.printStackTrace();
+      //} 
       
+      if(0 == ga.size()){
+        ga = new ArrayList<GalleryFile>();
+      }
+      else{
+        Log.i(TAG, "deserialized galleries");
+        for(int i = 0; i< ga.size(); i++){
+          GalleryFile file = ga.get(i);
+          Log.i(TAG, file.toString());
+        }
+        return;
+      }
 
       //get our shared preferences
       String host = prefs.getString("host","");
@@ -73,26 +97,30 @@ public class galleries extends Activity{
 
         
         ftp.changeWorkingDirectory(path);
-        ArrayList<GalleryFile> accumulator = new ArrayList<GalleryFile>();
-        GalleryLister gl = new GalleryLister(ftp, accumulator);
+        //ArrayList<GalleryFile> accumulator = new ArrayList<GalleryFile>();
+        GalleryLister gl = new GalleryLister(ftp, ga);
         FTPFile root = new FTPFile();
         root.setName(path);
         root.setType(FTPFile.DIRECTORY_TYPE);
         Log.i(TAG, root.getName());
         gl.traverse(root);
-        Log.i(TAG, "Traversed!");
-        for(int i = 0; i< accumulator.size(); i++){
-          GalleryFile file = accumulator.get(i);
-          Log.i(TAG, file.toString());
-        }
+        //traversed!
         ftp.disconnect();
+        Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(ga);
+        editor.putString(GALLERIES, json);
+        Log.i(TAG, json);
+        editor.commit();
+        Log.i(TAG, "serialized galleries");
+
       }
       catch(Exception ex){
         //TODO: handle handle handle
       }
   }
   
-  private class GalleryFile extends File{
+  private class GalleryFile extends File implements Serializable {
     public GalleryFile(String path){
       super(path);
     }
@@ -144,12 +172,6 @@ public class GalleryLister{
         Log.i(TAG, "Changing wd to " + name);
         mFtp.changeWorkingDirectory(name);
         final FTPFile[] children = mFtp.listFiles();
-//        for(int i = 0; i< children.length; i++){
-//
-//          FTPFile child = children[i];
-//          Log.i(TAG, "Calling Traverse on " + child.getName());
-//          traverse(child);
-//        }
         
         for(FTPFile child : children){
           traverse(child);
