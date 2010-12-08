@@ -98,17 +98,20 @@ public class galleries extends Activity{
         
         ftp.changeWorkingDirectory(path);
         //ArrayList<GalleryFile> accumulator = new ArrayList<GalleryFile>();
-        GalleryLister gl = new GalleryLister(ftp, ga);
+        GalleryLister gl = new GalleryLister(ftp);
         FTPFile root = new FTPFile();
         root.setName(path);
         root.setType(FTPFile.DIRECTORY_TYPE);
+        GalleryFile galleryRoot = new GalleryFile(root);
         Log.i(TAG, root.getName());
-        gl.traverse(root);
+        gl.traverse(galleryRoot);
+        //gl.traverse(root);
         //traversed!
         ftp.disconnect();
-        Editor editor = prefs.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(ga);
+        String json = gson.toJson(galleryRoot);
+        //stuff away the json of the directories
+        Editor editor = prefs.edit();
         editor.putString(GALLERIES, json);
         Log.i(TAG, json);
         editor.commit();
@@ -121,8 +124,13 @@ public class galleries extends Activity{
   }
   
   private class GalleryFile extends File implements Serializable {
+    public GalleryFile(FTPFile f){
+      this( f.getName());
+      this.isDirectory = f.isDirectory();
+    }
     public GalleryFile(String path){
       super(path);
+      children = new GalleryData();
     }
     public String toString(){
       //return getPath();
@@ -131,6 +139,8 @@ public class galleries extends Activity{
       int depth = path.split("/").length;
       return new String(new char[depth]).replace("\0", sep)+getName();
     }
+    public GalleryData children;
+    public boolean isDirectory;
   }
 
   private class GalleryData extends ArrayList <GalleryFile> {
@@ -146,62 +156,68 @@ public class galleries extends Activity{
 
 public class GalleryLister{
   public FTPClient mFtp;
-  public ArrayList mAccumulator;
   private String sep = "|";
   private String prefix = "";
   private String curPath = "/";
   private String pathSep = "/";
-  public GalleryLister(FTPClient ftp, ArrayList accumulator){
+  public GalleryLister(FTPClient ftp ){
     mFtp = ftp;
-    mAccumulator = accumulator;
-    
   }
-  public final void traverse(FTPFile f) {
+  public final GalleryFile traverse(){
+    FTPFile root = new FTPFile();
+    root.setName(".");
+    root.setType(FTPFile.DIRECTORY_TYPE);
+    GalleryFile galleryRoot = new GalleryFile(root);
+    traverse(galleryRoot);
+    return galleryRoot;
+
+  }
+  public final void traverse(GalleryFile f) {
     //we don't need thumb or web directories
     String name = f.getName();
     if (name.equals("thumb") || name.equals("web")){
       return;
     }
-    if(f.isDirectory()){
+    if(f.isDirectory){
       prefix = prefix.concat(sep);
       curPath = curPath + name + pathSep;
 
       onDirectory(f);
-      //change to the directory
-      try{
-        Log.i(TAG, "Changing wd to " + name);
-        mFtp.changeWorkingDirectory(name);
-        final FTPFile[] children = mFtp.listFiles();
-        
-        for(FTPFile child : children){
-          traverse(child);
-        }
-
-      }
-      catch(Exception ex){
-        //TODO handle the exceptions properly
-
-      }
-      //return to parent directory
-      try{
-        Log.i(TAG, "Changing up one level");
-        mFtp.changeToParentDirectory();
-        prefix = prefix.substring(1);
-        curPath = curPath.replace(name+pathSep,"");
-      }
-      catch(Exception ex){
-        //TODO handle the exceptions properly
-      }
     }
     onFile(f);
   }
-  public void onDirectory(final FTPFile d){
+  public void onDirectory(final GalleryFile d){
     String name = d.getName();
+    Log.i(TAG, "Changing wd to " + name);
+    //change to the directory
+    try{
+      mFtp.changeWorkingDirectory(name);
+      final FTPFile[] children = mFtp.listFiles();
+      for(FTPFile child : children){
+        GalleryFile galleryChild = new GalleryFile(child);
+        Log.i(TAG, "adding " + galleryChild.getName());
+        d.children.add(galleryChild );
+        Log.i(TAG,"child list now " + d.children.size());
 
-    mAccumulator.add(new GalleryFile(curPath));
-    Log.i(TAG, prefix+d.getName());
+        traverse(galleryChild);
+      }
+
+    }
+    catch(Exception ex){
+      //TODO handle the exceptions properly
+      Log.i(TAG,ex.toString());
+
+    }
+    //return to parent directory
+    try{
+      Log.i(TAG, "Changing up one level");
+      mFtp.changeToParentDirectory();
+    }
+    catch(Exception ex){
+      //TODO handle the exceptions properly
+    }
   }
-  public void onFile(final FTPFile f){
+  public void onFile(final GalleryFile f){
   }
 }
 
