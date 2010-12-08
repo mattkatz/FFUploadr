@@ -5,8 +5,8 @@ type: :task
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :reorg
 creation_time: 2010-08-18 14:45:20.364946 Z
 references: []
 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-12-08 02:17:46.681852 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition reorg
+  - dupe
