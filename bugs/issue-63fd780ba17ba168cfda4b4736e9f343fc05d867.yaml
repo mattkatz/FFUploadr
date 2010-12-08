@@ -5,7 +5,7 @@ desc: |-
   looking at snakeyaml
 type: :feature
 component: upfuckr
-release: "0.2"
+release: "0.3"
 reporter: Matt Katz <mattkatz@ubuntu>
 status: :unstarted
 disposition: 
@@ -17,4 +17,8 @@ log_events:
 - - 2010-06-25 12:13:19.813521 Z
   - Matt Katz <mattkatz@ubuntu>
   - created
+  - ""
+- - 2010-12-08 02:14:07.945819 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - assigned to release 0.3 from 0.2
   - ""
