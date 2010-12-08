@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Cache list of galleries
+desc: cache the gallery list so that we don't have to retrieve it every time.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-12-08 02:37:34.089912 Z
+references: []
+
+id: bfbbf01ce3f1cc44389b5185da291b70b18b964b
+log_events: 
+- - 2010-12-08 02:37:50.542753 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
