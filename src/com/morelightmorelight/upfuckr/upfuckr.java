@@ -21,8 +21,6 @@ import android.content.DialogInterface;
 
 import android.util.Log;
 
-<<<<<<< Updated upstream
-=======
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -30,7 +28,6 @@ import java.util.Iterator;
 //import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.*;
 import java.io.*;
->>>>>>> Stashed changes
 
 public class upfuckr extends Activity
 {
@@ -229,6 +226,7 @@ public class upfuckr extends Activity
       //Log.i(TAG,ex);
       //TODO:Alert the user this failed
     }
+  }
 
     
 

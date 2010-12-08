@@ -5,7 +5,7 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-12-08 02:37:34.089912 Z
 references: []
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-12-08 02:50:44.505796 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - let's get the json to next
