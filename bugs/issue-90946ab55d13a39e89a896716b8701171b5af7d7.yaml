@@ -3,7 +3,7 @@ title: Upload a picture with info
 desc: need to append to yaml.info on the server side.
 type: :feature
 component: upfuckr
-release: "0.2"
+release: "0.3"
 reporter: Matt Katz <mattkatz@ubuntu>
 status: :unstarted
 disposition: 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - /sto
+- - 2010-12-08 02:14:32.665928 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - assigned to release 0.3 from 0.2
+  - ""

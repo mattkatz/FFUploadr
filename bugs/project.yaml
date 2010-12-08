@@ -46,3 +46,12 @@ releases:
     - Matt Katz <mattkatz@ubuntu>
     - created
     - usability improvements.
+- !ditz.rubyforge.org,2008-03-06/release 
+  name: "0.3"
+  status: :unreleased
+  release_time: 
+  log_events: 
+  - - 2010-12-08 02:12:24.753753 Z
+    - Matt Katz <mattkatz@ubuntu>
+    - created
+    - Setting information for a picture

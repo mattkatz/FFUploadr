@@ -5,10 +5,10 @@ desc: |-
   and it isn't like there are too many screens
 type: :task
 component: upfuckr
-release: "0.2"
+release: "0.1"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :wontfix
 creation_time: 2010-08-18 14:42:27.673715 Z
 references: []
 
@@ -17,4 +17,12 @@ log_events:
 - - 2010-08-18 14:42:29.840810 Z
   - Matt Katz <mattkatz@ubuntu>
   - created
+  - ""
+- - 2010-12-08 02:18:32.442194 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - assigned to release 0.1 from 0.2
+  - ""
+- - 2010-12-08 02:18:48.665751 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition wontfix
   - ""

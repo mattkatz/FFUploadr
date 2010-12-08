@@ -16,15 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
-- - 2010-08-30 19:29:04.355020 Z
-  - Matt Katz <mattkatz@ubuntu>
-  - changed status from unstarted to in_progress
-  - |-
-    let's recurse the directories of the install
-    generate a group of objects to represent
-    bind to a listview or a spinner
-    we should also store the results so that it's cached
-- - 2010-09-22 13:16:11.919559 Z
+- - 2010-12-08 02:38:29.741859 Z
   - Matt Katz <mattkatz@ubuntu>
   - closed with disposition fixed
-  - we now get a list of all galleries
+  - ""
