@@ -116,6 +116,10 @@ public class galleries extends Activity{
         Log.i(TAG, json);
         editor.commit();
         Log.i(TAG, "serialized galleries");
+        Log.i(TAG, "Proving it");
+        Log.i(TAG, prefs.getString(GALLERIES,""));
+        Log.i(TAG, "proved it");
+
 
       }
       catch(Exception ex){
