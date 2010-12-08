@@ -1,6 +1,7 @@
 # Use wildcards as well
 *~
 *.swp
+.ditz-config
 /gen/*
 /bin
 /bin/*
