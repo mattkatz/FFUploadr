@@ -20,3 +20,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - presumably we can just store this in a preference
+- - 2010-10-04 14:22:01.236015 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - commented
+  - gson might work but is having problems...
