@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-30 19:29:55.078532 Z
 references: []
 
@@ -24,3 +24,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - commented
   - gson might work but is having problems...
+- - 2010-12-08 05:09:52.097742 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - proved it
