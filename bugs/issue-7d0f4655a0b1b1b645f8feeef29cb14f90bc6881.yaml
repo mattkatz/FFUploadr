@@ -5,7 +5,7 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-08-21 19:12:20.428639 Z
 references: []
@@ -16,3 +16,11 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-12-08 23:39:03.149150 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - |-
+    check to see if we have a cached directory listing
+    if yes display that.
+    have menuoption to refresh the directory listing
+    if no cached directory do a dialog to let user know this will take a while
