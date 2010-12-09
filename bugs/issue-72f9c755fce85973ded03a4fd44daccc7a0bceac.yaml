@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Create GalleryList from Cached data
+desc: from the stored gallery list representation, recreate a gallerylist.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-12-09 01:54:56.580067 Z
+references: []
+
+id: 72f9c755fce85973ded03a4fd44daccc7a0bceac
+log_events: 
+- - 2010-12-09 01:54:58.898994 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
