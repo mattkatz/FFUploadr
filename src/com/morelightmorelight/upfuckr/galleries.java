@@ -45,6 +45,8 @@ public class galleries extends Activity{
         //gr = new GalleryFile();
         gr = getGalleryList();
       }
+      //now let's prove that we have deserialized the gr
+      
   }
   //Serializes the root folder to json and stores it as a string in the prefs
   public void storeGalleryList(GalleryFile root){
