@@ -30,7 +30,7 @@ public class galleries extends Activity{
   private SharedPreferences prefs;
   private final String TAG = "galleries";
   private final String GALLERIES = "galleries_json";
-  private ArrayList<GalleryFile> ga = null;
+  private GalleryFile gr = null;
 
   /** Called when the activity is first created. */
   @Override
@@ -39,35 +39,27 @@ public class galleries extends Activity{
       super.onCreate(savedInstanceState);
       setContentView(R.layout.galleries);
       prefs = PreferenceManager.getDefaultSharedPreferences(this);
-      //do we have a cached list of galleries?
-      if(null == ga){
-        ga = new ArrayList<GalleryFile>();
-        Gson gson = new Gson();
-        try{
-          ga = gson.fromJson(prefs.getString(GALLERIES, gson.toJson(ga)), new TypeToken<ArrayList<GalleryFile>>(){}.getType());
-        }
-        catch(Exception e){
-          e.printStackTrace();
-        }
-      }
-      //try {
-        //ga = (ArrayList<GalleryFile>) ObjectSerializer.deserialize(prefs.getString(GALLERIES, ObjectSerializer.serialize(new ArrayList<GalleryFile>())));
-      //} catch (IOException e) {
-        //e.printStackTrace();
-      //} 
       
-      if(0 == ga.size()){
-        ga = new ArrayList<GalleryFile>();
+      //if we don't have the gallery root folder, get it
+      if(null == gr){
+        //gr = new GalleryFile();
+        gr = getGalleryList();
       }
-      else{
-        Log.i(TAG, "deserialized galleries");
-        for(int i = 0; i< ga.size(); i++){
-          GalleryFile file = ga.get(i);
-          Log.i(TAG, file.toString());
-        }
-        return;
-      }
+  }
+  //Serializes the root folder to json and stores it as a string in the prefs
+  public void storeGalleryList(GalleryFile root){
+    Gson gson = new Gson();
+    String json = gson.toJson(root);
+    //stuff away the json of the directories
+    Editor editor = prefs.edit();
+    editor.putString(GALLERIES, json);
+    Log.i(TAG, json);
+    editor.commit();
+  }
 
+  //gets the gallery list from the server
+  //then caches it
+  public GalleryFile refreshGalleryList(){
       //get our shared preferences
       String host = prefs.getString("host","");
       String path = prefs.getString("path","");
@@ -97,7 +89,6 @@ public class galleries extends Activity{
 
         
         ftp.changeWorkingDirectory(path);
-        //ArrayList<GalleryFile> accumulator = new ArrayList<GalleryFile>();
         GalleryLister gl = new GalleryLister(ftp);
         FTPFile root = new FTPFile();
         root.setName(path);
@@ -105,26 +96,50 @@ public class galleries extends Activity{
         GalleryFile galleryRoot = new GalleryFile(root);
         Log.i(TAG, root.getName());
         gl.traverse(galleryRoot);
-        //gl.traverse(root);
-        //traversed!
         ftp.disconnect();
-        Gson gson = new Gson();
-        String json = gson.toJson(galleryRoot);
-        //stuff away the json of the directories
-        Editor editor = prefs.edit();
-        editor.putString(GALLERIES, json);
-        Log.i(TAG, json);
-        editor.commit();
+        storeGalleryList(galleryRoot);
         Log.i(TAG, "serialized galleries");
         Log.i(TAG, "Proving it");
         Log.i(TAG, prefs.getString(GALLERIES,""));
         Log.i(TAG, "proved it");
-
-
+        return galleryRoot;
       }
       catch(Exception ex){
         //TODO: handle handle handle
       }
+      //TODO: handle this better
+      return null;
+
+  }
+
+  public GalleryFile getGalleryList(){
+      //do we have a cached list of galleries?
+      String grSerial = "";
+      if(null == gr){
+        grSerial = prefs.getString(GALLERIES, "");
+        if(! grSerial.equals("")){
+          //nope - time to ftp out and get them
+          //store the root for later
+          gr = refreshGalleryList();
+        }
+        else
+        {
+          //great - we can deserialize
+          Gson gson = new Gson();
+          try{
+            gr = gson.fromJson(grSerial, new TypeToken<GalleryFile>(){}.getType());
+          }
+          catch(Exception e){
+            e.printStackTrace();
+          }
+          finally{
+            //seems we can't deserialize what we've got.
+            //get it back from the server
+            gr = refreshGalleryList();
+          }
+        }
+      }
+      return gr;
   }
   
   private class GalleryFile extends File implements Serializable {
