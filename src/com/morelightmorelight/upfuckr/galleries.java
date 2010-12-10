@@ -22,6 +22,10 @@ import android.widget.ListView;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -252,7 +256,25 @@ public class GalleryAdapter extends ArrayAdapter<GalleryFile>
   public GalleryAdapter(Context context, int textViewResourceId, GalleryFile gf){
     super(context, textViewResourceId, gf.children);
     this.current = gf;
+    
+  }
 
+  @Override
+  public View getView(int position, View convertView, ViewGroup parent){
+    View v = convertView;
+    if (v == null) {
+      LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+      v = vi.inflate(R.layout.gallery_row, null);
+    }
+    GalleryFile f = current.children.get(position);
+    if(f !=null){
+      TextView tt = (TextView) v.findViewById(R.id.toptext);
+      TextView bt = (TextView) v.findViewById(R.id.bottomtext);
+      if(tt != null){
+        tt.setText(f.getName());
+      }
+    }
+    return v;
   }
 
 }
