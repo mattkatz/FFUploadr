@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.content.Intent;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
@@ -19,6 +20,8 @@ import java.io.*;
 
 import android.widget.ListView;
 import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -100,10 +103,10 @@ public class galleries extends Activity{
         gl.traverse(galleryRoot);
         ftp.disconnect();
         storeGalleryList(galleryRoot);
-        Log.i(TAG, "serialized galleries");
-        Log.i(TAG, "Proving it");
-        Log.i(TAG, prefs.getString(GALLERIES,""));
-        Log.i(TAG, "proved it");
+        //Log.i(TAG, "serialized galleries");
+        //Log.i(TAG, "Proving it");
+        //Log.i(TAG, prefs.getString(GALLERIES,""));
+        //Log.i(TAG, "proved it");
         return galleryRoot;
       }
       catch(Exception ex){
@@ -240,6 +243,18 @@ public class GalleryLister{
   }
   public void onFile(final GalleryFile f){
   }
+}
+
+
+public class GalleryAdapter extends ArrayAdapter<GalleryFile>
+{
+  private GalleryFile current;
+  public GalleryAdapter(Context context, int textViewResourceId, GalleryFile gf){
+    super(context, textViewResourceId, gf.children);
+    this.current = gf;
+
+  }
+
 }
 
 
