@@ -1,7 +1,7 @@
 
 package com.morelightmorelight.upfuckr;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 
 import android.view.View;
@@ -32,12 +32,13 @@ import com.google.gson.reflect.TypeToken;
 
 import com.morelightmorelight.upfuckr.util.ObjectSerializer;
 
-public class galleries extends Activity{
+public class galleries extends ListActivity{
 
   private SharedPreferences prefs;
   private final String TAG = "galleries";
   private final String GALLERIES = "galleries_json";
   private GalleryFile gr = null;
+  private GalleryAdapter ga = null;
 
   /** Called when the activity is first created. */
   @Override
@@ -53,6 +54,8 @@ public class galleries extends Activity{
         gr = getGalleryList();
       }
       //now let's prove that we have deserialized the gr
+      this.ga = new GalleryAdapter(this, R.layout.gallery_row, gr);
+      
       
   }
   //Serializes the root folder to json and stores it as a string in the prefs
