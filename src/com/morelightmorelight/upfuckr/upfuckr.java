@@ -38,9 +38,9 @@ public class upfuckr extends Activity
   {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.main);
-      Button uploadPic = (Button) findViewById(R.id.upload);
+      Button uploadPic = (Button) findViewById(R.id.upload_btn);
       uploadPic.setOnClickListener(new View.OnClickListener(){
-        public void onClick(View view){
+      public void onClick(View view){
           setResult(RESULT_OK);
           //get a file to upload, then upload
 

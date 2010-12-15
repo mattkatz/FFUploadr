@@ -129,7 +129,7 @@ public class galleries extends ListActivity{
       String grSerial = "";
       if(null == gr){
         grSerial = prefs.getString(GALLERIES, "");
-        if(! grSerial.equals("")){
+        if( grSerial.equals("")){
           //nope - time to ftp out and get them
           //store the root for later
           gr = refreshGalleryList();
@@ -143,11 +143,11 @@ public class galleries extends ListActivity{
           }
           catch(Exception e){
             e.printStackTrace();
-          }
-          finally{
             //seems we can't deserialize what we've got.
             //get it back from the server
             gr = refreshGalleryList();
+          }
+          finally{
           }
         }
       }
@@ -162,6 +162,12 @@ public class galleries extends ListActivity{
     public GalleryFile(String path){
       super(path);
       children = new GalleryData();
+    }
+    public GalleryFile(){
+      super(".");
+      this.isDirectory = false;
+      this.children = new GalleryData();
+      Log.i(TAG,"In default constructor");
     }
     public String toString(){
       //return getPath();
@@ -275,6 +281,9 @@ public class GalleryAdapter extends ArrayAdapter<GalleryFile>
       TextView bt = (TextView) v.findViewById(R.id.bottomtext);
       if(tt != null){
         tt.setText(f.getName());
+      }
+      if(bt != null){
+        bt.setText(f.children.size() + " subfolders");
       }
     }
     return v;
