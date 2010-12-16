@@ -30,7 +30,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import com.morelightmorelight.upfuckr.util.ObjectSerializer;
+import com.morelightmorelight.upfuckr.util.*;
 
 public class galleries extends ListActivity{
 
@@ -154,110 +154,6 @@ public class galleries extends ListActivity{
       return gr;
   }
   
-  private class GalleryFile extends File implements Serializable {
-    public GalleryFile(FTPFile f){
-      this( f.getName());
-      this.isDirectory = f.isDirectory();
-    }
-    public GalleryFile(String path){
-      super(path);
-      children = new GalleryData();
-    }
-    public GalleryFile(){
-      super(".");
-      this.isDirectory = false;
-      this.children = new GalleryData();
-      Log.i(TAG,"In default constructor");
-    }
-    public String toString(){
-      //return getPath();
-      String sep = "|";
-      String path = getPath();
-      int depth = path.split("/").length;
-      return new String(new char[depth]).replace("\0", sep)+getName();
-    }
-    public GalleryData children;
-    public boolean isDirectory;
-  }
-
-  private class GalleryData extends ArrayList <GalleryFile> {
-    
-
-
-    
-
-  }
-//merging http://commons.apache.org/net/api/org/apache/commons/net/ftp/FTPClient.html
-//and http://vafer.org/blog/20071112204524
-
-
-public class GalleryLister{
-  public FTPClient mFtp;
-  private String sep = "|";
-  private String prefix = "";
-  private String curPath = "/";
-  private String pathSep = "/";
-  public GalleryLister(FTPClient ftp ){
-    mFtp = ftp;
-  }
-  public final GalleryFile traverse(){
-    FTPFile root = new FTPFile();
-    root.setName(".");
-    root.setType(FTPFile.DIRECTORY_TYPE);
-    GalleryFile galleryRoot = new GalleryFile(root);
-    traverse(galleryRoot);
-    return galleryRoot;
-
-  }
-  public final void traverse(GalleryFile f) {
-    //we don't need thumb or web directories
-    String name = f.getName();
-    if (name.equals("thumb") || name.equals("web")){
-      return;
-    }
-    if(f.isDirectory){
-      prefix = prefix.concat(sep);
-      curPath = curPath + name + pathSep;
-
-      onDirectory(f);
-    }
-    onFile(f);
-  }
-  public void onDirectory(final GalleryFile d){
-    String name = d.getName();
-    Log.i(TAG, "Changing wd to " + name);
-    //change to the directory
-    try{
-      mFtp.changeWorkingDirectory(name);
-      final FTPFile[] children = mFtp.listFiles();
-      for(FTPFile child : children){
-        GalleryFile galleryChild = new GalleryFile(child);
-        Log.i(TAG, "adding " + galleryChild.getName());
-        d.children.add(galleryChild );
-        Log.i(TAG,"child list now " + d.children.size());
-
-        traverse(galleryChild);
-      }
-
-    }
-    catch(Exception ex){
-      //TODO handle the exceptions properly
-      Log.i(TAG,ex.toString());
-
-    }
-    //return to parent directory
-    try{
-      Log.i(TAG, "Changing up one level");
-      mFtp.changeToParentDirectory();
-    }
-    catch(Exception ex){
-      //TODO handle the exceptions properly
-    }
-  }
-  public void onFile(final GalleryFile f){
-  }
-}
-
 
 public class GalleryAdapter extends ArrayAdapter<GalleryFile>
 {
@@ -292,4 +188,6 @@ public class GalleryAdapter extends ArrayAdapter<GalleryFile>
 }
 
 
+
 }
+
