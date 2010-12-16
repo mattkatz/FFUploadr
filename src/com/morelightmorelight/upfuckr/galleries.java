@@ -27,7 +27,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.google.gson.Gson;
+import java.lang.reflect.Type;
+import com.google.gson.*;
+
 import com.google.gson.reflect.TypeToken;
 
 import com.morelightmorelight.upfuckr.util.*;
@@ -137,7 +139,10 @@ public class galleries extends ListActivity{
         else
         {
           //great - we can deserialize
-          Gson gson = new Gson();
+          Gson gson = new GsonBuilder()
+            .registerTypeAdapter(GalleryFile.class, new GalleryFileDeserializer())
+            .create();
+          
           try{
             gr = gson.fromJson(grSerial, new TypeToken<GalleryFile>(){}.getType());
           }
@@ -151,9 +156,25 @@ public class galleries extends ListActivity{
           }
         }
       }
+      Log.i(TAG, "Deserialized a gallery file with size: " + gr.children.size());
       return gr;
   }
   
+public class GalleryFileDeserializer implements JsonDeserializer<GalleryFile> {
+  public GalleryFile deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) 
+      throws JsonParseException {
+    JsonObject job = json.getAsJsonObject();
+    String path = job.getAsJsonPrimitive("path").getAsString();
+    Boolean isDirectory = job.getAsJsonPrimitive("isDirectory").getAsBoolean();
+    GalleryData children = context.deserialize(job.get("children"), new TypeToken<GalleryData>(){}.getType()); 
+    GalleryFile gf = new GalleryFile(path);
+    gf.isDirectory = isDirectory;
+    gf.children = children;
+    return gf;
+  
+  }
+
+}
 
 public class GalleryAdapter extends ArrayAdapter<GalleryFile>
 {
