@@ -141,6 +141,7 @@ public class galleries extends ListActivity{
           //great - we can deserialize
           Gson gson = new GsonBuilder()
             .registerTypeAdapter(GalleryFile.class, new GalleryFileDeserializer())
+            .registerTypeAdapter(GalleryData.class, new GalleryDataDeserializer())
             .create();
           
           try{
@@ -166,12 +167,33 @@ public class GalleryFileDeserializer implements JsonDeserializer<GalleryFile> {
     JsonObject job = json.getAsJsonObject();
     String path = job.getAsJsonPrimitive("path").getAsString();
     Boolean isDirectory = job.getAsJsonPrimitive("isDirectory").getAsBoolean();
-    GalleryData children = context.deserialize(job.get("children"), new TypeToken<GalleryData>(){}.getType()); 
+    GalleryData children = new GalleryData();
+    if(job.has("children")){ 
+      //presumably they will be infected with boils ha ha just a little bible humor there.
+      children = context.deserialize(job.get("children"), new TypeToken<GalleryData>(){}.getType()); 
+    }
     GalleryFile gf = new GalleryFile(path);
     gf.isDirectory = isDirectory;
     gf.children = children;
     return gf;
   
+  }
+
+}
+
+public class GalleryDataDeserializer implements JsonDeserializer<GalleryData>{
+  public GalleryData deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+      throws JsonParseException {
+    JsonArray ja = json.getAsJsonArray();
+    GalleryData da = new GalleryData();
+    for(int i = 0; i < ja.size(); i++){
+      JsonElement je = ja.get(i);
+      GalleryFile f = context.deserialize(je, new TypeToken<GalleryFile>(){}.getType());
+      da.add(f);
+    }
+
+    return da;
+
   }
 
 }
