@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-21 19:12:20.428639 Z
 references: []
 
@@ -24,3 +24,7 @@ log_events:
     if yes display that.
     have menuoption to refresh the directory listing
     if no cached directory do a dialog to let user know this will take a while
+- - 2010-12-28 21:48:29.088967 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - you can see a list of galleries

@@ -39,6 +39,7 @@ public class galleries extends ListActivity{
   private SharedPreferences prefs;
   private final String TAG = "galleries";
   private final String GALLERIES = "galleries_json";
+  //This is the data root of your fuckflickr installation
   private GalleryFile gr = null;
   private GalleryAdapter ga = null;
 
@@ -52,7 +53,6 @@ public class galleries extends ListActivity{
       
       //if we don't have the gallery root folder, get it
       if(null == gr){
-        //gr = new GalleryFile();
         gr = getGalleryList();
       }
       //now let's prove that we have deserialized the gr
@@ -61,7 +61,15 @@ public class galleries extends ListActivity{
       
       
   }
-  //Serializes the root folder to json and stores it as a string in the prefs
+
+  /** gets called when anything in the list gets clicked */
+  @Override
+  public void onListItemClick(ListView I, View v, int position, long id){
+    
+
+
+  }
+  /**Serializes the root folder to json and stores it as a string in the prefs*/
   public void storeGalleryList(GalleryFile root){
     Gson gson = new Gson();
     String json = gson.toJson(root);
@@ -72,8 +80,7 @@ public class galleries extends ListActivity{
     editor.commit();
   }
 
-  //gets the gallery list from the server
-  //then caches it
+  /**gets the gallery list from the server then caches it*/
   public GalleryFile refreshGalleryList(){
       //get our shared preferences
       String host = prefs.getString("host","");
@@ -127,6 +134,7 @@ public class galleries extends ListActivity{
 
   }
 
+  /** Attempts to deserialize gallery list or update from server */
   public GalleryFile getGalleryList(){
       //do we have a cached list of galleries?
       String grSerial = "";
