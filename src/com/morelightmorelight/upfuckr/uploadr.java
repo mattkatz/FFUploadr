@@ -44,7 +44,7 @@ public class uploadr extends Activity
   {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.upload);
-      Button cancel = (Button) findViewById(R.id.cancel);
+      Button cancel = (Button) findViewById(R.id.cancel_btn);
       cancel.setOnClickListener(new View.OnClickListener(){
         public void onClick(View view){
           setResult(RESULT_OK);
