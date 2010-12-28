@@ -3,6 +3,7 @@ package com.morelightmorelight.upfuckr;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.os.AsyncTask;
 
 import android.view.View;
 import android.content.Intent;
@@ -26,6 +27,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import android.app.ProgressDialog;
 
 import java.lang.reflect.Type;
 import com.google.gson.*;
@@ -42,6 +44,7 @@ public class galleries extends ListActivity{
   //This is the data root of your fuckflickr installation
   private GalleryFile gr = null;
   private GalleryAdapter ga = null;
+  private ProgressDialog progress = null;
 
   /** Called when the activity is first created. */
   @Override
@@ -52,23 +55,34 @@ public class galleries extends ListActivity{
       prefs = PreferenceManager.getDefaultSharedPreferences(this);
       
       //if we don't have the gallery root folder, get it
-      if(null == gr){
-        gr = getGalleryList();
-      }
+      //if(null == gr){
+        //gr = getGalleryList();
+      //}
       //now let's prove that we have deserialized the gr
       this.ga = new GalleryAdapter(this, R.layout.gallery_row, gr);
       this.setListAdapter( this.ga);
-      
-      
+      Runnable showGalleries = new Runnable(){
+        @Override 
+        public void run() {
+          gr = getGalleryList();
+          displayGallery(gr);
+        }
+      };
+      new Thread(showGalleries).start();
+      progress = ProgressDialog.show(this, "Just a moment", "Getting galleries", true);
   }
+
+  private class UpdateGalleryListTask extends AsyncTask
 
   /** gets called when anything in the list gets clicked */
   @Override
   public void onListItemClick(ListView I, View v, int position, long id){
-    
-
-
+    //TODO:amazing cleverness here
   }
+
+  
+
+
   /**Serializes the root folder to json and stores it as a string in the prefs*/
   public void storeGalleryList(GalleryFile root){
     Gson gson = new Gson();
