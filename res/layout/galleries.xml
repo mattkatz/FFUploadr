@@ -6,7 +6,8 @@
     >
   <Spinner android:id="@+id/current_gallery" 
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
+    android:prompt="@string/current_gallery_prompt"
     />
   <ListView android:id="@+id/android:list"
     android:layout_width="fill_parent" 

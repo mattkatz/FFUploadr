@@ -19,4 +19,5 @@
     <string name="uploading">Currently uploading</string>
     <string name="cancel">Cancel</string>
     <string name="gallery_no_items">No Galleries!  You should refresh the gallery list."</string>
+    <string name="current_gallery_prompt">Pick a folder</string>
 </resources>

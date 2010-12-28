@@ -57,6 +57,7 @@ public class galleries extends ListActivity{
       }
       //now let's prove that we have deserialized the gr
       this.ga = new GalleryAdapter(this, R.layout.gallery_row, gr);
+      this.setListAdapter( this.ga);
       
       
   }
