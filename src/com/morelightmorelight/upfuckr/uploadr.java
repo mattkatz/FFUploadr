@@ -186,10 +186,6 @@ public class uploadr extends Activity
         else { Log.i(TAG,"null URI or type");}
       }
       new UploadTask().execute(l);
-      //upload( l);
-      //status("All done!");
-      //waitALilBit();
-
   }
   private Runnable getOut = new Runnable(){
     public void run(){

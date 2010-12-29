@@ -71,8 +71,32 @@ public class galleries extends ListActivity{
       new Thread(showGalleries).start();
       progress = ProgressDialog.show(this, "Just a moment", "Getting galleries", true);
   }
+  /** Show the gallery designated */
+  public void displayGallery(GalleryFile gallery){
+    ga.clear();
+    for(int i=0; i < gallery.children.size(); i++){
+      ga.add(gallery.children.get(i));
+    }
+    ga.notifyDataSetChanged();
+  }
 
-  private class UpdateGalleryListTask extends AsyncTask
+  private class UpdateGalleryListTask extends AsyncTask<String, String, String>{
+    @Override
+    protected String doInBackground(String... input){
+      return "done";
+      
+
+    }
+
+    protected void onProgressUpdate(String... messages){
+    }
+
+    protected void onPostExecute(String message){
+    }
+
+
+
+  }
 
   /** gets called when anything in the list gets clicked */
   @Override
