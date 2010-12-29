@@ -59,17 +59,25 @@ public class galleries extends ListActivity{
         //gr = getGalleryList();
       //}
       //now let's prove that we have deserialized the gr
-      this.ga = new GalleryAdapter(this, R.layout.gallery_row, gr);
-      this.setListAdapter( this.ga);
       Runnable showGalleries = new Runnable(){
         @Override 
         public void run() {
-          gr = getGalleryList();
-          displayGallery(gr);
+          setUpList();
         }
       };
       new Thread(showGalleries).start();
       progress = ProgressDialog.show(this, "Just a moment", "Getting galleries", true);
+  }
+  /**
+   * Set up the gallery adapter, bind it to the layout
+   * 
+   * @return void
+   */
+  public void setUpList() {
+    
+    gr = getGalleryList();
+    ga = new GalleryAdapter(this, R.layout.gallery_row, gr);
+    runOnUiThread(returnRes);
   }
   /** Show the gallery designated */
   public void displayGallery(GalleryFile gallery){
@@ -79,6 +87,15 @@ public class galleries extends ListActivity{
     }
     ga.notifyDataSetChanged();
   }
+  private Runnable returnRes = new Runnable(){
+    public void run() {
+      setListAdapter(ga);
+      //displayGallery(gr);
+      progress.dismiss();
+      
+    }
+
+  };
 
   private class UpdateGalleryListTask extends AsyncTask<String, String, String>{
     @Override
@@ -102,6 +119,9 @@ public class galleries extends ListActivity{
   @Override
   public void onListItemClick(ListView I, View v, int position, long id){
     //TODO:amazing cleverness here
+    //display the folder
+    GalleryFile clicked = ga.getItem(position);
+    displayGallery(clicked);
   }
 
   
