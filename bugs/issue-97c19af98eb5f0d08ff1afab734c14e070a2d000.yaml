@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: make the breadcrumb match the current directory
+desc: doesn't match properly now.
+type: :bugfix
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2010-12-30 00:53:47.484428 Z
+references: []
+
+id: 97c19af98eb5f0d08ff1afab734c14e070a2d000
+log_events: 
+- - 2010-12-30 00:53:48.997629 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
