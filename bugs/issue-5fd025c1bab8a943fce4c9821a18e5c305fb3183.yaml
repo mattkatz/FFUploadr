@@ -7,7 +7,7 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-12-30 20:42:32.936689 Z
 references: []
@@ -18,3 +18,9 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2010-12-30 20:48:26.231854 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - |-
+    so that we can test the filtering of web and thumb directories
+    /stop[
