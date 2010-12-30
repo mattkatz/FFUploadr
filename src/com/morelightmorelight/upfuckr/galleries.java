@@ -23,6 +23,8 @@ import android.widget.ListView;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AdapterView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -44,6 +46,8 @@ public class galleries extends ListActivity{
   //This is the data root of your fuckflickr installation
   private GalleryFile gr = null;
   private GalleryAdapter ga = null;
+  private GalleryAdapter breadcrumb = null;
+  private Spinner currentGallery = null;
   private ProgressDialog progress = null;
 
   /** Called when the activity is first created. */
@@ -67,6 +71,7 @@ public class galleries extends ListActivity{
       };
       new Thread(showGalleries).start();
       progress = ProgressDialog.show(this, "Just a moment", "Getting galleries", true);
+      
   }
   /**
    * Set up the gallery adapter, bind it to the layout
@@ -75,27 +80,64 @@ public class galleries extends ListActivity{
    */
   public void setUpList() {
     
-    gr = getGalleryList();
-    ga = new GalleryAdapter(this, R.layout.gallery_row, gr);
+    if(null == gr){
+      gr = getGalleryList();
+    }
+    ga = new GalleryAdapter(this, R.layout.gallery_row, new GalleryData());
+    breadcrumb = new GalleryAdapter(this, R.layout.gallery_row,new GalleryData() );
     runOnUiThread(returnRes);
   }
   /** Show the gallery designated */
   public void displayGallery(GalleryFile gallery){
+    
     ga.clear();
     for(int i=0; i < gallery.children.size(); i++){
       ga.add(gallery.children.get(i));
     }
     ga.notifyDataSetChanged();
+    int index = breadcrumb.getPosition(gallery);
+    Log.i(TAG, "index is " + index);
+    if(index >= 0){
+      for(int i = breadcrumb.getCount() - 1;  i > index; i--){
+        GalleryFile g = breadcrumb.getItem(i);
+        Log.i(TAG, g.getName());
+        breadcrumb.remove(breadcrumb.getItem(i));
+      }
+    }
+    else{
+      breadcrumb.add(gallery);
+    }
+    //currentGallery.setSelection(breadcrumb.getCount() -1);
   }
   private Runnable returnRes = new Runnable(){
     public void run() {
       setListAdapter(ga);
-      //displayGallery(gr);
+      currentGallery = (Spinner) findViewById(R.id.current_gallery);
+      breadcrumb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+      currentGallery.setAdapter(breadcrumb);
+      currentGallery.setOnItemSelectedListener(new breadcrumbSelection());
       progress.dismiss();
-      
+      displayGallery(gr);
     }
 
   };
+  /**
+   * class MyOnItemSelected
+   * handles clicks for the spinner
+   */
+  private class breadcrumbSelection implements OnItemSelectedListener {
+    public void onItemSelected(AdapterView<?> parent,
+                View view, int pos, long id) {
+      GalleryFile selected = (GalleryFile) parent.getItemAtPosition(pos);
+      displayGallery(selected);
+    }
+    public void onNothingSelected(AdapterView parent) {
+            // Do nothing.
+    }
+  
+  
+  
+  }
 
   private class UpdateGalleryListTask extends AsyncTask<String, String, String>{
     @Override
@@ -118,10 +160,8 @@ public class galleries extends ListActivity{
   /** gets called when anything in the list gets clicked */
   @Override
   public void onListItemClick(ListView I, View v, int position, long id){
-    //TODO:amazing cleverness here
     //display the folder
-    GalleryFile clicked = ga.getItem(position);
-    displayGallery(clicked);
+    displayGallery(ga.getItem(position));
   }
 
   
@@ -168,20 +208,14 @@ public class galleries extends ListActivity{
         Log.i(TAG,"we logged in");
 
         
+        //now to walk the directory tree
         ftp.changeWorkingDirectory(path);
         GalleryLister gl = new GalleryLister(ftp);
-        FTPFile root = new FTPFile();
-        root.setName(path);
-        root.setType(FTPFile.DIRECTORY_TYPE);
-        GalleryFile galleryRoot = new GalleryFile(root);
-        Log.i(TAG, root.getName());
+        GalleryFile galleryRoot = new GalleryFile(path);
+        galleryRoot.isDirectory = true;
         gl.traverse(galleryRoot);
         ftp.disconnect();
         storeGalleryList(galleryRoot);
-        //Log.i(TAG, "serialized galleries");
-        //Log.i(TAG, "Proving it");
-        //Log.i(TAG, prefs.getString(GALLERIES,""));
-        //Log.i(TAG, "proved it");
         return galleryRoot;
       }
       catch(Exception ex){
@@ -267,11 +301,15 @@ public class GalleryDataDeserializer implements JsonDeserializer<GalleryData>{
 
 public class GalleryAdapter extends ArrayAdapter<GalleryFile>
 {
-  private GalleryFile current;
+  private GalleryData current;
   public GalleryAdapter(Context context, int textViewResourceId, GalleryFile gf){
     super(context, textViewResourceId, gf.children);
-    this.current = gf;
+    this.current = gf.children;
     
+  }
+  public GalleryAdapter(Context context, int textViewResourceId, GalleryData gd){
+    super(context, textViewResourceId, gd);
+    this.current = gd;
   }
 
   @Override
@@ -281,7 +319,8 @@ public class GalleryAdapter extends ArrayAdapter<GalleryFile>
       LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
       v = vi.inflate(R.layout.gallery_row, null);
     }
-    GalleryFile f = current.children.get(position);
+    //GalleryFile f = current.get(position);
+    GalleryFile f = getItem(position);
     if(f !=null){
       TextView tt = (TextView) v.findViewById(R.id.toptext);
       TextView bt = (TextView) v.findViewById(R.id.bottomtext);
