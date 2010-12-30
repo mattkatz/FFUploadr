@@ -25,16 +25,15 @@ public class GalleryLister{
   public final void traverse(GalleryFile f) {
     //we don't need thumb or web directories
     String name = f.getName();
-    if (name.equals("thumb") || name.equals("web")){
-      return;
-    }
     if(f.isDirectory){
       prefix = prefix.concat(sep);
       curPath = curPath + name + pathSep;
 
       onDirectory(f);
     }
-    onFile(f);
+    else{
+      onFile(f);
+    }
   }
   public void onDirectory(final GalleryFile d){
     String name = d.getName();
@@ -44,6 +43,10 @@ public class GalleryLister{
       mFtp.changeWorkingDirectory(name);
       final FTPFile[] children = mFtp.listFiles();
       for(FTPFile child : children){
+        String childName = child.getName();
+        if (childName.equals("thumb") || childName.equals("web")){
+          continue;
+        }
         GalleryFile galleryChild = new GalleryFile(child);
         Log.i(TAG, "adding " + galleryChild.getName());
         d.children.add(galleryChild );
