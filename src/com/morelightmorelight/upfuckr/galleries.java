@@ -45,9 +45,10 @@ public class galleries extends ListActivity{
   private final String GALLERIES = "galleries_json";
   //This is the data root of your fuckflickr installation
   private GalleryFile gr = null;
+  private GalleryFile currentGallery = null;
   private GalleryAdapter ga = null;
   private GalleryAdapter breadcrumb = null;
-  private Spinner currentGallery = null;
+  private Spinner gallerySpinner = null;
   private ProgressDialog progress = null;
 
   /** Called when the activity is first created. */
@@ -89,6 +90,9 @@ public class galleries extends ListActivity{
   }
   /** Show the gallery designated */
   public void displayGallery(GalleryFile gallery){
+    if(gallery == currentGallery){
+      return;
+    }
     
     ga.clear();
     for(int i=0; i < gallery.children.size(); i++){
@@ -107,22 +111,22 @@ public class galleries extends ListActivity{
     else{
       breadcrumb.add(gallery);
     }
-    //currentGallery.setSelection(breadcrumb.getCount() -1);
+    currentGallery = gallery;
+    gallerySpinner.setSelection(breadcrumb.getCount() -1);
   }
   private Runnable returnRes = new Runnable(){
     public void run() {
       setListAdapter(ga);
-      currentGallery = (Spinner) findViewById(R.id.current_gallery);
+      gallerySpinner = (Spinner) findViewById(R.id.current_gallery);
       breadcrumb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-      currentGallery.setAdapter(breadcrumb);
-      currentGallery.setOnItemSelectedListener(new breadcrumbSelection());
+      gallerySpinner.setAdapter(breadcrumb);
+      gallerySpinner.setOnItemSelectedListener(new breadcrumbSelection());
       progress.dismiss();
       displayGallery(gr);
     }
 
   };
   /**
-   * class MyOnItemSelected
    * handles clicks for the spinner
    */
   private class breadcrumbSelection implements OnItemSelectedListener {
