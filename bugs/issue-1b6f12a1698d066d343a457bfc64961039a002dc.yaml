@@ -5,7 +5,7 @@ type: :bugfix
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
+status: :in_progress
 disposition: 
 creation_time: 2010-12-28 20:47:55.594021 Z
 references: []
@@ -15,4 +15,8 @@ log_events:
 - - 2010-12-28 20:47:57.429828 Z
   - Matt Katz <mattkatz@ubuntu>
   - created
+  - ""
+- - 2010-12-30 20:11:45.715696 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
   - ""
