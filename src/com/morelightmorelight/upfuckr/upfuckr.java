@@ -98,7 +98,7 @@ public class upfuckr extends Activity
   {
     super.onCreateOptionsMenu(menu);
     menu.add(0,ADD_ID,0,R.string.add_site);
-    menu.add(0,GALLERIES,0,"Galleries");
+    menu.add(0,GALLERIES,0,R.string.galleries);
     return true;
   }
 

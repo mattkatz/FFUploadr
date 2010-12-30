@@ -28,6 +28,8 @@ import android.widget.AdapterView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import android.app.ProgressDialog;
 
@@ -43,6 +45,7 @@ public class galleries extends ListActivity{
   private SharedPreferences prefs;
   private final String TAG = "galleries";
   private final String GALLERIES = "galleries_json";
+  private final int REFRESH_GALLERIES = Menu.FIRST;
   //This is the data root of your fuckflickr installation
   private GalleryFile gr = null;
   private GalleryFile currentGallery = null;
@@ -58,21 +61,47 @@ public class galleries extends ListActivity{
       super.onCreate(savedInstanceState);
       setContentView(R.layout.galleries);
       prefs = PreferenceManager.getDefaultSharedPreferences(this);
-      
-      //if we don't have the gallery root folder, get it
-      //if(null == gr){
-        //gr = getGalleryList();
-      //}
-      //now let's prove that we have deserialized the gr
-      Runnable showGalleries = new Runnable(){
-        @Override 
-        public void run() {
-          setUpList();
-        }
-      };
-      new Thread(showGalleries).start();
-      progress = ProgressDialog.show(this, "Just a moment", "Getting galleries", true);
-      
+      prepareGalleryUI();
+  }
+  /**
+   * Begins async gallery refresh
+   * 
+   * @return void
+   */
+  public void prepareGalleryUI() {
+    Runnable showGalleries = new Runnable(){
+      @Override 
+      public void run() {
+        setUpList();
+      }
+    };
+    new Thread(showGalleries).start();
+    progress = ProgressDialog.show(this, "Just a moment", "Getting galleries", true);
+  }
+  /**
+   * Set up options menus
+   */
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu)
+  {
+    super.onCreateOptionsMenu(menu);
+    menu.add(0,REFRESH_GALLERIES,0,R.string.refresh_galleries);
+    return true;
+  }
+
+  @Override
+  public boolean onMenuItemSelected(int featureId, MenuItem item)
+  {
+    switch(item.getItemId()){
+      case REFRESH_GALLERIES:
+        Editor editor = prefs.edit();
+        editor.remove(GALLERIES);
+        editor.commit();
+        gr = null;
+        prepareGalleryUI();
+        return true;
+    }
+    return super.onMenuItemSelected(featureId,item);
   }
   /**
    * Set up the gallery adapter, bind it to the layout
@@ -224,6 +253,7 @@ public class galleries extends ListActivity{
       }
       catch(Exception ex){
         //TODO: handle handle handle
+            ex.printStackTrace();
       }
       //TODO: handle this better
       return null;
