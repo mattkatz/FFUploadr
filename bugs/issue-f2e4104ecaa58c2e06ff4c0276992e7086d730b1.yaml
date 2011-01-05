@@ -7,8 +7,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-30 19:34:08.547528 Z
 references: []
 
@@ -22,3 +22,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - ""
+- - 2011-01-05 01:01:31.487807 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - I feel like this should be an asynctask instead of this runnable thread bidness.
