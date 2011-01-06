@@ -61,7 +61,24 @@ public class galleries extends ListActivity{
       super.onCreate(savedInstanceState);
       setContentView(R.layout.galleries);
       prefs = PreferenceManager.getDefaultSharedPreferences(this);
-      prepareGalleryUI();
+  }
+  /**
+   * Gets called when we start
+   * 
+   * @return void
+   */
+  public void onStart() {
+    super.onStart();
+    prepareGalleryUI();
+  }
+  /**
+   * When we resume back in
+   * 
+   * @return void
+   */
+  public void onResume() {
+    super.onStart();
+    prepareGalleryUI();
   }
   /**
    * Begins async gallery refresh

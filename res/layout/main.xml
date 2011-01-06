@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-	<Button android:id="@+id/upload_btn" 
+	<Button android:id="@+id/upload" 
 	  android:text="@string/upload"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" />

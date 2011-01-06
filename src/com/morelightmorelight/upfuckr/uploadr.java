@@ -65,6 +65,84 @@ public class uploadr extends Activity
       checkAndUpload();
   }
 
+  private void checkAndUpload(){
+      Intent i = getIntent();
+      String action = i.getAction();
+      if(null != action){
+        Log.i(TAG,action);
+      }
+      else{
+        Log.i(TAG,"no action?!");
+      }
+      
+
+      ArrayList l = null;
+      String type = i.getType();
+      if (Intent.ACTION_SEND_MULTIPLE.equals(action))
+      {
+        Log.i(TAG, "we have action send multiple!");
+        l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+      }
+      else{
+        Log.i(TAG, "we have action send!");
+        Uri stream = (Uri) i.getParcelableExtra(Intent.EXTRA_STREAM);
+        if(null == stream){
+          stream = (Uri) i.getData();
+        }
+        Log.i(TAG, "stream: " + stream);
+        if ( stream != null /*&& type != null*/ )
+        {
+          l = new ArrayList<Uri>();
+          l.add(stream);
+        }
+        else { Log.i(TAG,"null URI or type");}
+      }
+      new UploadTask().execute(l);
+  }
+  private Runnable getOut = new Runnable(){
+    public void run(){
+      finish();
+    }
+  };
+  private void waitALilBit(){
+    Handler h = new Handler();
+    h.postDelayed(getOut, FINISH_PAUSE);
+  }
+  private void status(String message){
+    TextView t = (TextView) findViewById(R.id.uploading);
+    t.setText("Uploading \n" + message);
+  }
+
+  public void setBackground(String filePath){
+    //ImageView img = (ImageView) findViewById(R.id.img);
+    //img.setImageURI(uri);
+    Log.i(TAG, filePath);
+    Drawable d = Drawable.createFromPath(filePath);
+    findViewById(R.id.uploading).setBackgroundDrawable(d);
+  }
+
+
+
+  // And to convert the image URI to the direct file system path of the image file
+  public String getRealPathFromURI(Uri contentUri) {
+    Log.i(TAG, "uri: " + contentUri);
+    // can post image
+    String [] proj={MediaStore.Images.Media.DATA};
+    Cursor cursor = managedQuery( contentUri,
+        proj, // Which columns to return
+        null,       // WHERE clause; which rows to return (all rows)
+        null,       // WHERE clause selection arguments (none)
+        null); // Order-by clause (ascending by name)
+    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    cursor.moveToFirst();
+    String path = cursor.getString(column_index); 
+    Log.i(TAG,"path: " + path);
+    return path;
+  }
+
+  /**
+   * this handles all the async business of logging in, uploading the images, etc.
+   */
   public class UploadTask extends AsyncTask<ArrayList, String, String>{
 
     @Override
@@ -152,79 +230,5 @@ public class uploadr extends Activity
 
     }
 
-  }
-  private void checkAndUpload(){
-      Intent i = getIntent();
-      String action = i.getAction();
-      if(null != action){
-        Log.i(TAG,action);
-      }
-      else{
-        Log.i(TAG,"no action?!");
-      }
-      
-
-      ArrayList l = null;
-      String type = i.getType();
-      if (Intent.ACTION_SEND_MULTIPLE.equals(action))
-      {
-        Log.i(TAG, "we have action send multiple!");
-        l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-      }
-      else{
-        Log.i(TAG, "we have action send!");
-        Uri stream = (Uri) i.getParcelableExtra(Intent.EXTRA_STREAM);
-        if(null == stream){
-          stream = (Uri) i.getData();
-        }
-        Log.i(TAG, "stream: " + stream);
-        if ( stream != null /*&& type != null*/ )
-        {
-          l = new ArrayList<Uri>();
-          l.add(stream);
-        }
-        else { Log.i(TAG,"null URI or type");}
-      }
-      new UploadTask().execute(l);
-  }
-  private Runnable getOut = new Runnable(){
-    public void run(){
-      finish();
-    }
-  };
-  private void waitALilBit(){
-    Handler h = new Handler();
-    h.postDelayed(getOut, FINISH_PAUSE);
-  }
-  private void status(String message){
-    TextView t = (TextView) findViewById(R.id.uploading);
-    t.setText("Uploading \n" + message);
-  }
-
-  public void setBackground(String filePath){
-    //ImageView img = (ImageView) findViewById(R.id.img);
-    //img.setImageURI(uri);
-    Log.i(TAG, filePath);
-    Drawable d = Drawable.createFromPath(filePath);
-    findViewById(R.id.uploading).setBackgroundDrawable(d);
-  }
-
-
-
-  // And to convert the image URI to the direct file system path of the image file
-  public String getRealPathFromURI(Uri contentUri) {
-    Log.i(TAG, "uri: " + contentUri);
-    // can post image
-    String [] proj={MediaStore.Images.Media.DATA};
-    Cursor cursor = managedQuery( contentUri,
-        proj, // Which columns to return
-        null,       // WHERE clause; which rows to return (all rows)
-        null,       // WHERE clause selection arguments (none)
-        null); // Order-by clause (ascending by name)
-    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-    cursor.moveToFirst();
-    String path = cursor.getString(column_index); 
-    Log.i(TAG,"path: " + path);
-    return path;
   }
 }
