@@ -78,7 +78,8 @@ public class galleries extends ListActivity{
    */
   public void onResume() {
     super.onStart();
-    prepareGalleryUI();
+    //we don't want to prepareGalleryUI here, it's too heavy. 
+    //plus it gets called twice that way!
   }
   /**
    * Begins async gallery refresh
