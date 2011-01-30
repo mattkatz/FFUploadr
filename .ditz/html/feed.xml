@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="./" rel="self" type="application/rss+xml" />
+    <title>Latest ditz updates for upfuckr</title>
+    <link>index.html</link>
+    <description>Latest updates to the distributed issue tracker for upfuckr</description>
+    <language>en-us</language>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Reduce the startup speed for gallery list</title> 
+      <link>issue-5c6cdc947a3a6414172244d3fac8098134c8dd6d.html</link>
+      <description></description>
+      <pubDate>2011-01-26</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Choose a gallery to put a picture into</title> 
+      <link>issue-520eb622fb7a06ecdf3de6b17a56e99397f4f477.html</link>
+      <description></description>
+      <pubDate>2011-01-06</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Make a button to force resync of galleries</title> 
+      <link>issue-5fd025c1bab8a943fce4c9821a18e5c305fb3183.html</link>
+      <description></description>
+      <pubDate>2011-01-05</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Don't show web or thumb directories</title> 
+      <link>issue-1b6f12a1698d066d343a457bfc64961039a002dc.html</link>
+      <description></description>
+      <pubDate>2011-01-05</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Make the gallery load async</title> 
+      <link>issue-f2e4104ecaa58c2e06ff4c0276992e7086d730b1.html</link>
+      <description>I feel like this should be an asynctask instead of this runnable thread bidness.</description>
+      <pubDate>2011-01-05</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Uploads should be background notifications</title> 
+      <link>issue-fe37d12f73fb58b5a94a9919b12ed6894faceb74.html</link>
+      <description></description>
+      <pubDate>2011-01-05</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Make a button to force resync of galleries</title> 
+      <link>issue-5fd025c1bab8a943fce4c9821a18e5c305fb3183.html</link>
+      <description>so that we can test the filtering of web and thumb directories
+/stop[</description>
+      <pubDate>2010-12-30</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Make a button to force resync of galleries</title> 
+      <link>issue-5fd025c1bab8a943fce4c9821a18e5c305fb3183.html</link>
+      <description></description>
+      <pubDate>2010-12-30</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Don't show web or thumb directories</title> 
+      <link>issue-1b6f12a1698d066d343a457bfc64961039a002dc.html</link>
+      <description></description>
+      <pubDate>2010-12-30</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed make the breadcrumb match the current directory</title> 
+      <link>issue-97c19af98eb5f0d08ff1afab734c14e070a2d000.html</link>
+      <description></description>
+      <pubDate>2010-12-30</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created make the breadcrumb match the current directory</title> 
+      <link>issue-97c19af98eb5f0d08ff1afab734c14e070a2d000.html</link>
+      <description></description>
+      <pubDate>2010-12-30</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Make the gallery load async</title> 
+      <link>issue-f2e4104ecaa58c2e06ff4c0276992e7086d730b1.html</link>
+      <description></description>
+      <pubDate>2010-12-28</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Display list of galleries for user to put photos into</title> 
+      <link>issue-7d0f4655a0b1b1b645f8feeef29cb14f90bc6881.html</link>
+      <description>you can see a list of galleries</description>
+      <pubDate>2010-12-28</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Don't show web or thumb directories</title> 
+      <link>issue-1b6f12a1698d066d343a457bfc64961039a002dc.html</link>
+      <description></description>
+      <pubDate>2010-12-28</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Create GalleryList from Cached data</title> 
+      <link>issue-72f9c755fce85973ded03a4fd44daccc7a0bceac.html</link>
+      <description>deserialized!</description>
+      <pubDate>2010-12-28</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Create GalleryList from Cached data</title> 
+      <link>issue-72f9c755fce85973ded03a4fd44daccc7a0bceac.html</link>
+      <description>need to do this</description>
+      <pubDate>2010-12-09</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Create GalleryList from Cached data</title> 
+      <link>issue-72f9c755fce85973ded03a4fd44daccc7a0bceac.html</link>
+      <description></description>
+      <pubDate>2010-12-09</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Display list of galleries for user to put photos into</title> 
+      <link>issue-7d0f4655a0b1b1b645f8feeef29cb14f90bc6881.html</link>
+      <description>check to see if we have a cached directory listing
+if yes display that.
+have menuoption to refresh the directory listing
+if no cached directory do a dialog to let user know this will take a while</description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed handle multiple picture picking</title> 
+      <link>issue-c48c051daa772142d73f8fa6890f45a3c3b458c6.html</link>
+      <description>well that was done a long time ago actually</description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Cache list of galleries</title> 
+      <link>issue-bfbbf01ce3f1cc44389b5185da291b70b18b964b.html</link>
+      <description>caching works - now as a json tree!</description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed cache gallery listing</title> 
+      <link>issue-4a543c26f07fd5ddd810900b46826780ed7d8e5c.html</link>
+      <description>proved it</description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Cache list of galleries</title> 
+      <link>issue-bfbbf01ce3f1cc44389b5185da291b70b18b964b.html</link>
+      <description>let's get the json to next</description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed get list of galleries</title> 
+      <link>issue-a1ab2d19671679a59d13412403ef4bd9b065db6a.html</link>
+      <description></description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Cache list of galleries</title> 
+      <link>issue-bfbbf01ce3f1cc44389b5185da291b70b18b964b.html</link>
+      <description></description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition wontfix Screenshots for release 0.1</title> 
+      <link>issue-a75cd6deb1ceb12163756b3b4746acba802be9f9.html</link>
+      <description></description>
+      <pubDate>2010-12-08</pubDate>
+    </item>
+  
+  </channel>
+</rss>
