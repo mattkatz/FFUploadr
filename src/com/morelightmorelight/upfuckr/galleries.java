@@ -77,7 +77,7 @@ public class galleries extends ListActivity{
    * @return void
    */
   public void onResume() {
-    super.onStart();
+    super.onResume();
     //we don't want to prepareGalleryUI here, it's too heavy. 
     //plus it gets called twice that way!
   }
@@ -185,9 +185,6 @@ public class galleries extends ListActivity{
     public void onNothingSelected(AdapterView parent) {
             // Do nothing.
     }
-  
-  
-  
   }
 
   private class UpdateGalleryListTask extends AsyncTask<String, String, String>{
