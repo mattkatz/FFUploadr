@@ -80,6 +80,34 @@ public class galleries extends ListActivity{
     super.onResume();
     //we don't want to prepareGalleryUI here, it's too heavy. 
     //plus it gets called twice that way!
+    checkIntent();
+
+  }
+  /**
+   * Checks the intent and then calls sets appropriate selection callback
+   * 
+   * @return void
+   */
+  private void checkIntent() {
+
+      Intent i = getIntent();
+      String action = i.getAction();
+      if(null != action){
+        Log.i(TAG,action);
+      }
+      else{
+        Log.i(TAG,"no action?!");
+      }
+      
+
+      ArrayList l = null;
+      String type = i.getType();
+      if (Intent.ACTION_SEND_MULTIPLE.equals(action) 
+          || Intent.ACTION_SEND.equals(action))
+      {
+        //set the correct callback
+        Log.i(TAG, "ok");
+      }
   }
   /**
    * Begins async gallery refresh
@@ -371,8 +399,8 @@ public class GalleryAdapter extends ArrayAdapter<GalleryFile>
     //GalleryFile f = current.get(position);
     GalleryFile f = getItem(position);
     if(f !=null){
-      TextView tt = (TextView) v.findViewById(R.id.toptext);
-      TextView bt = (TextView) v.findViewById(R.id.bottomtext);
+      TextView tt = (TextView) v.findViewById(R.id.longname);
+      TextView bt = (TextView) v.findViewById(R.id.subfolders);
       if(tt != null){
         tt.setText(f.getName());
       }
