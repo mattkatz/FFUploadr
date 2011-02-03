@@ -404,7 +404,7 @@ public class GalleryAdapter extends ArrayAdapter<GalleryFile>
       if(tt != null){
         tt.setText(f.getName());
       }
-      if(bt != null){
+      if(bt != null && f.children.size() > 0){
         bt.setText(f.children.size() + " subfolders");
       }
     }
