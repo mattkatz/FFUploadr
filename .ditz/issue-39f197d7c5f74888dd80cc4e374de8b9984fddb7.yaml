@@ -37,3 +37,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2011-02-10 03:00:12.874464 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - commented
+  - looks like this happens when we have no network connection.  we should check this and gracefully suggest that we need a network to transport these files on.

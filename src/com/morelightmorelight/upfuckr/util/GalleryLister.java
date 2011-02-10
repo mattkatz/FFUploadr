@@ -44,7 +44,7 @@ public class GalleryLister{
       final FTPFile[] children = mFtp.listFiles();
       for(FTPFile child : children){
         String childName = child.getName();
-        if (childName.equals("thumb") || childName.equals("web")){
+        if (childName.equals("thumb") || childName.equals("info.yml") || childName.equals("web")){
           continue;
         }
         GalleryFile galleryChild = new GalleryFile(child);
