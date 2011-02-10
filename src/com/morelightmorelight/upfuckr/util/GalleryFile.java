@@ -20,6 +20,18 @@ public class GalleryFile extends File implements Serializable {
     this.children = new GalleryData();
     Log.i(TAG,"In default constructor");
   }
+
+  public GalleryData folders(){
+    int limit = children.size();
+    GalleryData ret = new GalleryData();
+    for (int i = 0; i < limit; i ++){
+      GalleryFile f = children.get(i);
+      if(f.isDirectory){
+        ret.add(f);
+      }
+    }
+    return ret;
+  }
   public String toString(){
     //return getPath();
     String sep = "|";

@@ -405,7 +405,20 @@ public class GalleryAdapter extends ArrayAdapter<GalleryFile>
         tt.setText(f.getName());
       }
       if(bt != null && f.children.size() > 0){
-        bt.setText(f.children.size() + " subfolders");
+        int folders = f.folders().size();
+        int pics = f.children.size() - folders;
+        String mesg = "";
+
+        if(folders > 0){
+          mesg = folders + " folders";
+          if (pics > 0) {
+            mesg += ", ";
+          }
+        }
+        if(pics > 0){
+          mesg += pics + " pics";
+        }
+        bt.setText(mesg);
       }
     }
     return v;
