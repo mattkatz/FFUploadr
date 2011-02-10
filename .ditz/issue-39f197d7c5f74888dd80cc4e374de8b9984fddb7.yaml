@@ -1,0 +1,39 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: handle UnknownHostException gracefully
+desc: |-
+  I/galleries(  359): about to ftp to morelightmorelight.com
+  W/System.err(  359): java.net.UnknownHostException: Host is unresolved: morelightmorelight.com:21
+  W/System.err(  359): at java.net.Socket.connect(Socket.java:1038)
+  W/System.err(  359): at org.apache.commons.net.SocketClient.connect(SocketClient.java:176)
+  W/System.err(  359): at org.apache.commons.net.SocketClient.connect(SocketClient.java:268)
+  W/System.err(  359): at com.morelightmorelight.upfuckr.galleries.refreshGalleryList(galleries.java:268)
+  W/System.err(  359): at com.morelightmorelight.upfuckr.galleries.getGalleryList(galleries.java:315)
+  W/System.err(  359): at com.morelightmorelight.upfuckr.galleries.setUpList(galleries.java:160)
+  W/System.err(  359): at com.morelightmorelight.upfuckr.galleries$1.run(galleries.java:121)
+  W/System.err(  359): at java.lang.Thread.run(Thread.java:1096)
+  W/dalvikvm(  359): threadid=7: thread exiting with uncaught exception (group=0x4001d800)
+  E/AndroidRuntime(  359): FATAL EXCEPTION: Thread-9
+  E/AndroidRuntime(  359): java.lang.NullPointerException
+  E/AndroidRuntime(  359): at com.morelightmorelight.upfuckr.galleries.getGalleryList(galleries.java:338)
+  E/AndroidRuntime(  359): at com.morelightmorelight.upfuckr.galleries.setUpList(galleries.java:160)
+  E/AndroidRuntime(  359): at com.morelightmorelight.upfuckr.galleries$1.run(galleries.java:121)
+  E/AndroidRuntime(  359): at java.lang.Thread.run(Thread.java:1096)
+  W/ActivityManager(   60):   Force finishing activity com.morelightmorelight.upfuckr/.galleries
+  
+  occured when refreshing galleries 
+  wasn't in the main directory...
+type: :bugfix
+component: upfuckr
+release: 
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-02-10 02:52:07.862678 Z
+references: []
+
+id: 39f197d7c5f74888dd80cc4e374de8b9984fddb7
+log_events: 
+- - 2011-02-10 02:52:07.863282 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
