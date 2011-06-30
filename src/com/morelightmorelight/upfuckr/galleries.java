@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Button;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.AdapterView;
 import android.view.LayoutInflater;
@@ -106,7 +107,21 @@ public class galleries extends ListActivity{
           || Intent.ACTION_SEND.equals(action))
       {
         //set the correct callback
-        Log.i(TAG, "ok");
+        Log.i(TAG, "setting callback");
+        Button uploadDone = (Button) findViewById(R.id.done_upload_btn);
+        uploadDone.setOnClickListener(new View.OnClickListener(){
+          public void onClick(View view){
+            setResult(RESULT_OK);
+            //UPLOAD ALL THE IMAGES YOU GOT
+            Log.i(TAG,"I SHOULD BE UPLOADING IMAGES!");
+            Log.i(TAG,"The current gallery is " + currentGallery.getPath());
+            //Intent intent = new Intent(this, uploadr.class);
+            //intent.setData(i.getData());
+            //intent.putExtra("PATH_EXTENSION",current_gallery.
+            
+          }
+        });
+
       }
   }
   /**
@@ -160,7 +175,9 @@ public class galleries extends ListActivity{
       gr = getGalleryList();
     }
     ga = new GalleryAdapter(this, R.layout.gallery_row, new GalleryData());
-    breadcrumb = new GalleryAdapter(this, R.layout.gallery_row,new GalleryData() );
+    
+    breadcrumb = new GalleryAdapter(this, android.R.layout.simple_spinner_dropdown_item,new GalleryData() );
+    //breadcrumb = new GalleryAdapter(this, R.layout.gallery_row,new GalleryData() );
     runOnUiThread(returnRes);
   }
   /** Show the gallery designated */
@@ -224,6 +241,8 @@ public class galleries extends ListActivity{
     }
 
     protected void onProgressUpdate(String... messages){
+      progress.setMessage(messages[0]);
+
     }
 
     protected void onPostExecute(String message){
@@ -266,11 +285,14 @@ public class galleries extends ListActivity{
       FTPClient ftp = new FTPClient();
       try{
         ftp.connect(host);
-        ftp.enterLocalPassiveMode();
         Log.i(TAG,"we connected");
+        ftp.enterLocalPassiveMode();
+        Log.v(TAG,"passive!");
         if(!ftp.login(user,pass)){
           ftp.logout();
           //TODO: alert user it didn't happen
+          Log.v(TAG, "couldn't log in");
+          return null;
         }
         String replyStatus = ftp.getStatus();
         Log.i(TAG,replyStatus);
@@ -285,7 +307,10 @@ public class galleries extends ListActivity{
 
         
         //now to walk the directory tree
-        ftp.changeWorkingDirectory(path);
+        if(ftp.changeWorkingDirectory(path)){
+          Log.i(TAG, "changed to " + path);
+        }
+        
         GalleryLister gl = new GalleryLister(ftp);
         GalleryFile galleryRoot = new GalleryFile(path);
         galleryRoot.isDirectory = true;
