@@ -1,0 +1,22 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: onResume supers to onstart
+desc: wrong
+type: :bugfix
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :closed
+disposition: :fixed
+creation_time: 2011-02-03 00:00:47.579301 Z
+references: []
+
+id: 59d6ed4cbe3d99ac74eb4ee279fa89d04bf430de
+log_events: 
+- - 2011-02-03 00:00:47.579673 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2011-02-03 00:04:18.360081 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - ""

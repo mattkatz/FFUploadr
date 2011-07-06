@@ -1,0 +1,20 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Uploads should be background notifications
+desc: |-
+  uploading shouldn't block at all.  Just pop up a little notification and return the user back to the interface.  
+  Maybe put a little toast up saying uploading is happening.  Change the notification in the top bar to let peeps know when it is all done.
+type: :feature
+component: upfuckr
+release: 
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-01-05 00:59:06.340820 Z
+references: []
+
+id: fe37d12f73fb58b5a94a9919b12ed6894faceb74
+log_events: 
+- - 2011-01-05 00:59:15.527780 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

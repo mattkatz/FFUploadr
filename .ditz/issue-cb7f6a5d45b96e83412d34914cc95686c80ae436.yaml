@@ -1,0 +1,21 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: "crash when you hit back from config "
+desc: |-
+  launch the config from the main screen
+  hit back
+  kaboom
+type: :bugfix
+component: upfuckr
+release: 
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-04-21 00:07:35.371043 Z
+references: []
+
+id: cb7f6a5d45b96e83412d34914cc95686c80ae436
+log_events: 
+- - 2011-04-21 00:07:35.371533 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

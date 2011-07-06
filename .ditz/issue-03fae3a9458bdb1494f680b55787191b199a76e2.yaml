@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Add a link from home screen to home page
+desc: should put in a link to the upfuckr site and mine.
+type: :task
+component: upfuckr
+release: "0.3"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-02-02 23:52:36.675375 Z
+references: []
+
+id: 03fae3a9458bdb1494f680b55787191b199a76e2
+log_events: 
+- - 2011-02-02 23:52:36.675911 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

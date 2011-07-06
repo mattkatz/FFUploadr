@@ -1,0 +1,28 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Make the gallery load async
+desc: |-
+  we should see them populate
+  when the user chooses one in the middle of it all, gracefully cancel out and quit.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :closed
+disposition: :fixed
+creation_time: 2010-08-30 19:34:08.547528 Z
+references: []
+
+id: f2e4104ecaa58c2e06ff4c0276992e7086d730b1
+log_events: 
+- - 2010-08-30 19:34:10.030549 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2010-12-28 21:57:51.282260 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - ""
+- - 2011-01-05 01:01:31.487807 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - I feel like this should be an asynctask instead of this runnable thread bidness.

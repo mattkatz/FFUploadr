@@ -1,0 +1,30 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: cache gallery listing
+desc: shouldn't have to traverse the install to choose where to upload
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :closed
+disposition: :fixed
+creation_time: 2010-08-30 19:29:55.078532 Z
+references: []
+
+id: 4a543c26f07fd5ddd810900b46826780ed7d8e5c
+log_events: 
+- - 2010-08-30 19:29:56.858470 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2010-09-22 13:21:12.084595 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - presumably we can just store this in a preference
+- - 2010-10-04 14:22:01.236015 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - commented
+  - gson might work but is having problems...
+- - 2010-12-08 05:09:52.097742 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - proved it

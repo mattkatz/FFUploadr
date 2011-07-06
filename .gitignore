@@ -5,3 +5,5 @@
 /gen/*
 /bin
 /bin/*
+.ditz-config
+*.vim

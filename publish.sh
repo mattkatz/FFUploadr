@@ -1,11 +1,14 @@
 #!/bin/bash
-pushd bugs
+curbranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+pushd .ditz
 ditz html
 popd
-git commit bugs -m "auto committing ditz html files"
+git add .ditz
+git commit .ditz -m "auto committing ditz html files"
 git checkout gh-pages
-git checkout master bugs/html
-git commit bugs -m "auto committing ditz html files"
+git checkout $curbranch .ditz/html
+git add .ditz
+git commit .ditz -m "auto committing ditz html files"
 git push
-git checkout master
+git checkout $curbranch
 

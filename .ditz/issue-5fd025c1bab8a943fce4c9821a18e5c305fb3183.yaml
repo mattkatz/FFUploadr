@@ -1,0 +1,30 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Make a button to force resync of galleries
+desc: |-
+  context menu button to refresh directories straight from ftp
+  /stop[
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :closed
+disposition: :fixed
+creation_time: 2010-12-30 20:42:32.936689 Z
+references: []
+
+id: 5fd025c1bab8a943fce4c9821a18e5c305fb3183
+log_events: 
+- - 2010-12-30 20:42:35.068592 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2010-12-30 20:48:26.231854 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - |-
+    so that we can test the filtering of web and thumb directories
+    /stop[
+- - 2011-01-05 01:02:55.960999 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - ""

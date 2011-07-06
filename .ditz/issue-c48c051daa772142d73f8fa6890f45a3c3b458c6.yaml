@@ -1,0 +1,22 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: handle multiple picture picking
+desc: upload a series of pictures to one folder
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :closed
+disposition: :fixed
+creation_time: 2010-06-26 16:52:18.988096 Z
+references: []
+
+id: c48c051daa772142d73f8fa6890f45a3c3b458c6
+log_events: 
+- - 2010-06-26 16:52:23.914976 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2010-12-08 05:43:09.038410 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - well that was done a long time ago actually

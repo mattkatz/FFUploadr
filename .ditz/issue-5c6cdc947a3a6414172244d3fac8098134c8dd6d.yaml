@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Reduce the startup speed for gallery list
+desc: Takes forever to deserialize the gallery list.  There has to be a better, faster way to get this.
+type: :bugfix
+component: upfuckr
+release: "0.3"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-01-26 23:35:20.208338 Z
+references: []
+
+id: 5c6cdc947a3a6414172244d3fac8098134c8dd6d
+log_events: 
+- - 2011-01-26 23:35:22.029203 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

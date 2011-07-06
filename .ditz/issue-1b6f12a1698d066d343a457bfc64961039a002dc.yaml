@@ -1,0 +1,26 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Don't show web or thumb directories
+desc: These are not useful directories.  hide them on load.
+type: :bugfix
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :closed
+disposition: :fixed
+creation_time: 2010-12-28 20:47:55.594021 Z
+references: []
+
+id: 1b6f12a1698d066d343a457bfc64961039a002dc
+log_events: 
+- - 2010-12-28 20:47:57.429828 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2010-12-30 20:11:45.715696 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - ""
+- - 2011-01-05 01:02:29.780920 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - ""
