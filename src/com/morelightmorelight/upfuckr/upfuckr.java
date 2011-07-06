@@ -26,9 +26,9 @@ public class upfuckr extends Activity
 {
   private static final int ADD_ID = Menu.FIRST;
   private static final int GALLERIES = ADD_ID +1;
-  private static final int ACTIVITY_CREATE = 0;
-  private static final int IMAGE_PICK = 1;
-  private static final int UPLOAD_IMAGE = 2;
+  public static final int ACTIVITY_CREATE = 0;
+  public static final int IMAGE_PICK = 1;
+  public static final int UPLOAD_IMAGE = 2;
   private static final String TAG = "UpFuckr: ";
 
 

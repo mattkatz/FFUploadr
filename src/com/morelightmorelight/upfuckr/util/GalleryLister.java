@@ -8,7 +8,8 @@ public class GalleryLister{
   public FTPClient mFtp;
   private String sep = "|";
   private String prefix = "";
-  private String curPath = "/";
+  private String prevPath="/";
+  private String curPath = "";
   private String pathSep = "/";
   public GalleryLister(FTPClient ftp ){
     mFtp = ftp;
@@ -27,9 +28,11 @@ public class GalleryLister{
     String name = f.getName();
     if(f.isDirectory){
       prefix = prefix.concat(sep);
+      prevPath = curPath;
       curPath = curPath + name + pathSep;
 
       onDirectory(f);
+      curPath = curPath.substring(0,curPath.length() - name.length() - pathSep.length());
     }
     else{
       onFile(f);
@@ -47,7 +50,9 @@ public class GalleryLister{
         if (childName.equals("thumb") || childName.equals("info.yml") || childName.equals("web")){
           continue;
         }
-        GalleryFile galleryChild = new GalleryFile(child);
+        GalleryFile galleryChild = new GalleryFile(curPath+childName);
+        galleryChild.isDirectory = child.isDirectory();
+        //do we need to check isDirectory?
         Log.i(TAG, "adding " + galleryChild.getName());
         d.children.add(galleryChild );
         Log.i(TAG,"child list now " + d.children.size());

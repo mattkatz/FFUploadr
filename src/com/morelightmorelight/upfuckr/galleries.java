@@ -4,6 +4,7 @@ package com.morelightmorelight.upfuckr;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.os.AsyncTask;
+import android.net.Uri;
 
 import android.view.View;
 import android.content.Intent;
@@ -115,14 +116,33 @@ public class galleries extends ListActivity{
             //UPLOAD ALL THE IMAGES YOU GOT
             Log.i(TAG,"I SHOULD BE UPLOADING IMAGES!");
             Log.i(TAG,"The current gallery is " + currentGallery.getPath());
-            //Intent intent = new Intent(this, uploadr.class);
-            //intent.setData(i.getData());
-            //intent.putExtra("PATH_EXTENSION",current_gallery.
-            
+            uploadWithPath();
           }
         });
 
       }
+  }
+  protected void uploadWithPath(){
+    Intent intent = new Intent(this, uploadr.class);
+    Intent i = getIntent();
+    String action = i.getAction();
+    if (Intent.ACTION_SEND_MULTIPLE.equals(action))
+    {
+      Log.v(TAG, "we have action send multiple!");
+      ArrayList l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+      intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM,l);
+    }
+    else{
+      Log.v(TAG, "we have action send!");
+      Uri stream =  i.getParcelableExtra(Intent.EXTRA_STREAM);
+      intent.putExtra(Intent.EXTRA_STREAM,stream);
+    }
+
+
+    //intent.setData(getIntent().getData());
+    //hack to get around concatenating the root of the path with the path stored in memory to the upfuckr root.
+    intent.putExtra("PATH_EXTENSION",currentGallery.getPath().substring(2));
+    startActivityForResult(intent, upfuckr.UPLOAD_IMAGE); 
   }
   /**
    * Begins async gallery refresh
@@ -185,6 +205,8 @@ public class galleries extends ListActivity{
     if(gallery == currentGallery){
       return;
     }
+    Log.i(TAG,"displaying " +gallery.getPath());
+    
     
     ga.clear();
     for(int i=0; i < gallery.children.size(); i++){
@@ -206,6 +228,7 @@ public class galleries extends ListActivity{
     currentGallery = gallery;
     gallerySpinner.setSelection(breadcrumb.getCount() -1);
   }
+
   private Runnable returnRes = new Runnable(){
     public void run() {
       setListAdapter(ga);
@@ -312,7 +335,8 @@ public class galleries extends ListActivity{
         }
         
         GalleryLister gl = new GalleryLister(ftp);
-        GalleryFile galleryRoot = new GalleryFile(path);
+        //GalleryFile galleryRoot = new GalleryFile(path);
+        GalleryFile galleryRoot = new GalleryFile();
         galleryRoot.isDirectory = true;
         gl.traverse(galleryRoot);
         ftp.disconnect();

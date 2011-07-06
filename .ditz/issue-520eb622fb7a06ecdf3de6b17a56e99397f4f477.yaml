@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-26 16:49:27.432165 Z
 references: []
 
@@ -20,3 +20,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - ""
+- - 2011-07-06 11:31:12.770508 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - FINALLY.  appears to work all the way through

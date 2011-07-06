@@ -30,9 +30,6 @@ import android.util.Log;
 public class uploadr extends Activity
 {
   //private static final int ADD_ID = Menu.FIRST;
-  private static final int ACTIVITY_CREATE = 0;
-  private static final int IMAGE_PICK = 1;
-  private static final int UPLOAD_IMAGE = 2;
   private static final String TAG = "UpLoadr: ";
   private static final int FINISH_PAUSE = 6000;
   private SharedPreferences prefs;
@@ -152,7 +149,8 @@ public class uploadr extends Activity
     protected String doInBackground(ArrayList... uris){
       //Don't understand how to just send my arraylist or array into this params style method...  There has to be a simpler more elegant way than this.
       ArrayList contentUris = uris[0];
-      String pathExt = uris[1].get(0).toString();
+      Log.v(TAG,"contentUris.size()="+contentUris.size());
+        
 
       //get our shared preferences
       String host = prefs.getString("host","");
@@ -160,7 +158,16 @@ public class uploadr extends Activity
       String user = prefs.getString("user","");
       String pass = prefs.getString("pass","");
       Log.v(TAG,"about to ftp to " + host);
-      path += pathExt;
+      Log.v(TAG,"uris.length="+uris.length);
+      if(uris.length > 1){
+        ArrayList paths = uris[1];
+        Log.v(TAG,"paths.size="+paths.size());
+        Object p = paths.get(0);
+        if(null != p){
+          String pathExt = p.toString();
+          path += pathExt;
+        }
+      }
 
       FTPClient ftp = new FTPClient();
       try{
@@ -189,9 +196,12 @@ public class uploadr extends Activity
           Log.i(TAG, "changed to " + path);
         }
         else{
-          Log.i(TAG, "we didn't change directory!");
+          Log.i(TAG, "we didn't change directory! ");
+          Log.i(TAG,"Does "+ path+" make sense?");
         }
+        Log.v(TAG, "about to set file type");
         ftp.setFileType(ftp.BINARY_FILE_TYPE);
+        Log.v(TAG, "set file type");
         for(int i = 0; i < contentUris.size(); i++){
           Log.v(TAG,"uploading new file");
           Uri uri = (Uri) contentUris.get(i);
