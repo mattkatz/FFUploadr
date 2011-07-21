@@ -125,6 +125,7 @@ public class galleries extends ListActivity{
   protected void uploadWithPath(){
     Intent intent = new Intent(this, uploadr.class);
     Intent i = getIntent();
+    intent.fillIn(i, Intent.FILL_IN_ACTION);
     String action = i.getAction();
     if (Intent.ACTION_SEND_MULTIPLE.equals(action))
     {
@@ -139,7 +140,6 @@ public class galleries extends ListActivity{
     }
 
 
-    //intent.setData(getIntent().getData());
     //hack to get around concatenating the root of the path with the path stored in memory to the upfuckr root.
     intent.putExtra("PATH_EXTENSION",currentGallery.getPath().substring(2));
     startActivityForResult(intent, upfuckr.UPLOAD_IMAGE); 

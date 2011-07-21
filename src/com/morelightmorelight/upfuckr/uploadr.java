@@ -54,7 +54,6 @@ public class uploadr extends Activity
   public void onStart(){
       super.onStart();
       Log.v(TAG, "onStart");
-      //checkAndUpload();
   }
   public void onResume(){
       super.onResume();
