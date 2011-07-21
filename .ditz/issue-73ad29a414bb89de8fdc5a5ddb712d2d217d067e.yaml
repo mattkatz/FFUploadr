@@ -1,0 +1,24 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: upload from gallery view
+desc: from starting app go to galleries, then hit upload a pic.  should choose a pic and upload pics or pic up to that directory.
+type: :feature
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :in_progress
+disposition: 
+creation_time: 2011-07-21 01:20:14.166399 Z
+references: []
+
+id: 73ad29a414bb89de8fdc5a5ddb712d2d217d067e
+log_events: 
+- - 2011-07-21 01:20:14.166949 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
+- - 2011-07-21 01:20:58.134453 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from unstarted to in_progress
+  - |-
+    let's get this done first
+    /sto[

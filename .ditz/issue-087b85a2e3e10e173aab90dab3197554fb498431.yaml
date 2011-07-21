@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Backing out from selecting a pic
+desc: makes the app go boom.  Go from uf to upload a pic.  Hit back
+type: :bugfix
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-07-21 01:35:10.930443 Z
+references: []
+
+id: 087b85a2e3e10e173aab90dab3197554fb498431
+log_events: 
+- - 2011-07-21 01:35:10.930950 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""

@@ -5,7 +5,7 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
+status: :paused
 disposition: 
 creation_time: 2010-06-26 16:50:36.551232 Z
 references: []
@@ -22,3 +22,7 @@ log_events:
   - |-
     ok, need to add a button, create the folder, create the entry in the list.
     should it be in that order?
+- - 2011-07-21 01:18:57.706401 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from in_progress to paused
+  - actually, one more thing to get working
