@@ -7,8 +7,8 @@ type: :bugfix
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2011-07-21 00:17:14.751547 Z
 references: []
 
@@ -22,3 +22,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from unstarted to in_progress
   - ""
+- - 2011-07-21 00:57:36.358359 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - Changed to StartActivity and then called Finish

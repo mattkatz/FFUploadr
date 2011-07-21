@@ -127,6 +127,7 @@ public class galleries extends ListActivity{
     Intent i = getIntent();
     intent.fillIn(i, Intent.FILL_IN_ACTION);
     String action = i.getAction();
+    //intent.setAction(action);
     if (Intent.ACTION_SEND_MULTIPLE.equals(action))
     {
       Log.v(TAG, "we have action send multiple!");
@@ -142,7 +143,8 @@ public class galleries extends ListActivity{
 
     //hack to get around concatenating the root of the path with the path stored in memory to the upfuckr root.
     intent.putExtra("PATH_EXTENSION",currentGallery.getPath().substring(2));
-    startActivityForResult(intent, upfuckr.UPLOAD_IMAGE); 
+    startActivity(intent); 
+    this.finish();
   }
   /**
    * Begins async gallery refresh
