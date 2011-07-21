@@ -9,6 +9,27 @@
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
   
     <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Forward Result Flag used while also requesting a result</title> 
+      <link>issue-dc60edb63f6f0a485017d68fcd4e42e212cfea18.html</link>
+      <description>Changed to StartActivity and then called Finish</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Forward Result Flag used while also requesting a result</title> 
+      <link>issue-dc60edb63f6f0a485017d68fcd4e42e212cfea18.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Forward Result Flag used while also requesting a result</title> 
+      <link>issue-dc60edb63f6f0a485017d68fcd4e42e212cfea18.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
       <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Choose a gallery to put a picture into</title> 
       <link>issue-520eb622fb7a06ecdf3de6b17a56e99397f4f477.html</link>
       <description>FINALLY.  appears to work all the way through</description>
@@ -161,30 +182,6 @@
       <link>issue-72f9c755fce85973ded03a4fd44daccc7a0bceac.html</link>
       <description>deserialized!</description>
       <pubDate>2010-12-28</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Create GalleryList from Cached data</title> 
-      <link>issue-72f9c755fce85973ded03a4fd44daccc7a0bceac.html</link>
-      <description>need to do this</description>
-      <pubDate>2010-12-09</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Create GalleryList from Cached data</title> 
-      <link>issue-72f9c755fce85973ded03a4fd44daccc7a0bceac.html</link>
-      <description></description>
-      <pubDate>2010-12-09</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Display list of galleries for user to put photos into</title> 
-      <link>issue-7d0f4655a0b1b1b645f8feeef29cb14f90bc6881.html</link>
-      <description>check to see if we have a cached directory listing
-if yes display that.
-have menuoption to refresh the directory listing
-if no cached directory do a dialog to let user know this will take a while</description>
-      <pubDate>2010-12-08</pubDate>
     </item>
   
   </channel>
