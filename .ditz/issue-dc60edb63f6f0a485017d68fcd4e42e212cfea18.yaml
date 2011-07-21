@@ -1,0 +1,20 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Forward Result Flag used while also requesting a result
+desc: |-
+  looks like choosing the Gallery then select multiple then share with gallery leads to this excaption.  Galleries uploadwithpath  crashes because we set that flag while also requesting a result
+  /done
+type: :bugfix
+component: upfuckr
+release: "0.2"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-07-21 00:17:14.751547 Z
+references: []
+
+id: dc60edb63f6f0a485017d68fcd4e42e212cfea18
+log_events: 
+- - 2011-07-21 00:17:14.752061 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
