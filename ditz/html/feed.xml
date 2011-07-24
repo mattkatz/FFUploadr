@@ -9,6 +9,21 @@
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
   
     <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Backing out from selecting a pic</title> 
+      <link>issue-087b85a2e3e10e173aab90dab3197554fb498431.html</link>
+      <description>not bad</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Backing out from selecting a pic</title> 
+      <link>issue-087b85a2e3e10e173aab90dab3197554fb498431.html</link>
+      <description>no bugs please
+/stp</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
       <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed upload from gallery view</title> 
       <link>issue-73ad29a414bb89de8fdc5a5ddb712d2d217d067e.html</link>
       <description>had to pass the intent around a bit more</description>
@@ -169,20 +184,6 @@ should it be in that order?</description>
       <link>issue-5fd025c1bab8a943fce4c9821a18e5c305fb3183.html</link>
       <description>so that we can test the filtering of web and thumb directories
 /stop[</description>
-      <pubDate>2010-12-30</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Make a button to force resync of galleries</title> 
-      <link>issue-5fd025c1bab8a943fce4c9821a18e5c305fb3183.html</link>
-      <description></description>
-      <pubDate>2010-12-30</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Don't show web or thumb directories</title> 
-      <link>issue-1b6f12a1698d066d343a457bfc64961039a002dc.html</link>
-      <description></description>
       <pubDate>2010-12-30</pubDate>
     </item>
   
