@@ -176,7 +176,7 @@ public class upfuckr extends Activity
     startActivityForResult(intent, IMAGE_PICK);
   }
     
-
+/*
   private void upload(ArrayList contentUris)
   {
 
@@ -237,9 +237,9 @@ public class upfuckr extends Activity
       //TODO:Alert the user this failed
     }
   }
-
+*/
     
-
+/*
 
   // And to convert the image URI to the direct file system path of the image file
   public String getRealPathFromURI(Uri contentUri) {
@@ -257,5 +257,5 @@ public class upfuckr extends Activity
     Log.i(TAG,"path: " + path);
     return path;
   }
-  
+  */
 }

@@ -55,6 +55,7 @@ public class galleries extends ListActivity{
   private GalleryAdapter breadcrumb = null;
   private Spinner gallerySpinner = null;
   private ProgressDialog progress = null;
+  public static final int IMAGE_PICK = 1;
 
   /** Called when the activity is first created. */
   @Override
@@ -104,12 +105,12 @@ public class galleries extends ListActivity{
 
       ArrayList l = null;
       String type = i.getType();
+      Button uploadDone = (Button) findViewById(R.id.done_upload_btn);
       if (Intent.ACTION_SEND_MULTIPLE.equals(action) 
           || Intent.ACTION_SEND.equals(action))
       {
         //set the correct callback
         Log.i(TAG, "setting callback");
-        Button uploadDone = (Button) findViewById(R.id.done_upload_btn);
         uploadDone.setOnClickListener(new View.OnClickListener(){
           public void onClick(View view){
             setResult(RESULT_OK);
@@ -119,8 +120,29 @@ public class galleries extends ListActivity{
             uploadWithPath();
           }
         });
-
       }
+      else{
+        uploadDone.setOnClickListener(new View.OnClickListener(){
+          public void onClick(View view){
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/*");
+            startActivityForResult(intent, IMAGE_PICK);
+          }
+        });
+      }
+  }
+  protected void onActivityResult(int requestCode, int resultCode, Intent i){
+    Log.i(TAG,"Request Code: " + requestCode);
+    Log.i(TAG,"Result Code: " + resultCode);
+    switch(requestCode){
+      case IMAGE_PICK:
+        Uri stream = (Uri) i.getData();
+        if ( stream != null )
+        {
+          uploadWithPath();
+        }
+        else { Log.i(TAG,"null URI");}
+    }
   }
   protected void uploadWithPath(){
     Intent intent = new Intent(this, uploadr.class);
@@ -134,10 +156,25 @@ public class galleries extends ListActivity{
       ArrayList l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
       intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM,l);
     }
-    else{
+    else if (Intent.ACTION_SEND.equals(action)){
+    
       Log.v(TAG, "we have action send!");
       Uri stream =  i.getParcelableExtra(Intent.EXTRA_STREAM);
       intent.putExtra(Intent.EXTRA_STREAM,stream);
+    }
+    else{
+      Log.v(TAG, "Action: " + action);
+      Uri stream = i.getParcelableExtra(Intent.EXTRA_STREAM);
+      if( null != stream){
+        Log.v(TAG, "non null stream!");
+        intent.putExtra(Intent.EXTRA_STREAM, stream);
+      }
+      else{
+        Log.v(TAG, "null stream, getting an arraylist");
+        ArrayList l = i.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+
+        intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, l);
+      }
     }
 
 
