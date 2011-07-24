@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2011-07-21 01:20:14.166399 Z
 references: []
 
@@ -22,3 +22,7 @@ log_events:
   - |-
     let's get this done first
     /sto[
+- - 2011-07-24 15:00:07.009402 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - had to pass the intent around a bit more
