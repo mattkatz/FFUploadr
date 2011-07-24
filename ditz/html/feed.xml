@@ -9,6 +9,50 @@
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
   
     <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed upload from gallery view</title> 
+      <link>issue-73ad29a414bb89de8fdc5a5ddb712d2d217d067e.html</link>
+      <description>had to pass the intent around a bit more</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Backing out from selecting a pic</title> 
+      <link>issue-087b85a2e3e10e173aab90dab3197554fb498431.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress upload from gallery view</title> 
+      <link>issue-73ad29a414bb89de8fdc5a5ddb712d2d217d067e.html</link>
+      <description>let's get this done first
+/sto[</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created upload from gallery view</title> 
+      <link>issue-73ad29a414bb89de8fdc5a5ddb712d2d217d067e.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from in_progress to paused create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>actually, one more thing to get working</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>ok, need to add a button, create the folder, create the entry in the list.
+should it be in that order?</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
       <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Forward Result Flag used while also requesting a result</title> 
       <link>issue-dc60edb63f6f0a485017d68fcd4e42e212cfea18.html</link>
       <description>Changed to StartActivity and then called Finish</description>
@@ -140,48 +184,6 @@
       <link>issue-1b6f12a1698d066d343a457bfc64961039a002dc.html</link>
       <description></description>
       <pubDate>2010-12-30</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed make the breadcrumb match the current directory</title> 
-      <link>issue-97c19af98eb5f0d08ff1afab734c14e070a2d000.html</link>
-      <description></description>
-      <pubDate>2010-12-30</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created make the breadcrumb match the current directory</title> 
-      <link>issue-97c19af98eb5f0d08ff1afab734c14e070a2d000.html</link>
-      <description></description>
-      <pubDate>2010-12-30</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Make the gallery load async</title> 
-      <link>issue-f2e4104ecaa58c2e06ff4c0276992e7086d730b1.html</link>
-      <description></description>
-      <pubDate>2010-12-28</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Display list of galleries for user to put photos into</title> 
-      <link>issue-7d0f4655a0b1b1b645f8feeef29cb14f90bc6881.html</link>
-      <description>you can see a list of galleries</description>
-      <pubDate>2010-12-28</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Don't show web or thumb directories</title> 
-      <link>issue-1b6f12a1698d066d343a457bfc64961039a002dc.html</link>
-      <description></description>
-      <pubDate>2010-12-28</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Create GalleryList from Cached data</title> 
-      <link>issue-72f9c755fce85973ded03a4fd44daccc7a0bceac.html</link>
-      <description>deserialized!</description>
-      <pubDate>2010-12-28</pubDate>
     </item>
   
   </channel>
