@@ -151,7 +151,7 @@ public class upfuckr extends Activity
 
     switch(requestCode){
       case IMAGE_PICK:
-        //if (resultCode == RESULT_OK){
+        if (resultCode == RESULT_OK){
           //ArrayList l = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
         Uri stream = (Uri) i.getData();
         if ( stream != null )
@@ -166,7 +166,7 @@ public class upfuckr extends Activity
         }
         else { Log.i(TAG,"null URI");}
         //  upload(l);
-        //}
+        }
     }
   }
 

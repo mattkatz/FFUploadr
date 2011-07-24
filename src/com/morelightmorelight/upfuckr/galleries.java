@@ -136,12 +136,14 @@ public class galleries extends ListActivity{
     Log.i(TAG,"Result Code: " + resultCode);
     switch(requestCode){
       case IMAGE_PICK:
-        Uri stream = (Uri) i.getData();
-        if ( stream != null )
-        {
-          uploadWithPath(i);
+        if (resultCode == RESULT_OK){
+          Uri stream = (Uri) i.getData();
+          if ( stream != null )
+          {
+            uploadWithPath(i);
+          }
+          else { Log.i(TAG,"null URI");}
         }
-        else { Log.i(TAG,"null URI");}
     }
   }
   protected void uploadWithPath(Intent passed){
