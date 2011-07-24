@@ -5,7 +5,7 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :paused
+status: :in_progress
 disposition: 
 creation_time: 2010-06-26 16:50:36.551232 Z
 references: []
@@ -26,3 +26,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from in_progress to paused
   - actually, one more thing to get working
+- - 2011-07-24 15:46:29.213463 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - changed status from paused to in_progress
+  - why not this, eh?
