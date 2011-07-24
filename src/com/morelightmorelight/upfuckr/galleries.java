@@ -117,7 +117,7 @@ public class galleries extends ListActivity{
             //UPLOAD ALL THE IMAGES YOU GOT
             Log.i(TAG,"I SHOULD BE UPLOADING IMAGES!");
             Log.i(TAG,"The current gallery is " + currentGallery.getPath());
-            uploadWithPath();
+            uploadWithPath(null);
           }
         });
       }
@@ -139,14 +139,19 @@ public class galleries extends ListActivity{
         Uri stream = (Uri) i.getData();
         if ( stream != null )
         {
-          uploadWithPath();
+          uploadWithPath(i);
         }
         else { Log.i(TAG,"null URI");}
     }
   }
-  protected void uploadWithPath(){
+  protected void uploadWithPath(Intent passed){
     Intent intent = new Intent(this, uploadr.class);
-    Intent i = getIntent();
+    
+    Intent i = passed;
+    if(null == i)
+    {
+     i = getIntent();
+    }
     intent.fillIn(i, Intent.FILL_IN_ACTION);
     String action = i.getAction();
     //intent.setAction(action);
