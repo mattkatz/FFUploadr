@@ -25,6 +25,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.AdapterView;
 import android.view.LayoutInflater;
@@ -34,6 +35,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.app.ProgressDialog;
+import android.app.AlertDialog.Builder;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import java.lang.reflect.Type;
 import com.google.gson.*;
@@ -48,6 +52,7 @@ public class galleries extends ListActivity{
   private final String TAG = "galleries";
   private final String GALLERIES = "galleries_json";
   private final int REFRESH_GALLERIES = Menu.FIRST;
+  private final int CREATE_FOLDER = Menu.FIRST+1;
   //This is the data root of your fuckflickr installation
   private GalleryFile gr = null;
   private GalleryFile currentGallery = null;
@@ -213,6 +218,7 @@ public class galleries extends ListActivity{
   {
     super.onCreateOptionsMenu(menu);
     menu.add(0,REFRESH_GALLERIES,0,R.string.refresh_galleries);
+    menu.add(0,CREATE_FOLDER,1,R.string.create_folders);
     return true;
   }
 
@@ -227,8 +233,44 @@ public class galleries extends ListActivity{
         gr = null;
         prepareGalleryUI();
         return true;
+      case CREATE_FOLDER:
+        //create a folder 
+        create_folder();
+        return true;
     }
     return super.onMenuItemSelected(featureId,item);
+  }
+  /**
+   * create a folder async
+   * @return void
+   */
+  public void create_folder() {
+    Log.i(TAG,"time to create the folder");
+    //create aa popup dialog
+    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+    alert.setTitle("Create Folder");
+    alert.setMessage("Pick a name");
+    // Set an EditText view to get user input 
+    final EditText input = new EditText(this);
+    alert.setView(input);
+    alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int whichButton) {
+        //take the folder name from the dialog return
+        String value = input.getText().toString();
+        //async create the folder
+        //add it to the cached folder list
+        // Do something with value!
+        Log.i(TAG, "new name is :" + value);
+      }
+    });
+
+    alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int whichButton) {
+        // Canceled.
+      }
+    });
+
+    alert.show(); 
   }
   /**
    * Set up the gallery adapter, bind it to the layout
