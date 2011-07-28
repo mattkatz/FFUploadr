@@ -5,8 +5,8 @@ type: :feature
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :in_progress
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-06-26 16:50:36.551232 Z
 references: []
 
@@ -30,3 +30,9 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - changed status from paused to in_progress
   - why not this, eh?
+- - 2011-07-28 11:58:46.657869 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - |-
+    create a remote folder, see it displayed
+    still need to store it in the cache

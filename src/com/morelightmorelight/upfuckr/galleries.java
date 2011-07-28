@@ -35,6 +35,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.app.ProgressDialog;
+import android.app.Dialog;
 import android.app.AlertDialog.Builder;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -53,6 +54,7 @@ public class galleries extends ListActivity{
   private final String GALLERIES = "galleries_json";
   private final int REFRESH_GALLERIES = Menu.FIRST;
   private final int CREATE_FOLDER = Menu.FIRST+1;
+  private final static int ID_WAIT = 1;
   //This is the data root of your fuckflickr installation
   private GalleryFile gr = null;
   private GalleryFile currentGallery = null;
@@ -256,10 +258,36 @@ public class galleries extends ListActivity{
     alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int whichButton) {
         //take the folder name from the dialog return
-        String value = input.getText().toString();
-        //async create the folder
-        //add it to the cached folder list
-        // Do something with value!
+        final String value = input.getText().toString();
+        showDialog(ID_WAIT);
+        new CreateFolderTask().execute(value);
+       /* 
+        new Thread(new Runnable(){
+          public void run(){
+            //async create the folder
+            FTPClient ftp = getConnected();
+            try{
+              ftp.changeWorkingDirectory(currentGallery.getPath());
+              ftp.makeDirectory(value);
+              ftp.disconnect();
+
+              //add it to the cached folder list
+              GalleryFile newGuy = new GalleryFile(value);
+              newGuy.isDirectory=true;
+              currentGallery.children.add(newGuy);
+              this.post(new Runnable(){
+                public void run(){
+                  displayGallery(currentGallery);
+                }
+              });
+            }
+            catch(Exception ex){
+              ex.printStackTrace();
+            }
+            dismissDialog(galleries.ID_WAIT);
+          }
+        }).start();
+        */
         Log.i(TAG, "new name is :" + value);
       }
     });
@@ -272,6 +300,63 @@ public class galleries extends ListActivity{
 
     alert.show(); 
   }
+   /**
+    * an override method to maintain dialogs during orientation shift
+    * creates the dialog based on ID
+    * @return void
+    */
+   protected  Dialog  onCreateDialog(int id) {
+     switch(id){
+       case ID_WAIT:
+         ProgressDialog waitDialog = new ProgressDialog(this);
+         waitDialog.setMessage("Creating your new folder");
+         waitDialog.setIndeterminate(true);
+         waitDialog.setCancelable(false);
+         return waitDialog;
+
+       default:
+         Log.v(TAG,"trying to create a weird dialog: " + id);
+         break;
+         
+     }
+     return super.onCreateDialog(id);
+   }
+  private class CreateFolderTask extends AsyncTask<String, String,String>{
+    @Override
+    protected String doInBackground(String... names){
+      String value = names[0];
+      FTPClient ftp = getConnected();
+      try{
+        ftp.changeWorkingDirectory(currentGallery.getPath());
+        ftp.makeDirectory(value);
+        ftp.disconnect();
+
+        //add it to the cached folder list
+        GalleryFile newGuy = new GalleryFile(value);
+        newGuy.isDirectory=true;
+        currentGallery.children.add(newGuy);
+        //storeGalleryList(gr);
+      }
+      catch(Exception ex){
+        ex.printStackTrace();
+      }
+      return "Created " + value;
+
+    } 
+
+   protected void onPostExecute(String message){
+     dismissDialog(ID_WAIT);
+     displayGallery(currentGallery);
+
+
+   }
+
+  }
+
+
+
+
+  
   /**
    * Set up the gallery adapter, bind it to the layout
    * 
@@ -290,9 +375,9 @@ public class galleries extends ListActivity{
   }
   /** Show the gallery designated */
   public void displayGallery(GalleryFile gallery){
-    if(gallery == currentGallery){
-      return;
-    }
+    //if(gallery == currentGallery){
+      //return;
+    //}
     Log.i(TAG,"displaying " +gallery.getPath());
     
     
@@ -383,16 +468,18 @@ public class galleries extends ListActivity{
     Log.i(TAG, json);
     editor.commit();
   }
-
-  /**gets the gallery list from the server then caches it*/
-  public GalleryFile refreshGalleryList(){
+  /**
+   * Get a fully connected FTPClient
+   * 
+   * @return FTPClient
+   */
+  public FTPClient getConnected() {
       //get our shared preferences
       String host = prefs.getString("host","");
       String path = prefs.getString("path","");
       String user = prefs.getString("user","");
       String pass = prefs.getString("pass","");
       Log.i(TAG,"about to ftp to " + host);
-
       FTPClient ftp = new FTPClient();
       try{
         ftp.connect(host);
@@ -421,22 +508,34 @@ public class galleries extends ListActivity{
         if(ftp.changeWorkingDirectory(path)){
           Log.i(TAG, "changed to " + path);
         }
-        
-        GalleryLister gl = new GalleryLister(ftp);
-        //GalleryFile galleryRoot = new GalleryFile(path);
-        GalleryFile galleryRoot = new GalleryFile();
-        galleryRoot.isDirectory = true;
-        gl.traverse(galleryRoot);
-        ftp.disconnect();
-        storeGalleryList(galleryRoot);
-        return galleryRoot;
       }
       catch(Exception ex){
         //TODO: handle handle handle
             ex.printStackTrace();
       }
-      //TODO: handle this better
-      return null;
+      finally{
+        return ftp;
+
+      }
+    
+  }
+
+  /**gets the gallery list from the server then caches it*/
+  public GalleryFile refreshGalleryList(){
+
+    FTPClient ftp = getConnected();
+    GalleryLister gl = new GalleryLister(ftp);
+    GalleryFile galleryRoot = new GalleryFile();
+    galleryRoot.isDirectory = true;
+    gl.traverse(galleryRoot);
+    try{
+      ftp.disconnect();
+    }
+    catch(Exception ex){
+      ex.printStackTrace();
+    }
+    storeGalleryList(galleryRoot);
+    return galleryRoot;
 
   }
 
