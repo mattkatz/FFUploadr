@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: spinner is too faint
+desc: weird that the text is white on the grey background.
+type: :bugfix
+component: upfuckr
+release: "0.3"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-08-04 20:57:25.824095 Z
+references: []
+
+id: 1a973ce5696b60733acaf8f020b688365f534baa
+log_events: 
+- - 2011-08-04 20:57:25.824603 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
