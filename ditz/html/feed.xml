@@ -9,6 +9,56 @@
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
   
     <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; assigned to release 0.3 from 0.2 Make the uploads cancelable</title> 
+      <link>issue-94672f52aa997f5e3b10501111f8bc88722b6327.html</link>
+      <description>later</description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; assigned to release 0.3 from 0.2 let user specify nonstandard ftp port</title> 
+      <link>issue-439e12181be3f8d781b67823ca2b7aca947f3252.html</link>
+      <description>bored</description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Make buttons from main options menu</title> 
+      <link>issue-210fb25df0177e0b913326a0b97d418bf806eac3.html</link>
+      <description></description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>create a remote folder, see it displayed
+still need to store it in the cache</description>
+      <pubDate>2011-07-28</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from paused to in_progress create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>why not this, eh?</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed crash when you hit back from config </title> 
+      <link>issue-cb7f6a5d45b96e83412d34914cc95686c80ae436.html</link>
+      <description></description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; assigned to release 0.2 from unassigned crash when you hit back from config </title> 
+      <link>issue-cb7f6a5d45b96e83412d34914cc95686c80ae436.html</link>
+      <description>looks like it was fixed by the last commit</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
       <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Backing out from selecting a pic</title> 
       <link>issue-087b85a2e3e10e173aab90dab3197554fb498431.html</link>
       <description>not bad</description>
@@ -135,56 +185,6 @@ should it be in that order?</description>
       <link>issue-03fae3a9458bdb1494f680b55787191b199a76e2.html</link>
       <description></description>
       <pubDate>2011-02-02</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Reduce the startup speed for gallery list</title> 
-      <link>issue-5c6cdc947a3a6414172244d3fac8098134c8dd6d.html</link>
-      <description></description>
-      <pubDate>2011-01-26</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Choose a gallery to put a picture into</title> 
-      <link>issue-520eb622fb7a06ecdf3de6b17a56e99397f4f477.html</link>
-      <description></description>
-      <pubDate>2011-01-06</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Make a button to force resync of galleries</title> 
-      <link>issue-5fd025c1bab8a943fce4c9821a18e5c305fb3183.html</link>
-      <description></description>
-      <pubDate>2011-01-05</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Don't show web or thumb directories</title> 
-      <link>issue-1b6f12a1698d066d343a457bfc64961039a002dc.html</link>
-      <description></description>
-      <pubDate>2011-01-05</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Make the gallery load async</title> 
-      <link>issue-f2e4104ecaa58c2e06ff4c0276992e7086d730b1.html</link>
-      <description>I feel like this should be an asynctask instead of this runnable thread bidness.</description>
-      <pubDate>2011-01-05</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Uploads should be background notifications</title> 
-      <link>issue-fe37d12f73fb58b5a94a9919b12ed6894faceb74.html</link>
-      <description></description>
-      <pubDate>2011-01-05</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Make a button to force resync of galleries</title> 
-      <link>issue-5fd025c1bab8a943fce4c9821a18e5c305fb3183.html</link>
-      <description>so that we can test the filtering of web and thumb directories
-/stop[</description>
-      <pubDate>2010-12-30</pubDate>
     </item>
   
   </channel>
