@@ -3,7 +3,7 @@ title: let user specify nonstandard ftp port
 desc: currently hardcoded to 21
 type: :feature
 component: upfuckr
-release: "0.2"
+release: "0.3"
 reporter: Matt Katz <mattkatz@ubuntu>
 status: :unstarted
 disposition: 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2011-08-04 01:31:12.695120 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - assigned to release 0.3 from 0.2
+  - bored
