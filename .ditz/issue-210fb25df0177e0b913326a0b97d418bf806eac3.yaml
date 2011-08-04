@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Make buttons from main options menu
+desc: it's not like the mains screen has too much going on.  Just show the configuration and galleries menus
+type: :feature
+component: upfuckr
+release: "0.3"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-08-04 00:25:05.491241 Z
+references: []
+
+id: 210fb25df0177e0b913326a0b97d418bf806eac3
+log_events: 
+- - 2011-08-04 00:25:05.491808 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
