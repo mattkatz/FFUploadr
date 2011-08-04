@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="./" rel="self" type="application/rss+xml" />
+    <title>Latest ditz updates for upfuckr</title>
+    <link>index.html</link>
+    <description>Latest updates to the distributed issue tracker for upfuckr</description>
+    <language>en-us</language>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; assigned to release 0.3 from 0.2 Make the uploads cancelable</title> 
+      <link>issue-94672f52aa997f5e3b10501111f8bc88722b6327.html</link>
+      <description>later</description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; assigned to release 0.3 from 0.2 let user specify nonstandard ftp port</title> 
+      <link>issue-439e12181be3f8d781b67823ca2b7aca947f3252.html</link>
+      <description>bored</description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Make buttons from main options menu</title> 
+      <link>issue-210fb25df0177e0b913326a0b97d418bf806eac3.html</link>
+      <description></description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>create a remote folder, see it displayed
+still need to store it in the cache</description>
+      <pubDate>2011-07-28</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from paused to in_progress create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>why not this, eh?</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed crash when you hit back from config </title> 
+      <link>issue-cb7f6a5d45b96e83412d34914cc95686c80ae436.html</link>
+      <description></description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; assigned to release 0.2 from unassigned crash when you hit back from config </title> 
+      <link>issue-cb7f6a5d45b96e83412d34914cc95686c80ae436.html</link>
+      <description>looks like it was fixed by the last commit</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Backing out from selecting a pic</title> 
+      <link>issue-087b85a2e3e10e173aab90dab3197554fb498431.html</link>
+      <description>not bad</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Backing out from selecting a pic</title> 
+      <link>issue-087b85a2e3e10e173aab90dab3197554fb498431.html</link>
+      <description>no bugs please
+/stp</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed upload from gallery view</title> 
+      <link>issue-73ad29a414bb89de8fdc5a5ddb712d2d217d067e.html</link>
+      <description>had to pass the intent around a bit more</description>
+      <pubDate>2011-07-24</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Backing out from selecting a pic</title> 
+      <link>issue-087b85a2e3e10e173aab90dab3197554fb498431.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress upload from gallery view</title> 
+      <link>issue-73ad29a414bb89de8fdc5a5ddb712d2d217d067e.html</link>
+      <description>let's get this done first
+/sto[</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created upload from gallery view</title> 
+      <link>issue-73ad29a414bb89de8fdc5a5ddb712d2d217d067e.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from in_progress to paused create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>actually, one more thing to get working</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress create new remote fuckflickr folders</title> 
+      <link>issue-6cb7fbe55379433d8a4f8787f512c4aa7eac45c1.html</link>
+      <description>ok, need to add a button, create the folder, create the entry in the list.
+should it be in that order?</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Forward Result Flag used while also requesting a result</title> 
+      <link>issue-dc60edb63f6f0a485017d68fcd4e42e212cfea18.html</link>
+      <description>Changed to StartActivity and then called Finish</description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; changed status from unstarted to in_progress Forward Result Flag used while also requesting a result</title> 
+      <link>issue-dc60edb63f6f0a485017d68fcd4e42e212cfea18.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Forward Result Flag used while also requesting a result</title> 
+      <link>issue-dc60edb63f6f0a485017d68fcd4e42e212cfea18.html</link>
+      <description></description>
+      <pubDate>2011-07-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed Choose a gallery to put a picture into</title> 
+      <link>issue-520eb622fb7a06ecdf3de6b17a56e99397f4f477.html</link>
+      <description>FINALLY.  appears to work all the way through</description>
+      <pubDate>2011-07-06</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created crash when you hit back from config </title> 
+      <link>issue-cb7f6a5d45b96e83412d34914cc95686c80ae436.html</link>
+      <description></description>
+      <pubDate>2011-04-21</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; commented handle UnknownHostException gracefully</title> 
+      <link>issue-39f197d7c5f74888dd80cc4e374de8b9984fddb7.html</link>
+      <description>looks like this happens when we have no network connection.  we should check this and gracefully suggest that we need a network to transport these files on.</description>
+      <pubDate>2011-02-10</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created handle UnknownHostException gracefully</title> 
+      <link>issue-39f197d7c5f74888dd80cc4e374de8b9984fddb7.html</link>
+      <description></description>
+      <pubDate>2011-02-10</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed onResume supers to onstart</title> 
+      <link>issue-59d6ed4cbe3d99ac74eb4ee279fa89d04bf430de.html</link>
+      <description></description>
+      <pubDate>2011-02-03</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created onResume supers to onstart</title> 
+      <link>issue-59d6ed4cbe3d99ac74eb4ee279fa89d04bf430de.html</link>
+      <description></description>
+      <pubDate>2011-02-03</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Add a link from home screen to home page</title> 
+      <link>issue-03fae3a9458bdb1494f680b55787191b199a76e2.html</link>
+      <description></description>
+      <pubDate>2011-02-02</pubDate>
+    </item>
+  
+  </channel>
+</rss>
