@@ -13,7 +13,7 @@
     <string name="pasvSummary">Use Passive Mode in uploading</string>
     <string name="notConfigured">Looks like you haven\'t configured a site to upload your photos to yet. Hit OK and we\'ll set one up.</string>
     <string name="instructions">
-      Hit the upload button to send a picture to your fuckflickr installation.  If you want to change galleries, you can do that by pulling up the configurations screen and changing the path.
+      Hit the upload button to send a picture to your fuckflickr installation.  If you want to change galleries, you can do that by pulling up the menu and hitting galleries.
       There isn\'t any way to edit the info on photos yet, but that should come soon.
     </string>
     <string name="uploading">Currently uploading</string>
