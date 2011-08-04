@@ -261,33 +261,6 @@ public class galleries extends ListActivity{
         final String value = input.getText().toString();
         showDialog(ID_WAIT);
         new CreateFolderTask().execute(value);
-       /* 
-        new Thread(new Runnable(){
-          public void run(){
-            //async create the folder
-            FTPClient ftp = getConnected();
-            try{
-              ftp.changeWorkingDirectory(currentGallery.getPath());
-              ftp.makeDirectory(value);
-              ftp.disconnect();
-
-              //add it to the cached folder list
-              GalleryFile newGuy = new GalleryFile(value);
-              newGuy.isDirectory=true;
-              currentGallery.children.add(newGuy);
-              this.post(new Runnable(){
-                public void run(){
-                  displayGallery(currentGallery);
-                }
-              });
-            }
-            catch(Exception ex){
-              ex.printStackTrace();
-            }
-            dismissDialog(galleries.ID_WAIT);
-          }
-        }).start();
-        */
         Log.i(TAG, "new name is :" + value);
       }
     });
@@ -335,7 +308,7 @@ public class galleries extends ListActivity{
         GalleryFile newGuy = new GalleryFile(value);
         newGuy.isDirectory=true;
         currentGallery.children.add(newGuy);
-        //storeGalleryList(gr);
+        storeGalleryList(gr);
       }
       catch(Exception ex){
         ex.printStackTrace();
