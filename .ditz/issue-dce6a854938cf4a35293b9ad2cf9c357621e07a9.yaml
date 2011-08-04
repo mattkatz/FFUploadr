@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: phantom folders
+desc: for some reason some empty folders show as having pictures.
+type: :bugfix
+component: upfuckr
+release: "0.3"
+reporter: Matt Katz <mattkatz@ubuntu>
+status: :unstarted
+disposition: 
+creation_time: 2011-08-04 20:15:45.312078 Z
+references: []
+
+id: dce6a854938cf4a35293b9ad2cf9c357621e07a9
+log_events: 
+- - 2011-08-04 20:15:45.358332 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - created
+  - ""
