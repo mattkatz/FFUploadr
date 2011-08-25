@@ -9,6 +9,27 @@
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
   
     <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed screenshots for release 0.2</title> 
+      <link>issue-a8f91cbfec02486edd57843013572c322e89ed0f.html</link>
+      <description>done</description>
+      <pubDate>2011-08-25</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created spinner is too faint</title> 
+      <link>issue-1a973ce5696b60733acaf8f020b688365f534baa.html</link>
+      <description></description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
+      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created phantom folders</title> 
+      <link>issue-dce6a854938cf4a35293b9ad2cf9c357621e07a9.html</link>
+      <description></description>
+      <pubDate>2011-08-04</pubDate>
+    </item>
+  
+    <item>
       <title>Matt Katz &lt;mattkatz@ubuntu&gt; assigned to release 0.3 from 0.2 Make the uploads cancelable</title> 
       <link>issue-94672f52aa997f5e3b10501111f8bc88722b6327.html</link>
       <description>later</description>
@@ -164,27 +185,6 @@ should it be in that order?</description>
       <link>issue-39f197d7c5f74888dd80cc4e374de8b9984fddb7.html</link>
       <description></description>
       <pubDate>2011-02-10</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; closed with disposition fixed onResume supers to onstart</title> 
-      <link>issue-59d6ed4cbe3d99ac74eb4ee279fa89d04bf430de.html</link>
-      <description></description>
-      <pubDate>2011-02-03</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created onResume supers to onstart</title> 
-      <link>issue-59d6ed4cbe3d99ac74eb4ee279fa89d04bf430de.html</link>
-      <description></description>
-      <pubDate>2011-02-03</pubDate>
-    </item>
-  
-    <item>
-      <title>Matt Katz &lt;mattkatz@ubuntu&gt; created Add a link from home screen to home page</title> 
-      <link>issue-03fae3a9458bdb1494f680b55787191b199a76e2.html</link>
-      <description></description>
-      <pubDate>2011-02-02</pubDate>
     </item>
   
   </channel>
