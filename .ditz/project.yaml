@@ -39,13 +39,17 @@ releases:
     - It installs! It Uploads! Huzzah! <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=http://github.com/downloads/mattkatz/UpFuckr/upfuckr-0.1.apk" />
 - !ditz.rubyforge.org,2008-03-06/release 
   name: "0.2"
-  status: :unreleased
-  release_time: 
+  status: :released
+  release_time: 2011-08-25 01:33:34.226954 Z
   log_events: 
   - - 2010-06-09 01:48:22.264947 Z
     - Matt Katz <mattkatz@ubuntu>
     - created
     - usability improvements.
+  - - 2011-08-25 01:33:34.226980 Z
+    - Matt Katz <mattkatz@ubuntu>
+    - released
+    - ready to go!
 - !ditz.rubyforge.org,2008-03-06/release 
   name: "0.3"
   status: :unreleased
