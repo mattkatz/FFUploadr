@@ -5,8 +5,8 @@ type: :task
 component: upfuckr
 release: "0.2"
 reporter: Matt Katz <mattkatz@ubuntu>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2010-08-18 14:43:15.933572 Z
 references: []
 
@@ -16,3 +16,7 @@ log_events:
   - Matt Katz <mattkatz@ubuntu>
   - created
   - ""
+- - 2011-08-25 00:36:55.081743 Z
+  - Matt Katz <mattkatz@ubuntu>
+  - closed with disposition fixed
+  - done
